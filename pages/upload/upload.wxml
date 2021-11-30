@@ -1,8 +1,45 @@
 <!--pages/upload/upload.wxml-->
-<view>You can still add xx items</view>
-<view>Upload a photo</view>
-<view>Keep or save</view>
-<view>Pick a category</view>
-<view>Pick tags</view>
-<input placeholder="Descriptions" />
-<button formType="submit">Save</button>
+<view class="container">
+  <view class="txt">You can still add xx items:</view>
+  <view class="addImg" bindtap="chooseImg">+</view>
+
+  <view class="section">
+    <view>keep this item?</view>
+    <view>
+      <radio-group class="group" bindchange="radioChange">
+        <label class="label-2" wx:for="{{radioItems}}">
+          <radio id="{{item.name}}" value="{{item.name}}" checked="{{item.checked}}"></radio>
+          <label class="label-2-text" for="{{item.name}}"><text>{{item.name}}</text></label>
+        </label>
+      </radio-group>
+    </view>
+  </view>
+
+  <view class="">
+    <view class="">Pick a category</view>
+    <picker-view indicator-style="height: 50px;" style="width: 100%; height: 100px;" value="{{value}}" bindchange="bindChange">
+      <picker-view-column>
+        <view wx:for="{{categories}}" wx:key="{{categories}}" style="line-height: 50px; text-align: center;">{{item}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+
+  <view>
+    <view>Pick your tags</view>
+    <text wx:if="{{ !alreadyselect }}">multiselect</text>
+    <view wx:else="{{ alreadyselect }}" class="selected-my-tag">
+      <block 
+        wx:for="{{ selectMyTag }}"
+        wx:key="index"
+      >
+      <view>{{ item.type }}</view>
+      </block>
+    </view>
+
+    <Tag bindonClick='selectMyTags' tags="{{ myTagsList }}"/>
+  </view>
+
+
+  <input placeholder="Descriptions" />
+  <button formType="submit">Save</button>
+</view>
