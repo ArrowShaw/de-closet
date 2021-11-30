@@ -1,2 +1,4 @@
 <!--pages/closet/closet.wxml-->
 <text>pages/closet/closet.wxml</text>
+
+<tabbar activeIndex="{{2}}"/>
