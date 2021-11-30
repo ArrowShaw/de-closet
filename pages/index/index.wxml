@@ -1,23 +1,13 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <block wx:if="{{canIUseOpenData}}">
-      <view class="userinfo-avatar" bindtap="bindViewTap">
-        <open-data type="userAvatarUrl"></open-data>
-      </view>
-      <open-data type="userNickName"></open-data>
-    </block>
-    <block wx:elif="{{!hasUserInfo}}">
-      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
-    </block>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+  <view class="img"><image src="/images/head.png"></image></view>
+  <view>Declutter your closet</view>
+  <view>Save your favorite items only</view>
+  <button class="btn">Start your journey ></button>
+</view>
+
+<view class="btn-area">
+  <navigator url="/pages/index/index" hover-class="navigator-hover">Home</navigator>
+  <navigator url="/pages/upload/upload" open-type="redirect" hover-class="other-navigator-hover">Plus</navigator>
+  <navigator url="/pages/goal/goal" open-type="redirect" hover-class="other-navigator-hover">Me</navigator>
 </view>

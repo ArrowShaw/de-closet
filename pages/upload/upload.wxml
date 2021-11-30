@@ -1,0 +1,8 @@
+<!--pages/upload/upload.wxml-->
+<view>You can still add xx items</view>
+<view>Upload a photo</view>
+<view>Keep or save</view>
+<view>Pick a category</view>
+<view>Pick tags</view>
+<input placeholder="Descriptions" />
+<button formType="submit">Save</button>
