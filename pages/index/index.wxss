@@ -1,17 +1,23 @@
 /**index.wxss**/
 .img {
-  align-items: center;
-  width: auto;
-  padding: 0 30rpx;
-  margin-bottom: 100rpx;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 150rpx;
 }
 
 .txt {
   justify-content: start;
-  padding-left: 30rpx;
+  padding-left: 40rpx;
+  font-size: 36rpx;
+  color: #393E46;
 }
 
 .btn {
+  font-size: 36rpx;
+  width: 680rpx !important;
+  padding: 18rpx 40rpx;
   margin-top: 150rpx;
-  width: 200rpx;
+  color: white;
+  background-color: #F2CE44;
 }
+
