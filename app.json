@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/goal/goal",
     "pages/upload/upload",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/closet/closet"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -12,5 +13,27 @@
     "navigationBarTextStyle":"black"
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "tabBar":{
+    "custom": true,
+    "color": "#000000",
+    "selectedColor": "#1e9e92",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "Home",
+        "iconPath": "/images/icons/home.png",
+        "selectedIconPath": "/images/icons/home.png"
+      },{
+        "pagePath": "pages/upload/upload",
+        "text": "Add",
+        "iconPath": "/images/icons/upload.png",
+        "selectedIconPath": "/images/icons/upload.png"
+      },{
+        "pagePath": "pages/closet/closet",
+        "text": "Mine",
+        "iconPath": "/images/icons/me.png",
+        "selectedIconPath": "/images/icons/me.png"
+      }]
+  }
 }

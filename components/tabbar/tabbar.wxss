@@ -1,0 +1,38 @@
+/* components/tabbar/tabbar.wxss */
+.tab-bar {
+  width: 100vw;
+  height: 49px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  border-top: #ccc solid 1px;
+  z-index: 999;
+}
+
+.tab-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tab-icon {
+  width: 25px;
+  height: 25px;
+}
+
+.tab-title {
+  font-size: 24rpx;
+}
+
+.tab-title.active {
+  color: #F8B500;
+}
+
+.tab-title.normal {
+  color: gray;
+}
