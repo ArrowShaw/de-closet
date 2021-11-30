@@ -1,8 +1,8 @@
 <!--index.wxml-->
 <view class="container">
   <view class="img"><image src="/images/head.png"></image></view>
-  <view>Declutter your closet</view>
-  <view>Save your favorite items only</view>
+  <view class="txt">Declutter your closet</view>
+  <view class="txt">Save your favorite items only</view>
   <button class="btn" bindtap="bindViewTap">Start your journey ></button>
 </view>
 

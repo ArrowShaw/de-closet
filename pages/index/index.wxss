@@ -1,9 +1,17 @@
 /**index.wxss**/
 .img {
   align-items: center;
+  width: auto;
   padding: 0 30rpx;
+  margin-bottom: 100rpx;
+}
+
+.txt {
+  justify-content: start;
+  padding-left: 30rpx;
 }
 
 .btn {
-  margin-top: 50rpx;
+  margin-top: 150rpx;
+  width: 200rpx;
 }

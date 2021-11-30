@@ -9,7 +9,7 @@ Page({
   },
   bindViewTap() {
     wx.switchTab({
-      url: '/pages/closet/closet'
+      url: '/pages/upload/upload'
     })
   },
   /**
