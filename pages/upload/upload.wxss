@@ -1,1 +1,21 @@
 /* pages/upload/upload.wxss */
+.txt {
+  padding-left: 50rpx;
+  padding-bottom: 20rpx;
+}
+.addImg {
+  width: 500rpx;
+  height: 200rpx;
+  text-align: center;
+  padding-top: 200rpx;
+  margin: 0 auto;
+  border: 1rpx black dashed;
+}
+
+.section {
+  text-align: start;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30rpx;
+  margin: 0 auto;
+}
