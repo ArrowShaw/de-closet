@@ -1,0 +1,9 @@
+<!--components/tabbar/tabbar.wxml-->
+<view class="tab-bar">
+  <block wx:for="{{items}}" wx:key="title">
+    <view class="tab-item" bindtap="onChangeTab" data-index="{{index}}">
+      <image class="tab-icon" src="{{activeIndex == index ? item.selectedIcon : item.icon}}"></image>
+      <view class="tab-title {{activeIndex == index ? 'active' : 'normal'}}">{{item.title}}</view>
+    </view>
+  </block>
+</view>

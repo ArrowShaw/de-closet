@@ -3,11 +3,7 @@
   <view class="img"><image src="/images/head.png"></image></view>
   <view>Declutter your closet</view>
   <view>Save your favorite items only</view>
-  <button class="btn">Start your journey ></button>
+  <button class="btn" bindtap="bindViewTap">Start your journey ></button>
 </view>
 
-<view class="btn-area">
-  <navigator url="/pages/index/index" hover-class="navigator-hover">Home</navigator>
-  <navigator url="/pages/upload/upload" open-type="redirect" hover-class="other-navigator-hover">Plus</navigator>
-  <navigator url="/pages/goal/goal" open-type="redirect" hover-class="other-navigator-hover">Me</navigator>
-</view>
+<tabbar activeIndex="{{0}}"/>
