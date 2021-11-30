@@ -7,7 +7,11 @@ Page({
   data: {
 
   },
-
+  bindViewTap() {
+    wx.switchTab({
+      url: '/pages/closet/closet'
+    })
+  },
   /**
    * Lifecycle function--Called when page load
    */
