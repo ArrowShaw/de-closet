@@ -3,3 +3,5 @@
 <input type="integer" placeholder="50/70/100" />
 <view>Maximum</view>
 <button formType="submit">Save</button>
+
+<tabbar activeIndex="{{1}}"/>
