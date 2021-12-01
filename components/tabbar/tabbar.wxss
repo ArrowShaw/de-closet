@@ -1,16 +1,36 @@
 /* components/tabbar/tabbar.wxss */
-.tab-bar {
-  width: 100vw;
-  height: 49px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+.wrapper {
   position: fixed;
   bottom: 0;
   left: 0;
-  border-top: #ccc solid 1px;
-  z-index: 999;
+  height: 58px;
+  width: 100vw;
+}
+
+.add-menu {
+  position: absolute; top: -32px;
+  width: 100%;
+  display: flex; justify-content: center;
+  margin: auto 0;
+  z-index: 100;
+}
+
+.add-menu .item {
+  width: 120rpx; height:120rpx;
+  border-radius: 50%;
+  background-color: #7EBC69;
+}
+.tab-bar {
+  width: 100%;
+  height: 100%;
+  padding-top: 6rpx;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+  align-items: center;
+  position: relative;
+  z-index: 99;
+  background-color: #EEEEEE;
 }
 
 .tab-item {
@@ -30,9 +50,9 @@
 }
 
 .tab-title.active {
-  color: #F8B500;
+  color: #7EBC69;
 }
 
 .tab-title.normal {
-  color: gray;
+  color: #18181A;
 }

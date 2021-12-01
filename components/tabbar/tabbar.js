@@ -15,19 +15,21 @@ Component({
    * Component initial data
    */
   data: {
+    add: {
+      'title': 'Add',
+      'icon': '/images/icons/add.png',
+      'selectedIcon': '/images/icons/add.png',
+      'path': '/pages/upload/upload',
+    },
     items: [
       {
         'title': 'Home',
         'icon': '/images/icons/home.png',
         'selectedIcon': '/images/icons/home.png',
         'path': '/pages/index/index'
-      },{
-        'title': 'Add',
-        'icon': '/images/icons/upload.png',
-        'selectedIcon': '/images/icons/upload.png',
-        'path': '/pages/upload/upload',
-      },{
-        'title': 'Mine',
+      },
+      {
+        'title': 'Me',
         'icon': '/images/icons/me.png',
         'selectedIcon': '/images/icons/me.png',
         'path': '/pages/closet/closet'
