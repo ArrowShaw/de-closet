@@ -1,7 +1,11 @@
 <!--pages/goal/goal.wxml-->
-<view>How many items do you want to keep?</view>
-<input type="integer" placeholder="50/70/100" />
-<view>Maximum</view>
-<button formType="submit" bindtap="bindViewTap">Save</button>
+<view class="container">
+  <view class="text h1">How many items do you want to keep?</view>
+  <view class="page-section">  
+    <view class="text h2">Maximum</view>
+    <input class="text h3" type="integer" placeholder="Insert a number: 50/70/100" />
+  </view>
+  <button class="btn" formType="submit" bindtap="bindViewTap">Save</button>
+</view>
 
 <tabbar activeIndex="{{1}}"/>
