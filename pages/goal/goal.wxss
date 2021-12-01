@@ -19,6 +19,7 @@
   border: 1px solid #C4C4C4;
   padding: 10rpx 0rpx !important;
   margin:0rpx 110rpx;
+  border-radius: 8rpx;
 }
 
 .btn {

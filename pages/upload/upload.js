@@ -1,6 +1,6 @@
 // pages/upload/upload.js
 
-const categories = ['top','bottom','coat','dress','shoes']
+const categories = ['Top','Bottom','Coat','Dress','Shoes']
 
 Page({
 
@@ -9,8 +9,8 @@ Page({
    */
   data: {
     radioItems: [
-      {name: 'yes', value: 'item', checked: 'true'},
-      {name: 'no', value: 'giveaway'}
+      {name: 'Yes', value: 'item', checked: 'true'},
+      {name: 'No', value: 'giveaway'}
     ],
     categories,
  
