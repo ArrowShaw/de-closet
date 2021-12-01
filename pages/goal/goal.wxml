@@ -1,4 +1,6 @@
 <!--pages/goal/goal.wxml-->
+<navbar home text='DeCloset'/>
+
 <view class="container">
   <view class="text h1">How many items do you want to keep?</view>
   <view class="page-section">  

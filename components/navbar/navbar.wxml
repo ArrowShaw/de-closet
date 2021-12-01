@@ -1,0 +1,16 @@
+<!--components/navbar/navbar.wxml-->
+<view class="navbar" style="{{'height: ' + navigationBarHeight}}">
+  <view style="{{'height: ' + statusBarHeight}}"></view>
+  <view class='title-container'>
+    <view class='capsule' wx:if="{{ back || home }}">
+      <view bindtap='back' wx:if="{{back}}">
+        <image src='../../images/icons/back.png'></image>            
+      </view>
+      <view bindtap='backHome' wx:if="{{home}}">
+        <image src='../../images/icons/home.png'></image>
+      </view>
+    </view>
+    <view class='title'>{{text}}</view>
+  </view>
+</view>
+<view style="{{'height: ' + navigationBarAndStatusBarHeight}}; background: #ffffff"></view>

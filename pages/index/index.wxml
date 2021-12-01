@@ -1,4 +1,5 @@
 <!--index.wxml-->
+<navbar home text='DeCloset' />
 <view class="container">
   <image class="img" src="/images/head.jpeg" mode="widthFix"></image>
   <view class="text h1">Declutter your closet</view>
