@@ -11,7 +11,7 @@
   
   <view class="add-menu">
     <view class="item">
-    
+      <image class="add-icon" src="/images/icons/add.png"></image>
     </view>
   </view>
 </view>

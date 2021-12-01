@@ -1,1 +1,30 @@
 /* pages/goal/goal.wxss */
+.page-section {
+  margin: 240rpx 0rpx 360rpx;
+  text-align: center;
+}
+
+.text {
+  padding: 12rpx 58rpx;
+  font-size: 38rpx;
+  color: #18181A;
+}
+
+.h1 {
+  font-size: 42rpx;
+  font-weight: 500;
+}
+
+.h3{
+  border: 1px solid #C4C4C4;
+  padding: 10rpx 0rpx !important;
+  margin:0rpx 110rpx;
+}
+
+.btn {
+  font-size: 38rpx;
+  width: 640rpx !important;
+  padding: 18rpx;
+  color: white;
+  background-color: #7EBC69;
+}
