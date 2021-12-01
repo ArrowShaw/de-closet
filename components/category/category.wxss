@@ -1,0 +1,8 @@
+/* components/category/category.wxss */
+.photo_container {
+  width: 300rpx;
+  height: 350rpx;
+  border: 1rpx black solid;
+  margin-top: 300rpx;
+  margin-left: 50rpx;
+}
