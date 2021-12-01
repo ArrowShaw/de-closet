@@ -1,0 +1,5 @@
+<!--components/category/category.wxml-->
+<view class="photo_container">
+  <image src="" alt="PHOTO" />
+</view>
+

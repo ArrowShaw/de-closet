@@ -1,0 +1,7 @@
+/* components/item/item.wxss */
+.photo_container {
+  width: 300rpx;
+  height: 350rpx;
+  border: 1rpx black solid;
+  margin: 200rpx auto;
+}

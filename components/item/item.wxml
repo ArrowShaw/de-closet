@@ -1,0 +1,4 @@
+<!--components/item/item.wxml-->
+<view class="photo_container">
+  <image src="" />
+</view>
