@@ -1,4 +1,5 @@
 <!--pages/upload/upload.wxml-->
+<navbar back text='Upload an item' />
 <view class="container">
   <view class="txt">You can still add xx items:</view>
   <view class="addImg" bindtap="chooseImg">+</view>
