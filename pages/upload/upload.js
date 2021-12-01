@@ -13,12 +13,56 @@ Page({
       {name: 'no', value: 'giveaway'}
     ],
     categories,
-    myTagsList: {
-      type: ['spring','summer','autumn','winter','casual','formal','sporty','work'],
-      multichoice: true
-    },
-    alreadyselect: false,
-    selectMyTag: [],
+ 
+    itemName: '',
+    checked: false,
+    state:'',
+    show:false,
+    showID:'',
+    inputValue:'',
+    label:[],
+    typeArray: [
+      {
+        name: 'spring',
+        num: 0,
+        selected: false,
+      },
+      {
+        name: 'summer',
+        num: 1,
+        selected: false,
+      },
+      {
+        name: 'autumn',
+        num: 2,
+        selected: false,
+      },
+      {
+        name: 'winter',
+        num: 3,
+        selected: false,
+      },
+      {
+        name: 'casual',
+        num: 4,
+        selected: false,
+      },
+      {
+        name: 'formal',
+        num: 5,
+        selected: false,
+      },
+      {
+        name: 'sporty',
+        num: 6,
+        selected: false,
+      },
+      {
+        name: 'work',
+        num: 7,
+        selected: false,
+      }
+    ]
   },
 
   radioChange(e) {
@@ -40,12 +84,59 @@ Page({
       category: this.data.categories[val[0]],
     })
   },
-
-  selectMyTags(e){
+  // sync input
+  bindKeyInput(e) {
     this.setData({
-      selectMyTag: e.detail.type,
-      alreadyselect: true
+      itemName: e.detail.value
     })
+  },
+  // choose tags and give to label
+  dealTap: function(e) {
+    let string = "typeArray[" + e.target.dataset.index + "].selected";
+    console.log(!this.data.typeArray[e.target.dataset.index].selected);
+    this.setData({
+      [string]: !this.data.typeArray[e.target.dataset.index].selected
+    })
+    let detailValue = this.data.typeArray.filter(it => it.selected).map(it => it.name)
+    this.setData({
+      label: detailValue
+    })
+    console.log(this.data.label)
+  },
+
+  addinput(e){
+    this.setData({
+      show: true,
+    });
+  },
+  // close pop-up window
+  onClose(){
+    this.setData({ show: false});
+  },
+  // get input value
+  bindValue(e){
+    this.setData({
+      inputValue: e.detail.value
+    })
+  },
+  // add new tag
+  onInputValue(){
+    this.setData({
+      show: false,
+      inputValue: this.data.inputValue
+    });
+    var typeArray = this.data.typeArray;
+    console.log(this.data.inputValue)
+    var newData = { num: typeArray.length, name: this.data.inputValue, selected: false};
+    typeArray.push(newData);
+    this.setData({
+      typeArray,
+    })
+    console.log(this.data.inputValue)
+  },
+  // cancel choose
+  onCancel(){
+    this.setData({ show:false });
   },
 
   /**

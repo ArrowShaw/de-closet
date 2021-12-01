@@ -24,19 +24,22 @@
     </picker-view>
   </view>
 
-  <view>
+  <view class="btn-view">
     <view>Pick your tags</view>
-    <text wx:if="{{ !alreadyselect }}">multiselect</text>
-    <view wx:else="{{ alreadyselect }}" class="selected-my-tag">
-      <block 
-        wx:for="{{ selectMyTag }}"
-        wx:key="index"
-      >
-      <view>{{ item.type }}</view>
+      <block wx:for="{{ typeArray }}">
+        <view class="label_view {{item.selected? 'active':''}}" data-value='{{item.name}}' bindtap='dealTap' checked="{{item.selected}}" data-index='{{index}}'>
+          {{ item.name }}
+        </view>
       </block>
-    </view>
-
-    <Tag bindonClick='selectMyTags' tags="{{ myTagsList }}"/>
+      <van-popup show="{{show}}" bind:close="onClose" close-on-click-overlay="{{false}}" overlay="false">
+        <view class="input_view">
+          <text>Add your own tag:</text>
+          <input type="text" class="input" placeholder="maximum 1 word" bindinput="bindValue"></input>
+          <button catchtap="onInputValue" class="determine_button">Save</button>
+          <button catchtap="onCancel" class="determine_button">Cancel</button>
+        </view>
+      </van-popup>
+      <image bindtap="addinput" class="img" src="/images/icons/add.png"></image>
   </view>
 
 
