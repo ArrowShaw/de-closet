@@ -19,7 +19,7 @@ Page({
       url: 'http://localhost:3000/api/v1/users/update', // real url address
       header: header,
       data: data,
-      method:'PUT',
+      method:'PATCH',
       success (res) {
       // if successful
         console.log('INSIDE GOAL.JS', res.data)
@@ -33,7 +33,7 @@ Page({
       }
     })
   },
-  
+
   /**
    * Lifecycle function--Called when page load
    */
