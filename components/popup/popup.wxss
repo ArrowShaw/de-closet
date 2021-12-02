@@ -1,0 +1,15 @@
+/* components/popup/popup.wxss */
+
+.input_view {
+  font-size: 28rpx;
+  width: 400rpx;
+  height: 270rpx;
+  margin: 20rpx 20rpx;
+}
+
+.input {
+  margin-top: 20rpx;
+  margin-left: 22rpx;
+  width: 350rpx;
+  border: 1rpx solid black;
+}

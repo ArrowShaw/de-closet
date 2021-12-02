@@ -1,0 +1,9 @@
+<!--components/popup/popup.wxml-->
+<van-popup show="{{show}}" bind:close="onClose" close-on-click-overlay="{{false}}" overlay="false">
+  <view class="input_view">
+    <text>Add your own tag:</text>
+    <input type="text" class="input" placeholder="maximum 1 word" bindinput="bindValue"></input>
+    <button catchtap="onInputValue" class="determine_button">Save</button>
+    <button catchtap="onCancel" class="determine_button">Cancel</button>
+  </view>
+</van-popup>
