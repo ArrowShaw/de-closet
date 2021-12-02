@@ -9,7 +9,6 @@
 
   <view class="section">
     <view class="text h2">Keep this Item</view>
-   
     <radio-group class="group" bindchange="radioChange">
       <view class="radio-options">
         <view class="label" wx:for="{{radioItems}}">
@@ -30,17 +29,23 @@
     </picker-view>
   </view>
 
-  <view class="">
-    <view class="text h2">Pick your tags</view>
+  <view class="section">
+    <view class="text h2">Pick your Tags</view>
+    <view class="tag">
       <block wx:for="{{ typeArray }}">
         <view class="label_view {{item.selected? 'active':''}}" data-value='{{item.name}}' bindtap='dealTap' checked="{{item.selected}}" data-index='{{index}}'>
           {{ item.name }}
         </view>
       </block>
-      <image bindtap="addinput" class="img" src="/images/icons/add.png"></image>
+    </view>
+      <!-- <image bindtap="addinput" class="img" src="/images/icons/add.png"></image> -->
   </view>
-
-
-  <input placeholder="Descriptions" />
-  <button formType="submit">Save</button>
+  <view class="section">  
+    <view class="text h2">Description</view>
+    <input placeholder="Add more details" />
+  </view>
+  <view class="submit-button" >
+    <button class="btn" formType="submit">Save</button>
+    <button class="btn" formType="submit">Save and Next</button>
+  </view>
 </view>
