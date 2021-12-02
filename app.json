@@ -11,27 +11,5 @@
     "navigationStyle":"custom"
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json",
-  "tabBar":{
-    "custom": true,
-    "color": "#000000",
-    "selectedColor": "#1e9e92",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "Home",
-        "iconPath": "/images/icons/home.png",
-        "selectedIconPath": "/images/icons/home.png"
-      },{
-        "pagePath": "pages/upload/upload",
-        "text": "Add",
-        "iconPath": "/images/icons/upload.png",
-        "selectedIconPath": "/images/icons/upload.png"
-      },{
-        "pagePath": "pages/closet/closet",
-        "text": "Mine",
-        "iconPath": "/images/icons/me.png",
-        "selectedIconPath": "/images/icons/me.png"
-      }]
-  }
+  "sitemapLocation": "sitemap.json"
 }
