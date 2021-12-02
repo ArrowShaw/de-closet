@@ -5,12 +5,11 @@
   <view class="text h1">How many items do you want to keep?</view>
   <view class="page-section">  
     <view class="text h2">Maximum</view>
-    <!-- <form bindsubmit="bindViewTap"> -->
-      <input class="text h3" type="integer" placeholder="Insert a number: 50/70/100" />
-      <!-- <button class="btn" formType="submit">Save</button> -->
-    <!-- </form> -->
+    <form bindsubmit="bindViewTap">
+      <input name="max_number" class="text h3" type="integer" placeholder="Insert a number: 50/70/100" />
+      <button class="btn" formType="submit">Save</button>
+    </form>
   </view>
-  <button class="btn" bindtap="bindViewTap">Save</button>
 </view>
 
 <tabbar activeIndex="{{1}}"/>

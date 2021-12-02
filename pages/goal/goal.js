@@ -7,11 +7,33 @@ Page({
   data: {
 
   },
-  bindViewTap() {
-    wx.navigateTo({
-      url: '/pages/upload/upload'
+  bindViewTap(e) {
+    console.log(e)
+    const data = {
+      user: {
+        max_number: e.detail.value.max_number
+      }
+    }
+    var header = getApp().globalData.header;
+    wx.request({
+      url: 'http://localhost:3000/api/v1/users/update', // real url address
+      header: header,
+      data: data,
+      method:'PUT',
+      success (res) {
+      // if successful
+        console.log('INSIDE GOAL.JS', res.data)
+        wx.navigateTo({
+          url: '/pages/upload/upload'
+        })
+      },
+      fail(rej){
+      // if fail
+        console.log(rej.data)
+      }
     })
   },
+  
   /**
    * Lifecycle function--Called when page load
    */
