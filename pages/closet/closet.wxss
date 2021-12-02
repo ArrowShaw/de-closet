@@ -1,1 +1,14 @@
 /* pages/closet/closet.wxss */
+.img {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+  border: 1rpx solid black;
+  margin-top: 50rpx;
+  margin-left: 50rpx;
+}
+
+.title {
+  text-align: center;
+  margin-top: 50rpx;
+}

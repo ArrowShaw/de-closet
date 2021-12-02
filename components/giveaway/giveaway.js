@@ -1,13 +1,9 @@
-// components/category/category.js
+// components/giveaway/giveaway.js
 Component({
   /**
    * Component properties
    */
   properties: {
-    name: {
-      type: String,
-      value: ''
-    },
 
   },
 

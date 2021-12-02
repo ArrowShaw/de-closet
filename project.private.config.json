@@ -1,4 +1,5 @@
 {
+  "setting": {},
   "condition": {
     "plugin": {
       "list": []
@@ -14,6 +15,12 @@
         {
           "name": "pages/upload/upload",
           "pathName": "pages/upload/upload",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/closet/closet",
+          "pathName": "pages/closet/closet",
           "query": "",
           "scene": null
         }

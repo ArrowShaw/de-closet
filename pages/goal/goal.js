@@ -8,7 +8,7 @@ Page({
 
   },
   bindViewTap() {
-    wx.switchTab({
+    wx.navigateTo({
       url: '/pages/upload/upload'
     })
   },
