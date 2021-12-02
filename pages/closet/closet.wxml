@@ -1,4 +1,9 @@
 <!--pages/closet/closet.wxml-->
-<text>pages/closet/closet.wxml</text>
+<navbar home text='DeCloset' />
+<image class="img" src="#" />
+<text>Username</text>
+
+<category class="title" name="My Closet"/>
+
 
 <tabbar activeIndex="{{2}}"/>

@@ -1,8 +1,13 @@
 /* components/category/category.wxss */
+.container {
+  display: flex-column;
+  flex-wrap: wrap;
+}
+
 .photo_container {
-  width: 300rpx;
-  height: 350rpx;
+  width: 700rpx;
+  height: 200rpx;
   border: 1rpx black solid;
-  margin-top: 300rpx;
-  margin-left: 50rpx;
+  margin-top: 100rpx;
+  margin: 50rpx auto;
 }
