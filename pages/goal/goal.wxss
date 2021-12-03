@@ -6,12 +6,12 @@
 
 .text {
   padding: 12rpx 58rpx;
-  font-size: 38rpx;
+  font-size: 36rpx;
   color: #18181A;
 }
 
 .h1 {
-  font-size: 42rpx;
+  font-size: 40rpx;
   font-weight: 500;
 }
 
@@ -23,10 +23,11 @@
 }
 
 .btn {
-  font-size: 38rpx;
+  font-size: 36rpx;
   width: 640rpx !important;
   padding: 18rpx;
   color: white;
   background-color: #7EBC69;
   margin-top: 300rpx;
+  border-radius: 28rpx;
 }
