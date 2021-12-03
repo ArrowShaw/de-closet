@@ -13,31 +13,47 @@ Page({
 
   },
   bindViewTap(e) {
-    console.log(888888)
     const data = {
       user: {
         max_number: e.detail.value.max_number
       }
     }
     const header = getApp().globalData.header;
-    wx.request({
-      url: 'http://localhost:3000/api/v1/users/update', // real url address
-      header: header,
-      data: data,
-      method:'PUT',
-      success (res) {
-      // if successful
-        console.log('INSIDE GOAL.JS', res.data);
-        // console.log(globalThis);
-        wx.navigateTo({
-          url: '/pages/closet/closet'
-        })
-      },
-      fail(rej){
-      // if fail
-        console.log(111,rej.data)
-      }
-    })
+    let num=parseInt(data.user.max_number);
+    // console.log('yes', typeof(parseInt(num)));
+    if (num && num>0) {
+      wx.request({
+            url: 'http://localhost:3000/api/v1/users/update', // real url address
+            header: header,
+            data: data,
+            method:'PUT',
+            success (res) {
+            // if successful
+              console.log('INSIDE GOAL.JS', res.data.max_number);
+              // console.log(globalThis);
+              wx.navigateTo({
+                url: '/pages/closet/closet'
+              })
+            },
+            fail(rej){
+            // if fail
+              console.log(111,rej.data)
+            }
+          })
+    }else{
+      wx.showModal({
+        title: "only number",
+        content: 'Please enter a valid number! ',
+        success (res) {
+          if (res.confirm) {
+            console.log("User clicks OK.")
+          } else if (res.cancel) {
+            console.log('User clicks to cancel ')
+          }
+        }
+      })
+    }
+    
   },
 
   /**
