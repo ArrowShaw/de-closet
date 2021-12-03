@@ -1,7 +1,4 @@
 // pages/upload/upload.js
-
-const categories = ['Top','Bottom','Coat','Dress','Shoes']
-
 Page({
 
   /**
@@ -12,13 +9,20 @@ Page({
       {name: 'Yes', value: 'item', checked: 'true'},
       {name: 'No', value: 'giveaway'}
     ],
-    categories,
- 
+  
+    categories:['Top', 'Bottom', 'Coat', 'Dresses','Shoes'],
+
+    // upload page data
+    tempFilePath: '',
+    is_giveaway: false,
+    item_type: '',
+    item_tags: [],
+    remark: '',
+
     itemName: '',
     checked: false,
     state:'',
     show:false,
-    showID:'',
     inputValue:'',
     label:[],
     typeArray: [
@@ -66,6 +70,7 @@ Page({
   },
 
   radioChange(e) {
+    const page = this
     const checked = e.detail.value
     const changed = {}
     for (let i = 0; i < this.data.radioItems.length; i++) {
@@ -76,13 +81,20 @@ Page({
       }
     }
     this.setData(changed)
+    if (page.data.radioItems[1].checked == true) {
+      is_giveaway = true
+    } else {
+      is_giveaway = false
+    }
   },
 
   bindChange(e) {
     const val = e.detail.value
+    // console.log('this in bindChange', this)
     this.setData({
-      category: this.data.categories[val[0]],
+      item_type: this.data.categories[val[0]],
     })
+    // console.log('item_type', this.data.item_type)
   },
   // sync input
   bindKeyInput(e) {
@@ -111,7 +123,7 @@ Page({
   },
   // close pop-up window
   onClose(){
-    this.setData({ show: false});
+    this.setData({ show: false });
   },
   // get input value
   bindValue(e){
@@ -134,6 +146,68 @@ Page({
     })
     console.log(this.data.inputValue)
   },
+
+
+  chooseImg() {
+    const page = this;
+    // console.log('page', page);
+    wx.chooseMedia({
+      count: 1,
+      mediaType: ['image'],
+      sourceType: ['album', 'camera'],
+      maxDuration: 30,
+      camera: 'back',
+      success(res) {
+        // console.log('res', res)
+        // const tempFilePath = res.tempFiles[0].tempFilePath
+        page.setData ({
+          tempFilePath: res.tempFiles[0].tempFilePath
+        })
+      }
+    })
+  },
+
+  onInput(e){
+    console.log('e:', e)
+    this.setData({
+      remark: e.detail.value
+    })
+    
+  },
+
+  saveThings(e) {
+    const page = this;
+    // console.log('radioItems', page.data.radioItems)
+    console.log(page)
+    var header = getApp().globalData.header;
+    wx.request({
+      url: 'http://localhost:3000/api/v1/items', // real url address
+      header: header,
+      data: page.data,
+      method:'POST',
+      success (res) {
+        console.log('INSIDE UPLOAD.JS', res.data)
+        wx.uploadFile({
+          url: `http://localhost:3000/api/v1/items/${res.data.id}/upload`, // real url address
+          filePath: page.data.tempFilePath,
+          name: 'file',
+          header: header,
+          success(res) {
+            console.log(res)
+            const data = res.data
+            wx.navigateTo({
+              url: '/pages/closet/closet',
+            })
+          }
+        })
+        // wx.navigateTo({
+        //   url: '/pages/closet/closet'
+        // })
+      }
+    })
+
+  },
+
   // cancel choose
   onCancel(){
     this.setData({ show:false });
@@ -163,18 +237,6 @@ Page({
    */
   onHide: function () {
 
-  },
-
-  chooseImg() {
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['original', 'compressed'],
-      sourceType: ['album', 'camera'],
-      success(res) {
-        // tempFilePath可以作为img标签的src属性显示图片
-        const tempFilePaths = res.tempFilePaths
-      }
-    })
   },
 
   /**
