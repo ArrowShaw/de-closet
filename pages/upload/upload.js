@@ -88,13 +88,13 @@ Page({
     }
   },
 
-  bindChange(e) {
+  bindChangePicker(e) {
     const val = e.detail.value
-    // console.log('this in bindChange', this)
+    console.log('this in bindChange', val)
     this.setData({
-      item_type: this.data.categories[val[0]],
+      item_type: this.data.categories[val],
     })
-    // console.log('item_type', this.data.item_type)
+    // console.log('item_type', data.item_type)
   },
   // sync input
   bindKeyInput(e) {

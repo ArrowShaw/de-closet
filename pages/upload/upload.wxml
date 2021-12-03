@@ -22,7 +22,7 @@
 
   <view class="section">
     <view class="text h2">Pick a Category</view>
-    <picker-view indicator-style="height: 50px;" style="width: 100%; height: 100px;" value="{{value}}" bindchange="bindChange">
+    <picker-view indicator-style="height: 50px;" style="width: 100%; height: 100px;" value="{{value}}" bindchange="bindChangePicker">
       <picker-view-column class="label">
         <view wx:for="{{categories}}" style="line-height: 50px; text-align: center;">
           <view>{{item}}</view>
