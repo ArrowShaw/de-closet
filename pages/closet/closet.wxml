@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+<!--pages/closet/closet.wxml-->
 <navbar home text='My Closet' />
 <view class="me-section">  
   <image class="img" src="#" />
@@ -6,22 +6,13 @@
     <view class="text">Username</view>
     <image class="edit-btn" src="/images/icons/edit.png"></image>
   </view>
+</view>
 
-</view>
 <view class="category-section text">  
-  <view wx:for="{{tags}}" bindtap="onClick">
+  <!-- <view wx:for="{{tags}}" bindtap="onClick">
     {{item.name}}
-  </view>
+  </view> -->
   <category class="title"/>
-=======
-<!--pages/closet/closet.wxml-->
-<navbar home text='DeCloset' />
-<image class="img" src="#" />
-<text>Username</text>
-<view wx:for="{{tags}}" class="button-title" bindtap="onClick">
-  {{item.name}}
->>>>>>> main
 </view>
-<category class="title"/>
 
 <tabbar activeIndex="{{2}}"/>

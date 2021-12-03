@@ -7,21 +7,22 @@
 .text {
   justify-content: start;
   padding: 0rpx 58rpx;
-  font-size: 38rpx;
+  font-size: 36rpx;
   color: #18181A;
 }
 
 .h1{
-  font-size: 54rpx !important;
+  font-size: 52rpx !important;
   font-weight: 500;
 }
 
 .btn {
-  font-size: 38rpx;
+  font-size: 36rpx;
   width: 640rpx !important;
   padding: 18rpx;
   margin-top: 100rpx;
   color: white;
   background-color: #7EBC69;
+  border-radius: 28rpx;
 }
 
