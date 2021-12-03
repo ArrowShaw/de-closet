@@ -4,6 +4,11 @@ Page({
   /**
    * Page initial data
    */
+  toUpload(e){
+    wx.navigateTo({
+      url: '/pages/upload/upload',
+    })
+  },
   data: {
 
   },
