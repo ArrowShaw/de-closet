@@ -42,7 +42,7 @@ Page({
           })
     }else{
       wx.showModal({
-        title: "only number",
+        title: "Only Number",
         content: 'Please enter a valid number! ',
         success (res) {
           if (res.confirm) {
