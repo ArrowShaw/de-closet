@@ -12,7 +12,7 @@
 }
 
 .h1{
-  font-size: 52rpx !important;
+  font-size: 50rpx !important;
   font-weight: 500;
 }
 

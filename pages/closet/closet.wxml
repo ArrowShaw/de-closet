@@ -1,10 +1,13 @@
 <!--pages/closet/closet.wxml-->
-<navbar home text='My Closet' />
-<view class="me-section">  
-  <image class="img" src="#" />
-  <view class="edit-section">
-    <view class="text">Username</view>
-    <image class="edit-btn" src="/images/icons/edit.png"></image>
+<navbar home text='DeCloset' />
+<view class="top-bar">  
+  <image class="clothes-pic" src="/images/icons/clothes.png"></image>  
+  <view class="me-section">
+    <image class="img" src="#" />
+    <view class="edit-section">
+      <view class="text">Username</view>
+      <image class="edit-btn" src="/images/icons/edit.png"></image>
+    </view>
   </view>
 </view>
 
