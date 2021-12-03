@@ -9,7 +9,7 @@
 
 </view>
 <view class="category-section text">  
-  <view wx:for="{{tags}}" bindtap="onClick">
+  <view wx:for="{{tags}}" class="button-title" bindtap="onClick">
     {{item.name}}
   </view>
   <category class="title"/>

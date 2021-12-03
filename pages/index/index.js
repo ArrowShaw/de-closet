@@ -44,5 +44,10 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  goalPage(e){
+    wx.navigateTo({
+      url: '/pages/goal/goal',
+    })
   }
 })

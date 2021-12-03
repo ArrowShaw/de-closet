@@ -4,14 +4,42 @@ Page({
   /**
    * Page initial data
    */
+  toUpload(e){
+    wx.navigateTo({
+      url: '/pages/upload/upload',
+    })
+  },
   data: {
 
   },
-  bindViewTap() {
-    wx.navigateTo({
-      url: '/pages/upload/upload'
+  bindViewTap(e) {
+    console.log(888888)
+    const data = {
+      user: {
+        max_number: e.detail.value.max_number
+      }
+    }
+    const header = getApp().globalData.header;
+    wx.request({
+      url: 'http://localhost:3000/api/v1/users/update', // real url address
+      header: header,
+      data: data,
+      method:'PUT',
+      success (res) {
+      // if successful
+        console.log('INSIDE GOAL.JS', res.data);
+        // console.log(globalThis);
+        wx.navigateTo({
+          url: '/pages/closet/closet'
+        })
+      },
+      fail(rej){
+      // if fail
+        console.log(111,rej.data)
+      }
     })
   },
+
   /**
    * Lifecycle function--Called when page load
    */

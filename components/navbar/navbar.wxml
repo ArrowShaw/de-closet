@@ -1,5 +1,5 @@
 <!--components/navbar/navbar.wxml-->
-<view class="navbar" style="{{'height: ' + navigationBarHeight}}">
+<view class="navbar">
   <view style="{{'height: ' + statusBarHeight}}"></view>
   <view class='title-container'>
     <view class='capsule' wx:if="{{ back || home }}">
@@ -13,4 +13,4 @@
     <view class='title'>{{text}}</view>
   </view>
 </view>
-<view style="{{'height: ' + navigationBarAndStatusBarHeight}}; background: #ffffff"></view>
+<view style="{{'height: ' + navigationBarAndStatusBarHeight}}"></view>

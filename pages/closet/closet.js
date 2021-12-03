@@ -5,8 +5,25 @@ Page({
    * Page initial data
    */
   data: {
+    tags: [
+      {
+        name: 'My closet',
+        num: 0,
+        selected: true,
+      },
+      // {
+      //   name: 'Giveaways',
+      //   num: 0,
+      //   selected: false,
+      // }
+    ]
 
   },
+
+onClick: function() {
+    
+  },
+
 
   /**
    * Lifecycle function--Called when page load

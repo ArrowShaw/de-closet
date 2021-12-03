@@ -23,6 +23,12 @@
           "pathName": "pages/closet/closet",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/goal/goal",
+          "pathName": "pages/goal/goal",
+          "query": "",
+          "scene": null
         }
       ]
     }
