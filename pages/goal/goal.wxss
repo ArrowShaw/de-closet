@@ -28,4 +28,5 @@
   padding: 18rpx;
   color: white;
   background-color: #7EBC69;
+  margin-top: 300rpx;
 }
