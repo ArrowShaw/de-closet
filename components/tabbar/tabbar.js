@@ -36,6 +36,7 @@ Component({
       },
     ]
   },
+ 
 
   /**
    * Component methods
@@ -46,7 +47,13 @@ Component({
       wx.switchTab({
         url: this.data.items[index].path
       })
+    },
+    toUpload(e){
+      wx.navigateTo({
+        url: '/pages/upload/upload',
+      })
     }
-  }
+  },
+  
 
 })
