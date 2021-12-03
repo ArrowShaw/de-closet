@@ -1,8 +1,8 @@
 <!--pages/upload/upload.wxml-->
 <navbar back text='Upload Item' />
 <view class="container">
-  <view class="text h1">You can still add xx items</view>
-  <view class="section addImg" bindtap="chooseImg">
+  <view class="text h1" bindtap="">You can still add {{max_number}} items</view>
+  <view class="section addImg" bindtap="chooseImg" name="item_image">
     <image class="upload" src="/images/icons/photo.png"></image>
     <view class="text h2">Upload a Photo</view>
   </view>
@@ -24,7 +24,9 @@
     <view class="text h2">Pick a Category</view>
     <picker-view indicator-style="height: 50px;" style="width: 100%; height: 100px;" value="{{value}}" bindchange="bindChange">
       <picker-view-column class="label">
-        <view wx:for="{{categories}}" wx:key="{{categories}}" style="line-height: 50px; text-align: center;">{{item}}</view>
+        <view wx:for="{{categories}}" style="line-height: 50px; text-align: center;">
+          <view>{{item}}</view>
+        </view>
       </picker-view-column>
     </picker-view>
   </view>
@@ -41,11 +43,11 @@
       <!-- <image bindtap="addinput" class="img" src="/images/icons/add.png"></image> -->
   </view>
   <view class="section">  
-    <view class="text h2">Description</view>
-    <input placeholder="Add more details" />
+    <view class="text h2">Description{{remark}}</view>
+    <input bindinput="onInput" placeholder="Add more details" />
   </view>
-  <view class="submit-button" >
-    <button class="btn" formType="submit">Save</button>
-    <button class="btn" formType="submit">Save and Next</button>
+  <view class="submit-button">
+    <button class="btn" formType="submit" bindtap="saveThings">Save</button>
+    <!-- <button class="btn" formType="submit">Save and Next</button> -->
   </view>
 </view>

@@ -5,12 +5,13 @@ App({
     const logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
+    const app = this;
 
-    // 登录
+    // log in
     wx.login({
       success (res) {
         if (res.code) {
-          //发起网络请求
+          // send url request
           const baseUrl = 'http://localhost:3000/api/v1';
           wx.request({
             url: `${baseUrl}/login`,
@@ -20,6 +21,9 @@ App({
             },
             success (res) {
               console.log(res.data)
+              app.globalData.header = res.data.headers
+              app.globalData.user = res.data.user
+              // { "X-USER-EMAIL": ....., "X-USER-TOKEN": ....}
             }
           })
         } else {
@@ -32,15 +36,15 @@ App({
     const { statusBarHeight, platform } = wx.getSystemInfoSync()
     const { top, height } = wx.getMenuButtonBoundingClientRect()
 
-    // 状态栏高度
+    // height of status bar
     wx.setStorageSync('statusBarHeight', statusBarHeight)
-    // 胶囊按钮高度 一般是32 如果获取不到就使用32
+    // height of menuButton default 32
     wx.setStorageSync('menuButtonHeight', height ? height : 32)
     
-    // 判断胶囊按钮信息是否成功获取
+    // whether menubutton height is accessed
     if (top && top !== 0 && height && height !== 0) {
         const navigationBarHeight = (top - statusBarHeight) * 2 + height
-        // 导航栏高度
+        // height of navbar
         wx.setStorageSync('navigationBarHeight', navigationBarHeight)
     } else {
         wx.setStorageSync(
@@ -50,6 +54,7 @@ App({
     }
   },
   globalData: {
-    userInfo: null
-  }
+    header: {},
+    user: {}
+  },
 })

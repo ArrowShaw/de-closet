@@ -7,11 +7,11 @@
 }
 
 .title-container {
-  background-color: white;
   height: 44px;
   display: flex;
   align-items: center;
   position: relative;
+  background-color: white;
 }
 
 .capsule {
