@@ -1,43 +1,28 @@
 <!--components/category/category.wxml-->
 <view>{{name}}</view>
 <view class="container">
-  <view class="category-bar">
-    <text>Tops</text>
-    <image class="right-btn" src="/images/icons/right.png"></image>
-  </view>
   <view class="photo_container">
-    <image src="" alt="PHOTO" />
-  </view>
- 
-  <view class="category-bar">
-    <text>Bottoms</text>
-    <image class="right-btn" src="/images/icons/right.png"></image>
-  </view>
-  <view class="photo_container">
+    <text>Top</text>
     <image src="" alt="PHOTO" />
   </view>
 
-  <view class="category-bar">
-    <text>Coats</text>
-    <image class="right-btn" src="/images/icons/right.png"></image>
-  </view>
   <view class="photo_container">
+    <text>Bottom</text>
     <image src="" alt="PHOTO" />
   </view>
 
-  <view class="category-bar">
-    <text>Dresses</text>
-    <image class="right-btn" src="/images/icons/right.png"></image>
-  </view>
   <view class="photo_container">
-    <image src="" alt="PHOTO" />
-  </view>
-  
-  <view class="category-bar">
     <text>Shoes</text>
-    <image class="right-btn" src="/images/icons/right.png"></image>
+    <image src="" alt="PHOTO" />
   </view>
+
   <view class="photo_container">
+    <text>Coat</text>
+    <image src="" alt="PHOTO" />
+  </view>
+
+  <view class="photo_container">
+    <text>Dresses</text>
     <image src="" alt="PHOTO" />
   </view>
 </view>

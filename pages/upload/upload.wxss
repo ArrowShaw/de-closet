@@ -1,7 +1,7 @@
 /* pages/upload/upload.wxss */
 .text {
-  font-size: 36rpx;
-  color:#18181A;
+  font-size: 38rpx;
+  color:#35312A;
 }
 
 .section {
@@ -26,7 +26,7 @@
 
 .h1 {
   padding: 12rpx 58rpx;
-  font-size: 40rpx;
+  font-size: 42rpx;
   font-weight: 500;
 }
 
@@ -52,7 +52,7 @@
   width: 110rpx;
   height: 50rpx;
   border-radius: 8rpx;
-  font-size: 28rpx;
+  font-size: 26rpx;
   border-radius: 12rpx;
   color: white;
   background-color: #C4C4C4;
@@ -73,13 +73,12 @@
 }
 
 .btn{
-  font-size: 36rpx;
+  font-size: 38rpx;
   width: 300rpx !important;
   border-radius: 16rpx;
   padding: 18rpx;
   color: white;
   background-color: #7EBC69;
-  border-radius: 20rpx;
 }
 
 .submit-button{
