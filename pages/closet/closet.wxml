@@ -1,4 +1,3 @@
-<!--pages/closet/closet.wxml-->
 <navbar home text='My Closet' />
 <view class="me-section">  
   <image class="img" src="#" />
