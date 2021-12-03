@@ -2,8 +2,9 @@
 <navbar home text='DeCloset' />
 <image class="img" src="#" />
 <text>Username</text>
-
-<category class="title" name="My Closet"/>
-
+<view wx:for="{{tags}}" class="button-title" bindtap="onClick">
+  {{item.name}}
+</view>
+<category class="title"/>
 
 <tabbar activeIndex="{{2}}"/>

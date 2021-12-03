@@ -12,3 +12,9 @@
   text-align: center;
   margin-top: 50rpx;
 }
+
+.button-title {
+  display: flex;
+  margin: 50rpx 30rpx;
+  justify-content: space-around;
+}
