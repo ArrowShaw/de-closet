@@ -181,14 +181,14 @@ Page({
     console.log(page)
     var header = getApp().globalData.header;
     wx.request({
-      url: 'http://localhost:3000/api/v1/items', // real url address
+      url: 'https://de-closet-backend.wogengapp.cn/api/v1/items', // real url address
       header: header,
       data: page.data,
       method:'POST',
       success (res) {
         console.log('INSIDE UPLOAD.JS', res.data)
         wx.uploadFile({
-          url: `http://localhost:3000/api/v1/items/${res.data.id}/upload`, // real url address
+          url: `https://de-closet-backend.wogengapp.cn/api/v1/items/${res.data.id}/upload`, // real url address
           filePath: page.data.tempFilePath,
           name: 'file',
           header: header,
