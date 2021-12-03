@@ -13,4 +13,4 @@
 
 </view>
 
-<tabbar activeIndex="{{1}}"/>
+<tabbar bindtap="toUpload" activeIndex="{{1}}"/>
