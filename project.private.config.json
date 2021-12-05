@@ -29,6 +29,12 @@
           "pathName": "pages/goal/goal",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/details/details",
+          "pathName": "pages/details/details",
+          "query": "",
+          "scene": null
         }
       ]
     }

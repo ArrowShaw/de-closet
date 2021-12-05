@@ -1,4 +1,28 @@
 <!--components/item/item.wxml-->
-<view class="photo_container">
-  <image src="" />
+<view class="container">
+  <text>Top</text>
+  <view class="photo_container">
+    <image src="" />
+  </view>
+
+  <view class="section">  
+    <view class="text">Tags</view>
+    <view class="tag">
+        <block wx:for="{{ typeArray }}">
+          <view class="label_view {{item.selected? 'active':''}}" data-value='{{item.name}}' bindtap='dealTap' checked="{{item.selected}}" data-index='{{index}}'>
+            {{ item.name }}
+          </view>
+        </block>
+    </view>
+  </view>
+
+  <view class="section">  
+    <view class="text">Description{{remark}}</view>
+    <text>Display details here</text>
+  </view>
+  
+  <view class="submit-button">
+    <button class="btn" >Edit</button>
+    <button class="btn" >Delete</button>
+  </view>
 </view>

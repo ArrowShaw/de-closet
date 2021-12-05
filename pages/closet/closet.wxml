@@ -13,7 +13,7 @@
 
 <view class="category-section text">  
   <!-- <view wx:for="{{tags}}" bindtap="onClick">
-    {{item.name}}
+    {{item.name}} 
   </view> -->
   <category class="title"/>
 </view>
