@@ -23,7 +23,8 @@ Page({
     // console.log('yes', typeof(parseInt(num)));
     if (num && num>0) {
       wx.request({
-            url: 'https://de-closet-backend.wogengapp.cn/api/v1/users/update', // real url address
+            // url: 'https://de-closet-backend.wogengapp.cn/api/v1/users/update', // real url address
+            url: "http://localhost:3000/api/v1/users/update",
             header: header,
             data: data,
             method:'PUT',
