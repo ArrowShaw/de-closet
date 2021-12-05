@@ -11,11 +11,10 @@
   </view>
 </view>
 
-<view class="category-section text">  
-  <!-- <view wx:for="{{tags}}" bindtap="onClick">
-    {{item.name}}
-  </view> -->
-  <category class="title"/>
+<view class="category-section text">
+  <block wx:for="{{items}}" wx:key="index">
+    <category collection="{{item}}" class="title"/>
+  </block>
 </view>
 
 <tabbar activeIndex="{{2}}"/>
