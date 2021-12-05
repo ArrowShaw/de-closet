@@ -43,8 +43,8 @@
       <!-- <image bindtap="addinput" class="img" src="/images/icons/add.png"></image> -->
   </view>
   <view class="section">  
-    <view class="text h2">Description{{remark}}</view>
-    <input bindinput="onInput" placeholder="Add more details" />
+    <view class="text h2">Description</view>
+    <input bindinput="onInput" name="remark" placeholder="Add more details" />
   </view>
   <view class="submit-button">
     <button class="btn" formType="submit" bindtap="saveThings">Save</button>

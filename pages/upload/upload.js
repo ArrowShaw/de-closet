@@ -15,7 +15,7 @@ Page({
     // upload page data
     tempFilePath: '',
     is_giveaway: false,
-    item_type: '',
+    item_type: 'Top',
     item_tags: [],
     remark: '',
 
@@ -24,7 +24,6 @@ Page({
     state:'',
     show:false,
     inputValue:'',
-    label:[],
     typeArray: [
       {
         name: 'spring',
@@ -80,11 +79,12 @@ Page({
         changed['radioItems[' + i + '].checked'] = false
       }
     }
+    console.log(changed)
     this.setData(changed)
-    if (page.data.radioItems[1].checked == true) {
-      is_giveaway = true
+    if (changed['radioItems[1].checked'] === true) {
+      page.data.is_giveaway = true
     } else {
-      is_giveaway = false
+      page.data.is_giveaway = false
     }
   },
 
@@ -102,7 +102,7 @@ Page({
       itemName: e.detail.value
     })
   },
-  // choose tags and give to label
+  // choose tags and give to item_tags
   dealTap: function(e) {
     let string = "typeArray[" + e.target.dataset.index + "].selected";
     console.log(!this.data.typeArray[e.target.dataset.index].selected);
@@ -111,9 +111,9 @@ Page({
     })
     let detailValue = this.data.typeArray.filter(it => it.selected).map(it => it.name)
     this.setData({
-      label: detailValue
+      item_tags: detailValue
     })
-    console.log(this.data.label)
+    console.log(this.data.item_tags)
   },
 
   addinput(e){
@@ -168,17 +168,15 @@ Page({
   },
 
   onInput(e){
-    console.log('e:', e)
     this.setData({
       remark: e.detail.value
     })
-    
   },
 
   saveThings(e) {
     const page = this;
     // console.log('radioItems', page.data.radioItems)
-    console.log(page)
+    console.log('It is page:', page.data)
     var header = getApp().globalData.header;
     wx.request({
       url: 'https://de-closet-backend.wogengapp.cn/api/v1/items', // real url address
