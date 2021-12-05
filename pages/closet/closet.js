@@ -29,7 +29,23 @@ onClick: function() {
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    const page = this
+    const {header} = getApp().globalData
+    console.log({header})
+    wx.request({
+      url: 'http://localhost:3000/api/v1/items',
+      method: 'GET',
+      data: {},
+      header: header,
+      success (res) {
+        console.log('data from backend', res.data)
+        page.setData({
+          items: res.data
+        })
+        // [ {name: "tops", items: [{},{}]}, {name: "bottoms", items: [{},{}] } ]
+        // this.setData({ items: res.data })
+      }
+    })
   },
 
   /**

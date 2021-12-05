@@ -4,7 +4,8 @@ Component({
    * Component properties
    */
   properties: {
-    name: {
+    collection: Object,  // {category: "tops", items: [{}, {}]}
+    category: {
       type: String,
       value: ''
     },
@@ -15,8 +16,14 @@ Component({
    * Component initial data
    */
   data: {
-
+    item: {
+      name: '',
+      photo: '',
+      tags: [],
+      description: '',
+    }
   },
+
 
   /**
    * Component methods

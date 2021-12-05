@@ -1,11 +1,16 @@
 <!--components/category/category.wxml-->
-<view>{{name}}</view>
+<view>{{category}}</view>
 <view class="container">
   <view class="category-bar">
-    <text>Tops</text>
+    <text>{{collection.name}}</text>
     <image class="right-btn" src="/images/icons/right.png"></image>
   </view>
-  <view class="photo_container">
+  <block wx:for="{{collection.items}}">
+    <view class="photo_container">
+      <image src="{{item.photo}}" alt="PHOTO" />
+    </view>
+  </block>
+  <!-- <view class="photo_container">
     <image src="" alt="PHOTO" />
   </view>
  
@@ -39,5 +44,5 @@
   </view>
   <view class="photo_container">
     <image src="" alt="PHOTO" />
-  </view>
+  </view> -->
 </view>
