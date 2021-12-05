@@ -41,7 +41,7 @@ onClick: function() {
       success (res) {
         console.log('data from backend', res.data)
         page.setData({
-          items: res.data
+          categories: res.data
         })
         // [ {category: "tops", items: [{},{}]}, {category: "bottoms", items: [{},{}] } ]
         // this.setData({ items: res.data })
