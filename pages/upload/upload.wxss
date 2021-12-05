@@ -25,6 +25,11 @@
   width: 100rpx; height: 90rpx;
 }
 
+.uploadImg {
+  width: 300rpx;
+  height: 270rpx;
+}
+
 .h1 {
   padding: 12rpx 58rpx;
   font-size: 40rpx;
