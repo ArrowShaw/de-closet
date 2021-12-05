@@ -1,10 +1,13 @@
 // pages/upload/upload.js
+const app = getApp()
+
 Page({
 
   /**
    * Page initial data
    */
   data: {
+    max_number: 0,
     radioItems: [
       {name: 'Yes', value: 'item', checked: 'true'},
       {name: 'No', value: 'giveaway'}
@@ -90,7 +93,7 @@ Page({
 
   bindChangePicker(e) {
     const val = e.detail.value
-    console.log('this in bindChange', val)
+    // console.log('this in bindChange', val)
     this.setData({
       item_type: this.data.categories[val],
     })
@@ -158,7 +161,7 @@ Page({
       maxDuration: 30,
       camera: 'back',
       success(res) {
-        console.log('res', res)
+        // console.log('res', res)
         const imgInfo = res.tempFiles[0];
         page.setData ({
           imgSrc: res.tempFiles[0].tempFilePath,
@@ -181,8 +184,8 @@ Page({
   saveThings(e) {
     const page = this;
     // console.log('radioItems', page.data.radioItems)
-    console.log('It is page:', page.data)
-    var header = getApp().globalData.header;
+    // console.log('It is page:', page.data)
+    var header = app.globalData.header;
     const url = "http://localhost:3000/api/v1/items"
     // const url = "https://de-closet-backend.wogengapp.cn/api/v1/items" // real url address
     wx.request({
@@ -198,16 +201,13 @@ Page({
           name: 'file',
           header: header,
           success(res) {
-            console.log(res)
+            console.log('this is for upload file', res)
             const data = res.data
             wx.navigateTo({
               url: '/pages/closet/closet',
             })
           }
         })
-        // wx.navigateTo({
-        //   url: '/pages/closet/closet'
-        // })
       }
     })
 
@@ -222,6 +222,10 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    this.setData({
+      max_number: app.globalData.max_number
+    });
+    // console.log('local max number', this.data.max_number)
   },
 
   /**

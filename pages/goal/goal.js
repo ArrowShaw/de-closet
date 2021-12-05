@@ -1,4 +1,6 @@
 // pages/goal/goal.js
+const app = getApp()
+
 Page({
 
   /**
@@ -10,7 +12,7 @@ Page({
     })
   },
   data: {
-
+    max_number: 0
   },
   bindViewTap(e) {
     const data = {
@@ -18,6 +20,8 @@ Page({
         max_number: e.detail.value.max_number
       }
     }
+    app.globalData.max_number = e.detail.value.max_number
+    console.log('global data', app.globalData.max_number)
     const header = getApp().globalData.header;
     let num=parseInt(data.user.max_number);
     // console.log('yes', typeof(parseInt(num)));
