@@ -1,7 +1,7 @@
 <!--pages/upload/upload.wxml-->
 <navbar back text='Upload Item' />
 <view class="container">
-  <view class="text h1" bindtap="">You can still add {{max_number}} items</view>
+  <view class="text h1" bindtap="">Your closet has a maximum of {{max_number}} pieces, choose wisely!</view>
   <view wx:if="{{imgSrc == '/images/icons/photo.png'}}" class="section addImg" bindtap="chooseImg" name="item_image">
     <image class="upload" src="{{imgSrc}}"></image>
     <view class="text h2">Upload a Photo</view>

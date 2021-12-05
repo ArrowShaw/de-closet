@@ -1,4 +1,6 @@
 // pages/closet/closet.js
+const app = getApp()
+
 Page({
 
   /**

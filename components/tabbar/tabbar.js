@@ -48,6 +48,12 @@ Component({
         url: this.data.items[index].path
       })
     },
+
+    onClick() {
+      wx.redirectTo({
+        url: '../../pages/upload/upload'
+      })
+    }
    
   }
   

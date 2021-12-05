@@ -10,7 +10,7 @@
   </view>
   
   <view class="add-menu">
-    <view class="item">
+    <view class="item" bindtap="onClick">
       <image class="add-icon"  src="/images/icons/add.png"></image>
     </view>
   </view>
