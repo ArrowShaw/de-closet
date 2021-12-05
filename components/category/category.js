@@ -5,11 +5,10 @@ Component({
    */
   properties: {
     collection: Object,  // {category: "tops", items: [{}, {}]}
-    category: {
-      type: String,
-      value: ''
-    },
-
+    // category: {
+    //   type: String,
+    //   value: ''
+    // },
   },
 
   /**

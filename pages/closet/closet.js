@@ -35,14 +35,13 @@ onClick: function() {
     wx.request({
       url: 'http://localhost:3000/api/v1/items',
       method: 'GET',
-      data: {},
       header: header,
       success (res) {
         console.log('data from backend', res.data)
         page.setData({
           items: res.data
         })
-        // [ {name: "tops", items: [{},{}]}, {name: "bottoms", items: [{},{}] } ]
+        // [ {category: "tops", items: [{},{}]}, {category: "bottoms", items: [{},{}] } ]
         // this.setData({ items: res.data })
       }
     })
