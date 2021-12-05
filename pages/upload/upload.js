@@ -13,11 +13,11 @@ Page({
     categories:['Top', 'Bottom', 'Coat', 'Dresses','Shoes'],
 
     // upload page data
-    tempFilePath: '',
     is_giveaway: false,
     item_type: 'Top',
     tag_list: [],
     remark: '',
+    imgSrc: '/images/icons/photo.png',
 
     itemName: '',
     checked: false,
@@ -158,11 +158,16 @@ Page({
       maxDuration: 30,
       camera: 'back',
       success(res) {
-        // console.log('res', res)
-        // const tempFilePath = res.tempFiles[0].tempFilePath
+        console.log('res', res)
+        const imgInfo = res.tempFiles[0];
         page.setData ({
-          tempFilePath: res.tempFiles[0].tempFilePath
+          imgSrc: res.tempFiles[0].tempFilePath,
         })
+        wx.showToast({
+          title: "uploaded",
+          icon: 'success',
+          duration: 1000
+      });
       }
     })
   },
