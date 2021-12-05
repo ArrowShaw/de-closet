@@ -195,6 +195,7 @@ Page({
       method:'POST',
       success (res) {
         console.log('INSIDE UPLOAD.JS', res.data)
+        console.log(url)
         wx.uploadFile({
           url: `${url}/${res.data.id}/upload`,
           filePath: page.data.tempFilePath,

@@ -13,8 +13,8 @@
 
 
 <view class="category-section text">
-  <block wx:for="{{items}}" wx:key="index">
-    <category collection="{{item}}" class="title"/>
+  <block wx:for="{{categories}}" wx:if="{{items.length != 0}}" wx:key="index">
+      <category collection="{{item}}" class="title"/>
   </block>
 </view>
 

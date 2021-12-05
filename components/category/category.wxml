@@ -2,48 +2,14 @@
 <view>{{category}}</view>
 <view class="container">
   <view class="category-bar">
-    <text>{{collection.name}}</text>
+    <text>{{collection.category}}</text>
     <image class="right-btn" src="/images/icons/right.png"></image>
   </view>
-  <block wx:for="{{collection.items}}">
-    <view class="photo_container">
-      {{item.description}}
+  <view wx:if="{{collection.items.length == 0}}">Your closet is empty. Please add items!</view>
+  <block wx:if="{{collection.items != 0}}" wx:for="{{collection.items}}">
+    <view class="photo_container" wx:for_item="{{item}}">
+      <text>{{item.remark}}</text>
       <!-- <image src="{{item.photo}}" alt="PHOTO" /> -->
     </view>
   </block>
-  <!-- <view class="photo_container">
-    <image src="" alt="PHOTO" />
-  </view>
- 
-  <view class="category-bar">
-    <text>Bottoms</text>
-    <image class="right-btn" src="/images/icons/right.png"></image>
-  </view>
-  <view class="photo_container">
-    <image src="" alt="PHOTO" />
-  </view>
-
-  <view class="category-bar">
-    <text>Coats</text>
-    <image class="right-btn" src="/images/icons/right.png"></image>
-  </view>
-  <view class="photo_container">
-    <image src="" alt="PHOTO" />
-  </view>
-
-  <view class="category-bar">
-    <text>Dresses</text>
-    <image class="right-btn" src="/images/icons/right.png"></image>
-  </view>
-  <view class="photo_container">
-    <image src="" alt="PHOTO" />
-  </view>
-  
-  <view class="category-bar">
-    <text>Shoes</text>
-    <image class="right-btn" src="/images/icons/right.png"></image>
-  </view>
-  <view class="photo_container">
-    <image src="" alt="PHOTO" />
-  </view> -->
 </view>
