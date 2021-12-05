@@ -4,7 +4,8 @@
     "pages/goal/goal",
     "pages/upload/upload",
     "pages/logs/logs",
-    "pages/closet/closet"
+    "pages/closet/closet",
+    "pages/details/details"
   ],
   "window":{
     "backgroundTextStyle":"light",
