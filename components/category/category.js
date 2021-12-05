@@ -4,19 +4,25 @@ Component({
    * Component properties
    */
   properties: {
-    name: {
-      type: String,
-      value: ''
-    },
-
+    collection: Object,  // {category: "tops", items: [{}, {}]}
+    // category: {
+    //   type: String,
+    //   value: ''
+    // },
   },
 
   /**
    * Component initial data
    */
   data: {
-
+    item: {
+      name: '',
+      photo: '',
+      tags: [],
+      description: '',
+    }
   },
+
 
   /**
    * Component methods
