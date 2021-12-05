@@ -16,7 +16,7 @@ Page({
     tempFilePath: '',
     is_giveaway: false,
     item_type: 'Top',
-    item_tags: [],
+    tag_list: [],
     remark: '',
 
     itemName: '',
@@ -102,7 +102,7 @@ Page({
       itemName: e.detail.value
     })
   },
-  // choose tags and give to item_tags
+  // choose tags and give to tag_list
   dealTap: function(e) {
     let string = "typeArray[" + e.target.dataset.index + "].selected";
     console.log(!this.data.typeArray[e.target.dataset.index].selected);
@@ -111,9 +111,9 @@ Page({
     })
     let detailValue = this.data.typeArray.filter(it => it.selected).map(it => it.name)
     this.setData({
-      item_tags: detailValue
+      tag_list: detailValue
     })
-    console.log(this.data.item_tags)
+    console.log(this.data.tag_list)
   },
 
   addinput(e){
@@ -178,15 +178,17 @@ Page({
     // console.log('radioItems', page.data.radioItems)
     console.log('It is page:', page.data)
     var header = getApp().globalData.header;
+    const url = "http://localhost:3000/api/v1/items"
+    // const url = "https://de-closet-backend.wogengapp.cn/api/v1/items" // real url address
     wx.request({
-      url: 'https://de-closet-backend.wogengapp.cn/api/v1/items', // real url address
+      url: url,
       header: header,
       data: page.data,
       method:'POST',
       success (res) {
         console.log('INSIDE UPLOAD.JS', res.data)
         wx.uploadFile({
-          url: `https://de-closet-backend.wogengapp.cn/api/v1/items/${res.data.id}/upload`, // real url address
+          url: `${url}/${res.data.id}/upload`,
           filePath: page.data.tempFilePath,
           name: 'file',
           header: header,
