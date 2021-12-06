@@ -196,9 +196,10 @@ Page({
       success (res) {
         console.log('INSIDE UPLOAD.JS', res.data)
         console.log(url)
+        console.log(page.data)
         wx.uploadFile({
           url: `${url}/${res.data.id}/upload`,
-          filePath: page.data.tempFilePath,
+          filePath: page.data.imgSrc,
           name: 'file',
           header: header,
           success(res) {
