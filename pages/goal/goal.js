@@ -21,12 +21,14 @@ Page({
     let num=parseInt(data.user.max_number);
     // console.log('yes', typeof(parseInt(num)));
     if (num && num>0) {
+      console.log(header)
+      console.log(data)
       if (num<=200){
         wx.request({
           // url: 'https://de-closet-backend.wogengapp.cn/api/v1/users/update', // real url address
-          url: `${app.globalData.baseUrl}/users/update`,
           header: header,
           data: data,
+          url: `${app.globalData.baseUrl}/users/update`,
           method:'PUT',
           success (res) {
           // if successful

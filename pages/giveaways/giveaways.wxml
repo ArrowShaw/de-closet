@@ -1,4 +1,7 @@
 <!--pages/giveaways/giveaways.wxml-->
-<navbar home text='Giveaways' />
+<navbar home text='Giveaway' />
+<view wx:for="{{giveaways}}" wx:key="index">
+  <giveaway giveaway="{{item}}"/>
+</view>
 
 <tabbar activeIndex="{{1}}"/>
