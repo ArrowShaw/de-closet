@@ -75,11 +75,11 @@ Component({
           // [ {category: "tops", items: [{},{}]}, {category: "bottoms", items: [{},{}] } ]
           console.log(app.globalData, "asdasds")
           if (app.globalData.max_number > 0) {
-            wx.redirectTo({
+            wx.navigateTo({
               url: '/pages/upload/upload'
             })
           } else {
-            wx.redirectTo({
+            wx.navigateTo({
               url: '/pages/goal/goal'
             })
           }
