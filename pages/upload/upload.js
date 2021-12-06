@@ -13,7 +13,7 @@ Page({
       {name: 'No', value: 'giveaway'}
     ],
   
-    categories:['Top', 'Bottom', 'Coat', 'Dresses','Shoes'],
+    categories:['Top', 'Bottom', 'Coat', 'Dress','Shoes'],
 
     // upload page data
     is_giveaway: false,
