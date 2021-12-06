@@ -7,21 +7,21 @@
     <view class="img" style="overflow: hidden;">
       <open-data type="userAvatarUrl"></open-data>
     </view>
+    <view class="text">
+      <!-- Username -->
+      <open-data type="userNickName"></open-data>
+    </view>
     <view class="edit-section">
-      <view class="text">
-        <!-- Username -->
-        <open-data type="userNickName"></open-data>
-      </view>
-      <!-- <image class="edit-btn" src="/images/icons/edit.png"></image> -->
+      <view class="text">Your Items: 5/40</view>
+      <image class="edit-btn" src="/images/icons/edit.png"></image>
     </view>
   </view>
 </view>
-
 
 <view class="category-section text">
   <block wx:for="{{categories}}" wx:key="index">
       <category wx:if="{{item.items.length !== 0}}" collection="{{item}}" class="title"/>
   </block>
 </view>
-
+<view style="height:80px"></view>
 <tabbar activeIndex="{{0}}"/>
