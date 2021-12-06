@@ -48,17 +48,18 @@
 }
 
 .active {
-  background: #7EBC69;
+  background: #F2CE44;
 }
 
 .submit-button{
   display: flex; 
   justify-content: center;
   margin: 60rpx 0;
+  gap: 50rpx;
 }
 .btn{
   font-size: 38rpx;
-  width: 380rpx !important;
+  width: 300rpx !important;
   border-radius: 16rpx;
   padding: 18rpx;
   color: white;

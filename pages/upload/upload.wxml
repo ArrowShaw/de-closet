@@ -14,7 +14,7 @@
     <view class="text h2">Keep this Item</view>
     <radio-group class="group" bindchange="radioChange">
       <view class="radio-options">
-        <view class="label" wx:for="{{radioItems}}">
+        <view class="radio-label" wx:for="{{radioItems}}">
           <radio id="{{item.name}}" value="{{item.name}}" checked="{{item.checked}}"></radio>
           <label class="label-text" for="{{item.name}}"><text>{{item.name}}</text></label>
         </view>

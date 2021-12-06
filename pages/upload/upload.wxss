@@ -9,7 +9,7 @@
   height: 240rpx;
   display: flex; flex-direction: column; justify-content: center; align-items: center; gap:20rpx;
   margin: 30rpx 58rpx;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   background-color: #FFFFFF;
   border-radius: 20rpx;
   padding: 16rpx 0;
@@ -31,7 +31,7 @@
 }
 
 .h1 {
-  padding: 0 60rpx 30rpx;
+  padding: 0 58rpx 30rpx;
   font-size: 40rpx;
   font-weight: 500;
 }
@@ -40,8 +40,13 @@
   text-align: center;
 }
 
-.label {
+.radio-label {
   color: #C4C4C4;
+  font-size: 32rpx;
+}
+
+.label {
+  color: #F2CE44;
   font-size: 32rpx;
 }
 
@@ -83,7 +88,7 @@
 }
 
 .active {
-  background: #7EBC69;
+  background: #F2CE44;
 }
 
 .btn{
