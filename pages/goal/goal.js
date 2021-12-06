@@ -24,16 +24,16 @@ Page({
       if (num<=200){
         wx.request({
           // url: 'https://de-closet-backend.wogengapp.cn/api/v1/users/update', // real url address
-          url: `${app.globalData.baseUrl}/update`,
+          url: `${app.globalData.baseUrl}/users/update`,
           header: header,
           data: data,
           method:'PUT',
           success (res) {
           // if successful
             console.log('INSIDE GOAL.JS', res.data.max_number);
-            const { user } = getApp.globalData.user
+            const { user } = getApp().globalData
             user.max_number = res.data.max_number
-            getApp.globalData.user = user
+            getApp().globalData.user = user
             // console.log(globalThis);
             wx.navigateTo({
               url: '/pages/closet/closet'

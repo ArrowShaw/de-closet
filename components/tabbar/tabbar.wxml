@@ -1,5 +1,11 @@
 <!--components/tabbar/tabbar.wxml-->
 <view class="wrapper">
+  <view class="add-menu">
+    <view class="item" bindtap="onClick">
+      <image class="add-icon"  src="/images/icons/add.png"></image>
+    </view>
+  </view>
+
   <view class="tab-bar">
     <block wx:for="{{items}}" wx:key="title">
       <view class="tab-item" bindtap="onChangeTab" data-index="{{index}}">
@@ -8,10 +14,5 @@
       </view>
     </block>
   </view>
-  
-  <view class="add-menu">
-    <view class="item" bindtap="onClick">
-      <image class="add-icon"  src="/images/icons/add.png"></image>
-    </view>
-  </view>
+ 
 </view>

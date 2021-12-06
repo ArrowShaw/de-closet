@@ -40,7 +40,7 @@ Component({
       // wx.switchTab({
       //   url: this.data.items[index].path
       // })
-      wx.navigateTo({
+      wx.redirectTo({
         url: this.data.items[index].path,
       })
     },
