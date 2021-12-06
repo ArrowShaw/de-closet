@@ -6,15 +6,6 @@ Page({
   /**
    * Page initial data
    */
-  toUpload(e){
-    console.log('plusDate', app.globalData.max_number)
-    
-    if (app.globalData,max_number){
-      wx.navigateTo({
-      url: '/pages/upload/upload',
-    })
-    }
-  },
   data: {
     max_number: 0
   },
@@ -32,8 +23,8 @@ Page({
     if (num && num>0) {
       if (num<200){
         wx.request({
-          // url: 'https://de-closet-backend.wogengapp.cn/api/v1/users/update', // real url address
-          url: "http://localhost:3000/api/v1/users/update",
+          url: 'https://de-closet-backend.wogengapp.cn/api/v1/users/update', // real url address
+          // url: "http://localhost:3000/api/v1/users/update",
           header: header,
           data: data,
           method:'PUT',
