@@ -5,13 +5,15 @@
     <text>{{collection.category}}</text>
     <image class="right-btn" src="/images/icons/right.png"></image>
   </view>
-  <view wx:if="{{collection.items.length == 0}}">Your closet is empty. Please add items!</view>
-  <view class="category-container">  
-    <block wx:if="{{collection.items != 0}}" wx:for="{{collection.items}}">
-      <view class="photo_container" wx:for_item="{{item}}">
-        <text>{{item.remark}}</text>
-        <!-- <image src="{{item.photo}}" alt="PHOTO" /> -->
-      </view>
-    </block>
+  <view>
+    <view wx:if="{{collection.items.length == 0}}">Your closet is currently empty. Go add your items!</view>
+    <view class ="category-container"> 
+      <block wx:if="{{collection.items != 0}}" wx:for="{{collection.items}}">
+        <view wx:for_item="{{item}}">
+          <!-- <text>{{item.remark}}</text> -->
+          <image class="photo_container" src="{{item.photo}}" alt="PHOTO" />
+        </view>
+      </block>
+    </view>
   </view>
 </view>

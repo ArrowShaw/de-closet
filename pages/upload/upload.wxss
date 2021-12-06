@@ -26,8 +26,8 @@
 }
 
 .uploadImg {
-  width: 360rpx;
-  height: 360rpx;
+  width: 340rpx;
+  height: 340rpx;
 }
 
 .h1 {
