@@ -2,9 +2,6 @@
 const app = getApp();
 
 Component({
-  /**
-   * Component properties
-   */
   properties: {
     // categories: [],
     activeIndex: {
@@ -13,9 +10,6 @@ Component({
     },
   },
 
-  /**
-   * Component initial data
-   */
   data: {
     add: {
       'title': 'Add',
@@ -38,31 +32,42 @@ Component({
       },
     ]
   },
- 
 
-  /**
-   * Component methods
-   */
   methods: {
     onChangeTab(res) {
-      var index = res.currentTarget.dataset.index;      
-      wx.switchTab({
-        url: this.data.items[index].path
+      const index = res.currentTarget.dataset.index;     
+      console.log('in onChangeTab Tabbar', {index}) 
+      // wx.switchTab({
+      //   url: this.data.items[index].path
+      // })
+      wx.navigateTo({
+        url: this.data.items[index].path,
       })
     },
 
     onClick() {
       const page=this
       const {header} = getApp().globalData
-      console.log('header', {header})
+      console.log( {header})
+
+      if (header) {
+        this.checkMaxNumber();
+      } else {
+        wx.event.on('headersReady', this, checkMaxNumber)
+      }
+    },
+
+    checkMaxNumber() {
+      const { header } = getApp().globalData
+      const page = this
       wx.request({
-        url: `${baseUrl}/users/show`,
+        url: `${getApp().globalData.baseUrl}/users/show`,
         method: 'GET',
         header: header,
         success (res) {
-          console.log('data from backend', res.data),
+          console.log('data from backend', res.data)
           page.setData({
-            max_number: res.data.maxNumber
+            max_number: res.data.max_number
           })
           console.log('max_number', page.data.max_number)
           app.globalData.max_number = page.data.max_number
@@ -71,27 +76,18 @@ Component({
           console.log(app.globalData, "asdasds")
           if (app.globalData.max_number > 0) {
             wx.redirectTo({
-              url: '../../pages/upload/upload'
+              url: '/pages/upload/upload'
             })
           } else {
             wx.redirectTo({
-              url: '../../pages/goal/goal'
+              url: '/pages/goal/goal'
             })
           }
         },
         fail(res) {
           console.log('failed')
         }
-
       })
-    },
-
-    
-
-
-
-   
+    }
   }
-  
-
 })

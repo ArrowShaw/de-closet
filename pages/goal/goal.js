@@ -31,6 +31,9 @@ Page({
           success (res) {
           // if successful
             console.log('INSIDE GOAL.JS', res.data.max_number);
+            const { user } = getApp.globalData.user
+            user.max_number = res.data.max_number
+            getApp.globalData.user = user
             // console.log(globalThis);
             wx.navigateTo({
               url: '/pages/closet/closet'

@@ -1,4 +1,6 @@
 // app.js
+import event from 'utils/event.js';
+wx.event = event
 App({
   onLaunch() {
     // 展示本地存储能力
@@ -12,8 +14,6 @@ App({
       success (res) {
         if (res.code) {
           // send url request
-          // const baseUrl = app.globalData.baseUrl;
-          // const baseUrl = "http://localhost:3000/api/v1"
           wx.request({
             url: `${app.globalData.baseUrl}/login`,
             method: 'POST',
@@ -24,6 +24,7 @@ App({
               // console.log(res.data)
               app.globalData.header = res.data.headers
               app.globalData.user = res.data.user
+              wx.event.emit('headersReady')
               // { "X-USER-EMAIL": ....., "X-USER-TOKEN": ....}
             }
           })
@@ -55,8 +56,8 @@ App({
     }
   },
   globalData: {
-    header: {},
-    user: {},
+    header: null,
+    user: null,
     baseUrl: "https://de-closet-backend.wogengapp.cn/api/v1"
     // baseUrl: "http://localhost:3000/api/v1"
   },

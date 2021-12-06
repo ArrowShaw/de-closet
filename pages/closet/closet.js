@@ -35,15 +35,18 @@ onClick: function() {
     const {header} = getApp().globalData
     console.log({header})
     wx.request({
-      url: `${app.globalData.baseUrl}/items',
-      // url: 'https://de-closet-backend.wogengapp.cn/api/v1/items', // real url address
+      url: `${app.globalData.baseUrl}/items`,
       method: 'GET',
       header: header,
       success (res) {
         console.log('data from backend', res.data)
         // make sure that res.data is an array that comes that way from the backend
+        // page.setData({
+        //   categories: res.data
+        // })
         page.setData({
-          categories: res.data
+          user: res.data.user,
+          categories: res.data.user_items
         })
         // [ {category: "tops", items: [{},{}]}, {category: "bottoms", items: [{},{}] } ]
         // this.setData({ items: res.data })

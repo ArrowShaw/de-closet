@@ -7,4 +7,4 @@
   <button class="btn" bindtap="bindViewTap">Start your journey ></button>
 </view>
 
-<tabbar bindtap="goalPage" activeIndex="{{0}}"/>
+<tabbar activeIndex="{{0}}"/>

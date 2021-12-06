@@ -13,9 +13,18 @@ Page({
   },
   // 事件处理函数
   bindViewTap() {
-    wx.navigateTo({
-      url: '/pages/goal/goal'
-    })
+    const { user } = getApp().globalData
+    console.log({user})
+    if (user.max_number > 0) {
+      wx.navigateTo({
+        url: '/pages/closet/closet',
+      })
+    } else {
+      wx.navigateTo({
+        url: '/pages/goal/goal'
+      })
+    }
+    
   },
   onLoad() {
     if (wx.getUserProfile) {

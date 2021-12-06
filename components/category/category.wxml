@@ -3,7 +3,7 @@
 <view class="container">
   <view class="category-bar">
     <text>{{collection.category}}</text>
-    <image class="right-btn" src="/images/icons/right.png"></image>
+    <!-- <image class="right-btn" src="/images/icons/right.png"></image> -->
   </view>
 
   <view>
