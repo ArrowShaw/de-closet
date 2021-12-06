@@ -24,7 +24,7 @@ Page({
       if (num<=200){
         wx.request({
           // url: 'https://de-closet-backend.wogengapp.cn/api/v1/users/update', // real url address
-          url: "http://localhost:3000/api/v1/users/update",
+          url: `${app.globalData.baseUrl}/update`,
           header: header,
           data: data,
           method:'PUT',
