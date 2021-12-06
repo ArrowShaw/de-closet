@@ -12,10 +12,10 @@ App({
       success (res) {
         if (res.code) {
           // send url request
-          // const baseUrl = 'https://de-closet-backend.wogengapp.cn/api/v1';
-          const baseUrl = "http://localhost:3000/api/v1"
+          // const baseUrl = app.globalData.baseUrl;
+          // const baseUrl = "http://localhost:3000/api/v1"
           wx.request({
-            url: `${baseUrl}/login`,
+            url: `${app.globalData.baseUrl}/login`,
             method: 'POST',
             data: {
               code: res.code
@@ -56,6 +56,8 @@ App({
   },
   globalData: {
     header: {},
-    user: {}
+    user: {},
+    baseUrl: "https://de-closet-backend.wogengapp.cn/api/v1"
+    // baseUrl: "http://localhost:3000/api/v1"
   },
 })

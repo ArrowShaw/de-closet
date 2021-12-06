@@ -56,7 +56,7 @@ Component({
       const {header} = getApp().globalData
       console.log('header', {header})
       wx.request({
-        url: 'http://localhost:3000/api/v1/users/show',
+        url: `${baseUrl}/users/show`,
         method: 'GET',
         header: header,
         success (res) {
