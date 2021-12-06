@@ -20,14 +20,14 @@ Component({
     items: [
       {
         'title': 'My Closet',
-        'icon': '/images/icons/home.png',
-        'selectedIcon': '/images/icons/home.png',
+        'icon': '/images/icons/closet.png',
+        'selectedIcon': '/images/icons/closet.png',
         'path': '/pages/closet/closet'
       },
       {
         'title': 'Giveaways',
-        'icon': '/images/icons/me.png',
-        'selectedIcon': '/images/icons/me.png',
+        'icon': '/images/icons/giveaway.png',
+        'selectedIcon': '/images/icons/giveaway.png',
         'path': '/pages/giveaways/giveaways'
       },
     ]

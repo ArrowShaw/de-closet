@@ -1,4 +1,12 @@
 <!--pages/giveaways/giveaways.wxml-->
 <navbar home text='Giveaways' />
+<view class="container">
+  <view class="text">You have {40} items in your giveaways.</view>
+  <view class="list">
+    <image class="photo_container" src="" alt="PHOTO" />
+    <image class="photo_container" src="" alt="PHOTO" />
+    <image class="photo_container" src="" alt="PHOTO" />
+  </view>
+</view>
 
 <tabbar activeIndex="{{1}}"/>

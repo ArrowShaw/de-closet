@@ -2,8 +2,8 @@
 .container {
   display: flex-column;
   flex-wrap: wrap;
-  /* padding: 0rpx 60rpx; */
-  padding-left: 60rpx;
+  padding: 0rpx 60rpx;
+  /* padding-left: 60rpx; */
 }
 
 .photo_container {
