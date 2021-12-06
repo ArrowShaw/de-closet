@@ -1,4 +1,3 @@
 <!--pages/details/details.wxml-->
 <navbar back text='DeCloset'/>
   <item class=""/>
-<tabbar activeIndex="{{2}}"/>
