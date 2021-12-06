@@ -5,7 +5,9 @@
     "pages/upload/upload",
     "pages/logs/logs",
     "pages/closet/closet",
-    "pages/details/details"
+    "pages/details/details",
+    "pages/giveaways/giveaways",
+    "pages/categories/categories"
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -1,0 +1,4 @@
+<!--pages/giveaways/giveaways.wxml-->
+<navbar home text='Giveaways' />
+
+<tabbar activeIndex="{{1}}"/>

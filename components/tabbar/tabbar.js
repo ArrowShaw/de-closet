@@ -6,7 +6,7 @@ Component({
     // categories: [],
     activeIndex: {
       type: Number,
-      value: 1
+      value: null
     },
   },
 
@@ -19,27 +19,25 @@ Component({
     },
     items: [
       {
-        'title': 'Home',
+        'title': 'My Closet',
         'icon': '/images/icons/home.png',
         'selectedIcon': '/images/icons/home.png',
-        'path': '/pages/index/index'
+        'path': '/pages/closet/closet'
       },
       {
-        'title': 'Me',
+        'title': 'Giveaways',
         'icon': '/images/icons/me.png',
         'selectedIcon': '/images/icons/me.png',
-        'path': '/pages/closet/closet'
+        'path': '/pages/giveaways/giveaways'
       },
     ]
   },
 
   methods: {
     onChangeTab(res) {
+      console.log('res', res)
       const index = res.currentTarget.dataset.index;     
       console.log('in onChangeTab Tabbar', {index}) 
-      // wx.switchTab({
-      //   url: this.data.items[index].path
-      // })
       wx.redirectTo({
         url: this.data.items[index].path,
       })
