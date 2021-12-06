@@ -7,9 +7,13 @@ Page({
    * Page initial data
    */
   toUpload(e){
-    wx.navigateTo({
+    console.log('plusDate', app.globalData.max_number)
+    
+    if (app.globalData,max_number){
+      wx.navigateTo({
       url: '/pages/upload/upload',
     })
+    }
   },
   data: {
     max_number: 0
@@ -26,25 +30,39 @@ Page({
     let num=parseInt(data.user.max_number);
     // console.log('yes', typeof(parseInt(num)));
     if (num && num>0) {
-      wx.request({
-            // url: 'https://de-closet-backend.wogengapp.cn/api/v1/users/update', // real url address
-            url: "http://localhost:3000/api/v1/users/update",
-            header: header,
-            data: data,
-            method:'PUT',
-            success (res) {
-            // if successful
-              console.log('INSIDE GOAL.JS', res.data.max_number);
-              // console.log(globalThis);
-              wx.navigateTo({
-                url: '/pages/closet/closet'
-              })
-            },
-            fail(rej){
-            // if fail
-              console.log(111,rej.data)
+      if (num<200){
+        wx.request({
+          // url: 'https://de-closet-backend.wogengapp.cn/api/v1/users/update', // real url address
+          url: "http://localhost:3000/api/v1/users/update",
+          header: header,
+          data: data,
+          method:'PUT',
+          success (res) {
+          // if successful
+            console.log('INSIDE GOAL.JS', res.data.max_number);
+            // console.log(globalThis);
+            wx.navigateTo({
+              url: '/pages/closet/closet'
+            })
+          },
+          fail(rej){
+          // if fail
+            console.log(111,rej.data)
+          }
+        })
+      }else{
+        wx.showModal({
+          title: "Too many",
+          content: 'You cannot have more than 200 items ',
+          success (res) {
+            if (res.confirm) {
+              console.log("User clicks OK.")
+            } else if (res.cancel) {
+              console.log('User clicks to cancel ')
             }
-          })
+
+      }})}
+      
     }else{
       wx.showModal({
         title: "Only Number",
