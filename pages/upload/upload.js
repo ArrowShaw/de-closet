@@ -186,7 +186,7 @@ Page({
     // console.log('radioItems', page.data.radioItems)
     // console.log('It is page:', page.data)
     var header = app.globalData.header;
-    const url = "http://localhost:3000/api/v1/items"
+    const url = `${app.globalData.baseUrl}/items`
     // const url = "https://de-closet-backend.wogengapp.cn/api/v1/items" // real url address
     wx.request({
       url: url,

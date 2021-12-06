@@ -3,10 +3,16 @@
 <view class="top-bar">  
   <image class="clothes-pic" src="/images/icons/clothes.png"></image>  
   <view class="me-section">
-    <image class="img" src="#" />
+    <!-- <image class="img" src="#" /> -->
+    <view class="img" style="overflow: hidden;">
+      <open-data type="userAvatarUrl"></open-data>
+    </view>
     <view class="edit-section">
-      <view class="text">Username</view>
-      <image class="edit-btn" src="/images/icons/edit.png"></image>
+      <view class="text">
+        <!-- Username -->
+        <open-data type="userNickName"></open-data>
+      </view>
+      <!-- <image class="edit-btn" src="/images/icons/edit.png"></image> -->
     </view>
   </view>
 </view>
