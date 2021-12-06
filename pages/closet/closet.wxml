@@ -17,11 +17,12 @@
   </view>
 </view>
 
-
 <view class="category-section text">
   <block wx:for="{{categories}}" wx:key="index">
       <category wx:if="{{item.items.length !== 0}}" collection="{{item}}" class="title"/>
   </block>
 </view>
+
+<view style="height: 80px"> </view>
 
 <tabbar activeIndex="{{2}}"/>
