@@ -6,5 +6,3 @@
   <view class="text">Save your favourite items only</view>
   <button class="btn" bindtap="bindViewTap">Start your journey ></button>
 </view>
-
-<tabbar activeIndex="{{0}}"/>

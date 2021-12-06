@@ -24,4 +24,4 @@
   </block>
 </view>
 
-<tabbar activeIndex="{{2}}"/>
+<tabbar activeIndex="{{0}}"/>
