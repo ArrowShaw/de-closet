@@ -21,7 +21,7 @@ App({
               code: res.code
             },
             success (res) {
-              console.log(res.data)
+              // console.log(res.data)
               app.globalData.header = res.data.headers
               app.globalData.user = res.data.user
               // { "X-USER-EMAIL": ....., "X-USER-TOKEN": ....}
