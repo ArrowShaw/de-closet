@@ -195,8 +195,10 @@ Page({
       method:'POST',
       success (res) {
         console.log('INSIDE UPLOAD.JS', res.data)
-        console.log(url)
-        console.log(page.data)
+        // console.log(url)
+        // console.log(page.data)
+        console.log(`${url}/${res.data.id}/upload`)
+        console.log(page.data.imgSrc)
         wx.uploadFile({
           url: `${url}/${res.data.id}/upload`,
           filePath: page.data.imgSrc,
@@ -208,6 +210,10 @@ Page({
             wx.navigateTo({
               url: '/pages/closet/closet',
             })
+          },
+          fail(err) {
+            console
+            console.log(err)
           }
         })
       }

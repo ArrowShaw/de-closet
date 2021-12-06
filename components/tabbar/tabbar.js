@@ -1,10 +1,12 @@
 // components/tabbar/tabbar.js
-var app = getApp();
+const app = getApp();
+
 Component({
   /**
    * Component properties
    */
   properties: {
+    // categories: [],
     activeIndex: {
       type: Number,
       value: 1
@@ -50,10 +52,44 @@ Component({
     },
 
     onClick() {
-      wx.redirectTo({
-        url: '../../pages/upload/upload'
+      const page=this
+      const {header} = getApp().globalData
+      console.log('header', {header})
+      wx.request({
+        url: 'http://localhost:3000/api/v1/users/show',
+        method: 'GET',
+        header: header,
+        success (res) {
+          console.log('data from backend', res.data),
+          page.setData({
+            max_number: res.data.maxNumber
+          })
+          console.log('max_number', page.data.max_number)
+          app.globalData.max_number = page.data.max_number
+          console.log('globaldata', app.globalData.max_number)
+          // [ {category: "tops", items: [{},{}]}, {category: "bottoms", items: [{},{}] } ]
+          console.log(app.globalData, "asdasds")
+          if (app.globalData.max_number > 0) {
+            wx.redirectTo({
+              url: '../../pages/upload/upload'
+            })
+          } else {
+            wx.redirectTo({
+              url: '../../pages/goal/goal'
+            })
+          }
+        },
+        fail(res) {
+          console.log('failed')
+        }
+
       })
-    }
+    },
+
+    
+
+
+
    
   }
   
