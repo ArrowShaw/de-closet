@@ -1,5 +1,9 @@
 <!--pages/giveaways/giveaways.wxml-->
+
 <navbar home text='Giveaways' />
+<view class="list" wx:for="{{giveaways}}" wx:key="index">
+  <giveaway giveaway="{{item}}"/>
+  
 <view class="container">
   <view class="text">You have {40} items in your giveaways.</view>
   <view class="list">

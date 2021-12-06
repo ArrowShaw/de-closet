@@ -1,28 +1,9 @@
 <!--components/giveaway/giveaway.wxml-->
-<view>{{name}}</view>
 <view class="container">
-  <view class="photo_container">
-    <text>Top</text>
-    <image src="" alt="PHOTO" />
-  </view>
-
-  <view class="photo_container">
-    <text>Bottom</text>
-    <image src="" alt="PHOTO" />
-  </view>
-
-  <view class="photo_container">
-    <text>Shoes</text>
-    <image src="" alt="PHOTO" />
-  </view>
-
-  <view class="photo_container">
-    <text>Coat</text>
-    <image src="" alt="PHOTO" />
-  </view>
-
-  <view class="photo_container">
-    <text>Dresses</text>
-    <image src="" alt="PHOTO" />
+  <view class="category-bar" wx:for="{{giveaway.items}}">
+    <view wx:for_item="{{item}}" wx:if="{{item.is_giveaway}} == true">
+      <image class="photo_container" src="{{item.photo}}"></image>
+    </view>
   </view>
 </view>
+
