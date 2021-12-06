@@ -17,7 +17,11 @@
   width: 60rpx; height: 60rpx;
 }
 
-.category-bar{
+.category-bar {
   display: flex; justify-content: space-between; align-items: center; 
   width: 640rpx;
+}
+
+.category-container {
+  display: flex; gap: 20rpx;
 }
