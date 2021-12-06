@@ -13,4 +13,3 @@
 
 </view>
 
-<tabbar bindtap="toUpload" activeIndex="{{1}}"/>
