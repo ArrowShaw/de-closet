@@ -1,13 +1,13 @@
 <!--pages/upload/upload.wxml-->
 <navbar back text='Upload Item' />
 <view class="container">
-  <view class="text h1" bindtap="">Your closet has a maximum of {{max_number}} pieces, choose wisely!</view>
+  <view class="text h1" bindtap="">You have set a maximum of {{max_number}} pieces, choose wisely!</view>
   <view wx:if="{{imgSrc == '/images/icons/photo.png'}}" class="section addImg" bindtap="chooseImg" name="item_image">
     <image class="upload" src="{{imgSrc}}"></image>
     <view class="text h2">Upload a Photo</view>
   </view>
   <view wx:else class="section addImg" bindtap="chooseImg" name="item_image">
-    <image class="uploadImg" src="{{imgSrc}}"></image>
+    <image mode="aspectFill" class="uploadImg" src="{{imgSrc}}"></image>
   </view>
 
   <view class="section">
@@ -23,7 +23,10 @@
   </view>
 
   <view class="section">
-    <view class="text h2">Pick a Category</view>
+    <view class="small-section">
+      <view class="text h2">Pick a Category</view>
+      <image class="scroll-btn" src="/images/icons/scroll.png"></image>
+    </view>
     <picker-view indicator-style="height: 50px;" style="width: 100%; height: 100px;" value="{{value}}" bindchange="bindChangePicker">
       <picker-view-column class="label">
         <view wx:for="{{categories}}" style="line-height: 50px; text-align: center;">
@@ -46,7 +49,7 @@
   </view>
   <view class="section">  
     <view class="text h2">Description</view>
-    <input bindinput="onInput" name="remark" placeholder="Add more details" />
+    <input bindinput="onInput" name="remark" placeholder="Add more details (optional)" />
   </view>
   <view class="submit-button">
     <button class="btn" formType="submit" bindtap="saveThings">Save</button>
