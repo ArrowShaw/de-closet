@@ -36,6 +36,7 @@ onClick: function() {
     console.log({header})
     wx.request({
       url: 'http://localhost:3000/api/v1/items',
+      // url: 'https://de-closet-backend.wogengapp.cn/api/v1/items', // real url address
       method: 'GET',
       header: header,
       success (res) {
