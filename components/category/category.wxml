@@ -9,8 +9,8 @@
   <view class="category-container">  
     <block wx:if="{{collection.items != 0}}" wx:for="{{collection.items}}">
       <view class="photo_container" wx:for_item="{{item}}">
-        <text>{{item.remark}}</text>
-        <!-- <image src="{{item.photo}}" alt="PHOTO" /> -->
+        <!-- <text>{{item.remark}}</text> -->
+        <image src="{{item.photo}}" alt="PHOTO" />
       </view>
     </block>
   </view>
