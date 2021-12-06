@@ -12,8 +12,8 @@ App({
       success (res) {
         if (res.code) {
           // send url request
-          // const baseUrl = 'https://de-closet-backend.wogengapp.cn/api/v1';
-          const baseUrl = "http://localhost:3000/api/v1"
+          const baseUrl = 'https://de-closet-backend.wogengapp.cn/api/v1';
+          // const baseUrl = "http://localhost:3000/api/v1"
           wx.request({
             url: `${baseUrl}/login`,
             method: 'POST',
