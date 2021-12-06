@@ -21,7 +21,7 @@
 
 .top-bar{
   display: flex; justify-content: center; align-items: center; gap: 60rpx;
-  margin-top: 50rpx;
+  margin: 60rpx 0;
 }
 
 .me-section {
@@ -37,7 +37,7 @@
 }
 
 .category-section {
-  display: flex; flex-direction: row;
+  display: flex; flex-direction: column;
 }
 
 .clothes-pic {

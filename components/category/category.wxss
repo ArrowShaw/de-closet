@@ -2,7 +2,8 @@
 .container {
   display: flex-column;
   flex-wrap: wrap;
-  margin: 60rpx;
+  /* padding: 0rpx 60rpx; */
+  padding-left: 60rpx;
 }
 
 .photo_container {
@@ -24,4 +25,6 @@
 
 .category-container {
   display: flex; gap: 20rpx;
+  width: 100%;
+  overflow-x: scroll;
 }

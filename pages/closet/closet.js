@@ -41,6 +41,7 @@ onClick: function() {
       header: header,
       success (res) {
         console.log('data from backend', res.data)
+        // make sure that res.data is an array that comes that way from the backend
         page.setData({
           categories: res.data
         })
