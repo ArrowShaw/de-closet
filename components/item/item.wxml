@@ -1,8 +1,7 @@
 <!--components/item/item.wxml-->
 <view class="container">
-  <text>{{item.item_type}}</text>
   <view class="photo_container">
-    <image src='{{item.photo}}'/>
+    <image mode="aspectFill" class="uploadImg" src='{{item.photo}}'/>
   </view>
 
   <view class="section">  
@@ -18,7 +17,7 @@
   </view>
 
   <view class="section">  
-    <view class="text">Description</view>
+    <view class="text">Details</view>
     <text>{{item.remark}}</text>
   </view>
   
