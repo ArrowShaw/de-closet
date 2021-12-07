@@ -28,6 +28,22 @@ Component({
    * Component methods
    */
   methods: {
+    detailP: function(e) {
+      let item = JSON.stringify(e.currentTarget.dataset.item)
+      wx.navigateTo({
+        url: `/pages/details/details?item=${item}`,
+      })
+    },
+    arrow: function(e){
+      // let categories = JSON.stringify(e.currentTarget.dataset.item)
+      // wx.navigateTo({
+      //   url: `/pages/details/details?item=${item}`,
+      // })
+      let collection = JSON.stringify(e.currentTarget.dataset.collection)
+      wx.navigateTo({
+        url: `/pages/categories/categories?collection=${collection}`,
+      })
 
+    }
   }
 })

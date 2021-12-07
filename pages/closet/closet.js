@@ -33,7 +33,7 @@ onClick: function() {
   onLoad: function (options) {
     const page = this
     const {header} = getApp().globalData
-    console.log({header})
+    console.log('hey', {header})
     wx.request({
       url: `${app.globalData.baseUrl}/items?req_type=my_closet`,
       method: 'GET',
@@ -48,6 +48,7 @@ onClick: function() {
           user: res.data.user,
           categories: res.data.user_items
         })
+        console.log(page.data)
         // [ {category: "tops", items: [{},{}]}, {category: "bottoms", items: [{},{}] } ]
         // this.setData({ items: res.data })
       }

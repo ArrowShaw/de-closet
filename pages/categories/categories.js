@@ -1,18 +1,33 @@
 // pages/categories/categories.js
 Page({
-
   /**
    * Page initial data
    */
-  data: {
 
+  data: {
+    // options: {
+    //   collection: "photo"
+    // }
   },
+  
 
   /**
    * Lifecycle function--Called when page load
    */
-  onLoad: function (options) {
+  onLoad: function(options){
+    let collection = JSON.parse(options.collection)
+    // collection.forEach(c=>{
+    // let img = c.photo;
+    // })
+    let categoryType = collection[0].item_type
+    let amount = collection.length
+    console.log("collection", collection)
+    this.setData({
+      collection, amount, categoryType
+    })
 
+  
+    
   },
 
   /**

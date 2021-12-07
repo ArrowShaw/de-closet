@@ -1,54 +1,60 @@
 {
-  "setting": {},
-  "condition": {
-    "plugin": {
-      "list": []
-    },
-    "game": {
-      "list": []
-    },
-    "gamePlugin": {
-      "list": []
-    },
-    "miniprogram": {
-      "list": [
-        {
-          "name": "pages/upload/upload",
-          "pathName": "pages/upload/upload",
-          "query": "",
-          "scene": null
+    "setting": {},
+    "condition": {
+        "plugin": {
+            "list": []
         },
-        {
-          "name": "pages/closet/closet",
-          "pathName": "pages/closet/closet",
-          "query": "",
-          "scene": null
+        "game": {
+            "list": []
         },
-        {
-          "name": "pages/goal/goal",
-          "pathName": "pages/goal/goal",
-          "query": "",
-          "scene": null
+        "gamePlugin": {
+            "list": []
         },
-        {
-          "name": "pages/details/details",
-          "pathName": "pages/details/details",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/categories/categories",
-          "pathName": "pages/categories/categories",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/giveaways/giveaways",
-          "pathName": "pages/giveaways/giveaways",
-          "query": "",
-          "scene": null
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "pages/upload/upload",
+                    "pathName": "pages/upload/upload",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/closet/closet",
+                    "pathName": "pages/closet/closet",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/goal/goal",
+                    "pathName": "pages/goal/goal",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/details/details",
+                    "pathName": "pages/details/details",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/categories/categories",
+                    "pathName": "pages/categories/categories",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/giveaways/giveaways",
+                    "pathName": "pages/giveaways/giveaways",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/details/details",
+                    "pathName": "pages/details/details",
+                    "query": "",
+                    "scene": null
+                }
+            ]
         }
-      ]
     }
-  }
 }

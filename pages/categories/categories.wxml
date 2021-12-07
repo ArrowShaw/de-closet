@@ -1,5 +1,16 @@
 <!--pages/categories/categories.wxml-->
-<text>pages/categories/categories.wxml</text>
+<navbar back text='{{categoryType}}'/>
+ 
+<view class="container">
+  <view class="text">You have {{amount}} items in this closet ✨</view>
+  <view wx:for="{{collection}}" class="list">
+    <view wx:for_item="item">
+      <image class="photo_container" src="{{item.photo}}" alt="PHOTO" />
+    </view>
+  </view>
+</view>
+
+<tabbar activeIndex="{{1}}"/>
 
 
 <tabbar />

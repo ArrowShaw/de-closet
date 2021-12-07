@@ -3,7 +3,7 @@
 <view class="container">
   <view class="category-bar">
     <text>{{collection.category}}</text>
-    <image class="right-btn" src="/images/icons/right.png"></image>
+    <image data-collection="{{collection.items}}" bindtap="arrow" class="right-btn" src="/images/icons/right.png"></image>
   </view>
 
   <view>
@@ -12,7 +12,7 @@
       <block wx:if="{{collection.items != 0}}" wx:for="{{collection.items}}">
         <view wx:for_item="{{item}}">
           <!-- <text>{{item.remark}}</text> -->
-          <image class="photo_container" src="{{item.photo}}" alt="PHOTO" />
+          <image bindtap="detailP" data-item="{{item}}" class="photo_container" src="{{item.photo}}" alt="PHOTO" />
         </view>
       </block>
     </view>
