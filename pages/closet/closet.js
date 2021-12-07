@@ -35,7 +35,7 @@ onClick: function() {
     const {header} = getApp().globalData
     console.log('hey', {header})
     wx.request({
-      url: `${app.globalData.baseUrl}/items`,
+      url: `${app.globalData.baseUrl}/items?req_type=my_closet`,
       method: 'GET',
       header: header,
       success (res) {
