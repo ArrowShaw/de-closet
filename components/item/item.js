@@ -59,10 +59,8 @@ Component({
   },
   lifetimes: {
     attached:  function() {
-
-
-
-    }
+      
+        }
   },
   ready: function() {
     console.log("ready")
@@ -79,11 +77,6 @@ Component({
     console.log({typeArray})
     this.setData({typeArray})
     console.log('item component data', this.data)
-  },
-  methods: {
-   dealTap(e){
-     console.log('tagsssssss', e)
-   }
   }
   /**
    * Component methods

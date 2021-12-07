@@ -39,9 +39,9 @@ Component({
       // wx.navigateTo({
       //   url: `/pages/details/details?item=${item}`,
       // })
-      console.log(e)
+      let collection = JSON.stringify(e.currentTarget.dataset.collection)
       wx.navigateTo({
-        url: '/pages/categories/categories',
+        url: `/pages/categories/categories?collection=${collection}`,
       })
 
     }
