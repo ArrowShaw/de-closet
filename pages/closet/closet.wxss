@@ -34,7 +34,7 @@
 }
 
 .edit-btn {
-  width: 54rpx; height: 54rpx;
+  width: 52rpx; height: 52rpx;
 }
 
 .category-section {

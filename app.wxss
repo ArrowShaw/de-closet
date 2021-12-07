@@ -1,4 +1,6 @@
 /**app.wxss**/
+@import './stylesheets/fonts.wxss';
+
 .container {
   height: 100%;
   width: 100%;
@@ -9,3 +11,11 @@
   box-sizing: border-box;
   /* padding: 0 30rpx; */
 } 
+
+.font-noto {
+  font-family: 'noto';
+}
+
+.font-os {
+  font-family: 'OpenSans';
+}

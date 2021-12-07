@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'noto';
+  src: url('https://decloset-j.oss-cn-shanghai.aliyuncs.com/fonts/NotoSans-Regular.ttf');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OpenSans';
+  src: url('https://decloset-j.oss-cn-shanghai.aliyuncs.com/fonts/OpenSans-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OpenSans';
+  src: url('https://decloset-j.oss-cn-shanghai.aliyuncs.com/fonts/OpenSans-Medium.ttf');
+  font-weight: 500;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'OpenSans';
+  src: url('https://decloset-j.oss-cn-shanghai.aliyuncs.com/fonts/OpenSans-SemiBold.ttf');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NotoSC';
+  src: url('https://decloset-j.oss-cn-shanghai.aliyuncs.com/fonts/NotoSansSC-Regular.otf');
+  font-weight: 600;
+  font-style: normal;
+}

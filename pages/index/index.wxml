@@ -2,7 +2,7 @@
 <navbar home text='DeCloset' />
 <view class="container">
   <image class="img" src="/images/head.jpeg" mode="widthFix"></image>
-  <view class="text h1">Declutter your Closet</view>
+  <view class="text font-os h1">Declutter your Closet</view>
   <view class="text">Save your favourite items only</view>
   <button class="btn" bindtap="bindViewTap">Start your journey ></button>
 </view>
