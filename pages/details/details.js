@@ -12,7 +12,10 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    let item = JSON.parse(options.item);
+    let page = this;
+    console.log("this is item", item)
+    page.setData({item: item})
   },
 
   /**
