@@ -1,3 +1,3 @@
 <!--pages/details/details.wxml-->
-<navbar back text='DeCloset'/>
+<navbar back text='{{item.item_type}}'/>
 <item item="{{item}}" class=""/>
