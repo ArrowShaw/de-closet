@@ -1,9 +1,12 @@
 <!--components/giveaway/giveaway.wxml-->
-<view class="container">
-  <view class="category-bar" wx:for="{{giveaway.items}}">
-    <view wx:for_item="{{item}}" wx:if="{{item.is_giveaway}} == true">
-      <image class="photo_container" src="{{item.photo}}"></image>
+<checkbox-group bindchange="checkboxChange">
+  <view class="container">
+    <view class="category-bar" wx:for="{{giveaway.items}}">
+      <checkbox wx:for_item="{{item}}" wx:if="{{item.is_giveaway}} == true">
+        <image class="photo_container" src="{{item.photo}}"></image>
+        <text>{{giveaway.status}}</text>
+      </checkbox>
     </view>
   </view>
-</view>
+</checkbox-group>
 

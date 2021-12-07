@@ -1,16 +1,20 @@
 <!--pages/giveaways/giveaways.wxml-->
 
 <navbar home text='Giveaways' />
-<!-- <view class="list" wx:for="{{giveaways}}" wx:key="index">
-  <giveaway giveaway="{{item}}"/> -->
   
-<view class="container">
-  <view class="text">You have {40} items in your giveaways.</view>
-  <view class="list">
-    <image class="photo_container" src="" alt="PHOTO" />
-    <image class="photo_container" src="" alt="PHOTO" />
-    <image class="photo_container" src="" alt="PHOTO" />
-  </view>
-</view>
+<form class="container" bindsubmit="onClick">
+  <view class="text">You have {{giveaways.length}} items in your giveaways.</view>
+    <checkbox-group class="list" name="selected">
+      <view class="container" wx:for="{{giveaways.items}}" wx:key="value">
+        <checkbox color="#F2CE44" class="category-bar" wx:for_item="{{item}}" value="{{item.id}}" checked="{{item.checked}}">
+          <image class="photo_container" src="{{item.photo}}"></image>
+          <text>{{status[index]}}</text>
+        </checkbox>
+      </view>
+    </checkbox-group>
+    <button form-type="submit">Submit</button>
+  </form>
+
+<button data-user_id="{{currentUser.id}}" open-type="share">Share</button>
 
 <tabbar activeIndex="{{1}}"/>
