@@ -1,4 +1,6 @@
 // pages/giveaways/giveaways.js
+const app = getApp();
+
 Page({
 
   /**
@@ -12,7 +14,22 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    const page = this;
+    const {header} = app.globalData;
+    console.log(app.globalData.baseUrl)
+    wx.request({
+      url: `${app.globalData.baseUrl}/items`,
+      method: 'GET',
+      header: header,
+      success (res) {
+        // console.log('giveaways',res.data.user_items)
+        page.setData({
+          user: res.data.user,
+          giveaways: res.data.user_items
+        })
+        console.log('giveaways', page.data.giveaways)
+      }
+    })
   },
 
   /**

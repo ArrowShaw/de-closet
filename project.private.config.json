@@ -41,6 +41,12 @@
           "pathName": "pages/categories/categories",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/giveaways/giveaways",
+          "pathName": "pages/giveaways/giveaways",
+          "query": "",
+          "scene": null
         }
       ]
     }
