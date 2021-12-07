@@ -55,6 +55,9 @@ Page({
     var { header } = getApp().globalData
     var selected = e.detail.value.selected;
     console.log('selected', selected)
+    wx.getUserProfile(
+      
+    )
     wx.request({
       url: `${app.globalData.baseUrl}/giveaways`,
       method: 'POST',

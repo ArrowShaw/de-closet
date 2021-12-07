@@ -3,7 +3,7 @@
 <navbar home text='Giveaways' />
 
 <form class="container" bindsubmit="onClick">
-  <view class="text">You have {{giveaways.length}} items in your giveaways 💛</view>
+  <view class="text">You have {{giveaways.items.length}} items in your giveaways 💛</view>
     <checkbox-group class="list" name="selected">
       <view class="container" wx:for="{{giveaways.items}}" wx:key="value">
         <checkbox color="#F2CE44" class="category-bar" wx:for_item="{{item}}" value="{{item.id}}" checked="{{item.checked}}">
