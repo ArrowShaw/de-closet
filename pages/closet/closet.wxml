@@ -13,7 +13,7 @@
     </view>
     <view class="edit-section">
       <view class="text font-os">Your Items: 5/40</view>
-      <image class="edit-btn" src="/images/icons/edit.png"></image>
+      <image class="edit-btn" src="/images/icons/edit-yellow.png"></image>
     </view>
   </view>
 </view>

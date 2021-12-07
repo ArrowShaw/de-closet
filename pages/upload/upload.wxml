@@ -1,7 +1,7 @@
 <!--pages/upload/upload.wxml-->
 <navbar back text='Upload Item' />
 <view class="container">
-  <view class="text h1 font-os" bindtap="">You have {{max_number}} spots left in your closet, choose wisely!</view>
+  <view class="text h1" bindtap="">You have {{max_number}} spots left in your closet, choose wisely! </view>
   <view wx:if="{{imgSrc == '/images/icons/photo.png'}}" class="section addImg" bindtap="chooseImg" name="item_image">
     <image class="upload" src="{{imgSrc}}"></image>
     <view class="text h2">Upload a Photo</view>
@@ -11,7 +11,7 @@
   </view>
 
   <view class="section">
-    <view class="text h2">Keep this Item</view>
+    <view class="text h2">Keep for You</view>
     <radio-group class="group" bindchange="radioChange">
       <view class="radio-options">
         <view class="radio-label" wx:for="{{radioItems}}">
@@ -37,7 +37,7 @@
   </view>
 
   <view class="section">
-    <view class="text h2">Pick your Tags</view>
+    <view class="text h2">Pick the Tags</view>
     <view class="tag">
       <block wx:for="{{ typeArray }}">
         <view class="label_view {{item.selected? 'active':''}}" data-value='{{item.name}}' bindtap='dealTap' checked="{{item.selected}}" data-index='{{index}}'>

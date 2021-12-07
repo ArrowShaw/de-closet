@@ -22,7 +22,7 @@
 }
 
 .upload {
-  width: 100rpx; height: 100rpx;
+  width: 110rpx; height: 100rpx;
 }
 
 .uploadImg {
