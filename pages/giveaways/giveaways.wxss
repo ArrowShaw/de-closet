@@ -23,4 +23,5 @@
   font-size: 40rpx;
   font-weight: 500;
   margin-bottom: 60rpx;
+  color: #18181A;
 }
