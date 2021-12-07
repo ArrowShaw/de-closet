@@ -7,18 +7,18 @@
     <view class="img" style="overflow: hidden;">
       <open-data type="userAvatarUrl"></open-data>
     </view>
-    <view class="text">
+    <view class="text font-os">
       <!-- Username -->
       <open-data type="userNickName"></open-data>
     </view>
     <view class="edit-section">
-      <view class="text">Your Items: 5/40</view>
+      <view class="text font-os">Your Items: 5/40</view>
       <image class="edit-btn" src="/images/icons/edit.png"></image>
     </view>
   </view>
 </view>
 
-<view class="category-section text">
+<view class="category-section text font-os">
   <block wx:for="{{categories}}" wx:key="index">
       <category wx:if="{{item.items.length !== 0}}" collection="{{item}}" class="title"/>
   </block>
