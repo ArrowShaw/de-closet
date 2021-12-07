@@ -1,5 +1,15 @@
 <!--pages/categories/categories.wxml-->
-<text>pages/categories/categories.wxml</text>
+<navbar back text='Top'/>
+<view class="container">
+  <view class="text">You have {5} items in this closet ✨</view>
+  <view class="list">
+    <image class="photo_container" src="" alt="PHOTO" />
+    <image class="photo_container" src="" alt="PHOTO" />
+    <image class="photo_container" src="" alt="PHOTO" />
+  </view>
+</view>
+
+<tabbar activeIndex="{{1}}"/>
 
 
 <tabbar />
