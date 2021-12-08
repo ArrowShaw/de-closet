@@ -1,7 +1,6 @@
 {
   "usingComponents": {
     "navbar": "/components/navbar/navbar",
-    "tabbar": "/components/tabbar/tabbar",
     "giveaway-items": "/components/giveaway-items/giveaway-items"
   }
 }

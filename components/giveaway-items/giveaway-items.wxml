@@ -1,0 +1,10 @@
+<!--components/giveaway-items/giveaway-items.wxml-->
+<view class="list">  
+  <block wx:for="{{giveaways}}" wx:key="value">
+    <view value="{{item.id}}" checked="{{item.checked}}">
+      <navigator url="/pages/details/details?id={{item.id}}">
+        <image mode="aspectFill" class="photo_container" src="{{item.photo}}"></image>
+      </navigator>
+    </view>
+  </block>
+</view>

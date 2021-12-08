@@ -136,7 +136,7 @@ Page({
       return {
         title: 'Check out my giveaways! 👀',
         imageUrl: '/images/head.jpeg',
-        path: `/pages/giveaways/giveaways?user_id=${options.target.dataset.user_id}`
+        path: `/pages/giveaways/share?user_id=${options.target.dataset.user_id}`
       }
     } else {
       return {
