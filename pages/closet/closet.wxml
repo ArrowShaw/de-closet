@@ -13,13 +13,17 @@
     </view>
     <view class="edit-section">
       <view class="text">Your Items: {{currentNum}}/{{targetNum}}</view>
-      <!-- <image class="edit-btn" src="/images/icons/edit-yellow.png"></image> -->
+      <image class="edit-btn" src="/images/icons/edit-yellow.png"></image>
     </view>
   </view>
 </view>
 
 <view class="category-section text">
-  <view class="text" wx:if="{{currentNum == 0}}">Your closet is currently empty. Go to add your favourite items! </view>
+  <view class="empty-section" wx:if="{{currentNum == 0}}">
+    <image class="empty-btn" src="/images/icons/smile.png"></image>
+    <text>Your closet is empty.\n </text>
+    <text>Go to add your favourite items! </text>
+  </view>
   <block wx:if="{{currentNum > 0}}" wx:for="{{categories}}" wx:key="index">
       <category wx:if="{{item.items.length !== 0}}" collection="{{item}}" class="title"/>
   </block>
