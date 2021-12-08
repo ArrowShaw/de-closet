@@ -45,7 +45,7 @@ Page({
           targetNum: res.data.user.max_number,
           user: res.data.user
         })
-        if(page.data.giveaways.items.length > 1){
+        if(page.data.giveaways.length > 1){
           page.setData({
             itemName: 'items'
           })
