@@ -57,6 +57,7 @@ Page({
   onLoad: function (options) {
     // let item = JSON.parse(options.item);
     let page = this;
+    let { header } = app.globalData;
     const { id } = options;
     this.setData({
       currentUser: app.globalData.user
@@ -97,28 +98,12 @@ Page({
    * Lifecycle function--Called when page is initially rendered
    */
   onReady: function () {
-    // console.log("ready")
-    // let tag_list = this.data.item.tag_list;
-    // let { typeArray } = this.data
-    // tag_list.forEach(tag => {
-    //   // {
-    //   //   name: 'work',
-    //   //   num: 7,
-    //   //   selected: false,
-    //   // }
-    //   typeArray.filter(element => element.name === tag)[0].selected = true
-    // })
-    // console.log('typeArray changed', {typeArray})
-    // this.setData({typeArray})
-    // console.log('item component data', this.data)
   },
 
   // checkbox
   onClick: function(){
     const page = this;
-    const { header } = getApp().globalData
-    const selected = e.detail.value.selected;
-    console.log('selected', selected)
+    let { header } = app.globalData;
     wx.getUserProfile({
       desc: 'for completing user file', // declaire how the info is used
       success: (res) => {
@@ -126,13 +111,32 @@ Page({
           userInfo: res.userInfo,
           hasUserInfo: true
         })
+        wx.request({
+          url: `${app.globalData.baseUrl}/giveaways`,
+          data: {
+            user: {
+              nickname: page.data.userInfo.nickName,
+              avatar: page.data.userInfo.avatarUrl
+            }
+          },
+          header: app.globalData.header,
+          method: 'POST',
+          success (res) {
+            console.log(res)
+          }
+        })
+        wx.showToast({
+          title: 'success',
+          icon: 'success',
+          duration: 1000
+        })
       }
     })
     wx.request({
       url: `${app.globalData.baseUrl}/giveaways`,
       method: 'POST',
       header: header,
-      data: { selected: selected, userInfo: userInfo },
+      data: { userInfo: page.data.userInfo },
       success (res) {
         console.log(res.data)
       }
