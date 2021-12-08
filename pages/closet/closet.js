@@ -28,6 +28,18 @@ onClick: function() {
     })
   },
 
+  onClickAll: function() {
+
+  },
+
+  onClickSpring: function() {
+    console.log('page data', this.data)
+    // this.setData({
+    //   categories
+    // })
+    // console.log(categories)
+  },
+
 
   /**
    * Lifecycle function--Called when page load

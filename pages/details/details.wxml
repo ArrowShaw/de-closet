@@ -7,18 +7,18 @@
 
 <button wx:if="{{item.is_giveaway === true&&item.user_id !== currentUser.id}}" bindtap="onClick">I want this!</button>
 
-  <view class="section">  
+  <view class="section" wx:if="{{tagExist}}">  
     <view class="text">Tags</view>
     <view class="tag">
         <block wx:for="{{ typeArray }}" wx:for-item="tag">
-          <view class="label_view {{tag.selected? 'active':''}}">
+          <view class="label_view {{tag.selected? 'active':''}}" wx:if="{{tag.selected}}">
             {{ tag.name }}
           </view>
         </block>
     </view>
   </view>
 
-  <view class="section">  
+  <view class="section" wx:if="{{item.remark}}">  
     <view class="text">Details</view>
     <text>{{item.remark}}</text>
   </view>
