@@ -56,8 +56,11 @@ Page({
    */
   onLoad: function (options) {
     // let item = JSON.parse(options.item);
-    const { id } = options
     let page = this;
+    const { id } = options;
+    this.setData({
+      currentUser: app.globalData.user
+    })
     wx.request({
       url: `${app.globalData.baseUrl}/items/${id}`,
       header: app.globalData.header,
