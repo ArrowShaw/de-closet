@@ -1,5 +1,5 @@
 <!--pages/closet/closet.wxml-->
-<navbar home text='DeCloset' />
+<navbar home text='My Closet' />
 <view class="top-bar">  
   <image class="clothes-pic" src="/images/icons/clothes.png"></image>  
   <view class="me-section">
