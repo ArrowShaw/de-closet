@@ -46,9 +46,12 @@ onClick: function() {
         // })
         page.setData({
           user: res.data.user,
-          categories: res.data.user_items
+          categories: res.data.user_items,
+          targetNum: res.data.user.max_number,
+          currentNum: res.data.number_of_items
         })
         console.log(page.data)
+        console.log(res.data.number_of_items)
         // [ {category: "tops", items: [{},{}]}, {category: "bottoms", items: [{},{}] } ]
         // this.setData({ items: res.data })
       }
