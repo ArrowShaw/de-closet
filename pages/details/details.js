@@ -77,38 +77,44 @@ Page({
       // }
       typeArray.filter(element => element.name === tag)[0].selected = true
     })
-    console.log({typeArray})
+    console.log('typeArray changed', {typeArray})
     this.setData({typeArray})
     console.log('item component data', this.data)
 
   },
 
   // checkbox
-  checkboxChange: function(e){
-    console.log('value from checkbox', e)
-    const page = this;
-    page.setData({
-      checked:!this.data.checked
-      })
-    const { header } = getApp().globalData
-    const selected = e.detail.value.selected;
-    console.log('selected', selected)
-    wx.getUserProfile({
-      desc: 'for completing user file', // declaire how the info is used
-      success: (res) => {
-        this.setData({
-          userInfo: res.userInfo
-        })
-      }
-    })
-    wx.request({
-      url: `${app.globalData.baseUrl}/giveaways`,
-      method: 'POST',
-      header: header,
-      data: { selected: selected, userInfo: userInfo },
-      success (res) {
-        console.log(res.data)
-      }
+  // checkboxChange: function(e){
+  //   console.log('value from checkbox', e)
+  //   const page = this;
+  //   page.setData({
+  //     checked:!this.data.checked
+  //     })
+  //   const { header } = getApp().globalData
+  //   const selected = e.detail.value.selected;
+  //   console.log('selected', selected)
+  //   wx.getUserProfile({
+  //     desc: 'for completing user file', // declaire how the info is used
+  //     success: (res) => {
+  //       this.setData({
+  //         userInfo: res.userInfo
+  //       })
+  //     }
+  //   })
+  //   wx.request({
+  //     url: `${app.globalData.baseUrl}/giveaways`,
+  //     method: 'POST',
+  //     header: header,
+  //     data: { selected: selected, userInfo: userInfo },
+  //     success (res) {
+  //       console.log(res.data)
+  //     }
+  //   })
+  // },
+
+  editItem: function(){
+    wx.navigateTo({
+      url: `/pages/update/update?item_id=${this.data.item.id}`,
     })
   },
 

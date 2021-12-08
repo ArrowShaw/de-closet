@@ -14,7 +14,6 @@
           <view class="label_view {{tag.selected? 'active':''}}">
             {{ tag.name }}
           </view>
-         
         </block>
     </view>
   </view>
@@ -25,7 +24,7 @@
   </view>
   
   <view class="submit-button">
-    <button class="btn" >Edit</button>
+    <button class="btn" bindtap="editItem">Edit</button>
     <button class="btn" >Delete</button>
   </view>
 </view>

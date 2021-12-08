@@ -7,7 +7,8 @@
     "pages/closet/closet",
     "pages/details/details",
     "pages/giveaways/giveaways",
-    "pages/categories/categories"
+    "pages/categories/categories",
+    "pages/update/update"
   ],
   "window":{
     "backgroundTextStyle":"light",
