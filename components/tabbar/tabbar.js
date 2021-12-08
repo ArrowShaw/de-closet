@@ -17,12 +17,6 @@ Component({
   },
 
   data: {
-    add: {
-      'title': 'Add',
-      'icon': '/images/icons/add.png',
-      'selectedIcon': '/images/icons/add.png',
-      'path': '/pages/upload/upload',
-    },
     items: [
       {
         'title': 'My Closet',
@@ -84,7 +78,7 @@ Component({
           console.log(app.globalData, "asdasds")
           if (page.data.targetNum  > 0 && page.data.currentNum < page.data.targetNum) {
             wx.navigateTo({
-              url: '/pages/upload/upload'
+              url: `/pages/upload/upload?targetNum=${page.data.targetNum}&currentNum=${page.data.currentNum}`
             })
           } else if(page.data.currentNum = page.data.targetNum ) {
             wx.showModal({
