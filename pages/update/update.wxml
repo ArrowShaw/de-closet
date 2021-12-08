@@ -7,7 +7,7 @@
   </view> -->
   <!-- <view wx:else class="section addImg" bindtap="chooseImg" name="item_image"> -->
   <view class="section addImg" bindtap="chooseImg" name="item_image">
-    <image mode="aspectFill" class="uploadImg" src="{{item.photo}}"></image>
+    <image mode="aspectFill" class="uploadImg" src="{{imgSrc}}"></image>
   </view>
 
   <view class="section">

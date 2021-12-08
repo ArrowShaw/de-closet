@@ -24,6 +24,7 @@ App({
               // console.log(res.data)
               app.globalData.header = res.data.headers
               app.globalData.user = res.data.user
+              console.log(res.data.user)
               wx.event.emit('headersReady')
               // { "X-USER-EMAIL": ....., "X-USER-TOKEN": ....}
             }
