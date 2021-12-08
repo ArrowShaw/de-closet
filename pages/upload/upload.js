@@ -209,11 +209,11 @@ Page({
             console.log('is_giveaway', page.data.is_giveaway)
             const data = res.data
             if(page.data.is_giveaway == true ){
-              wx.navigateTo({
+              wx.reLaunch({
                 url: '/pages/giveaways/giveaways'
               })
             } else {
-              wx.navigateTo({
+              wx.reLaunch({
                 url: '/pages/closet/closet',
               })
             }

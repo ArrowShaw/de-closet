@@ -17,7 +17,7 @@ Page({
 
     // upload page data
     is_giveaway: false,
-    item_type: 'Top',
+    item_type: 'Tops',
     tag_list: [],
     remark: '',
     imgSrc: '/images/icons/photo.png',
@@ -212,11 +212,11 @@ Page({
         if(page.data.imgSrc == page.data.originalPhoto){
           console.log('user did not upload new photo')
           if(page.data.is_giveaway == true ){
-            wx.navigateTo({
+            wx.reLaunch({
               url: '/pages/giveaways/giveaways'
             })
           } else {
-            wx.navigateTo({
+            wx.reLaunch({
               url: '/pages/closet/closet',
             })
           }

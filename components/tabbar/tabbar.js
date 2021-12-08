@@ -80,7 +80,7 @@ Component({
             wx.navigateTo({
               url: `/pages/upload/upload?targetNum=${page.data.targetNum}&currentNum=${page.data.currentNum}`
             })
-          } else if(page.data.currentNum = page.data.targetNum ) {
+          } else if(page.data.currentNum === page.data.targetNum ) {
             wx.showModal({
               title: "Warning",
               content: 'You have reached your closet limit.',
