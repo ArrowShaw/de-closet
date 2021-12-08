@@ -1,13 +1,17 @@
 <!--pages/giveaways/giveaways.wxml-->
 <navbar home text='Giveaways' />
 
-<view class="text">You have {{giveaways.items.length}} {{itemName}} in your giveaways 💛</view>
-<block class="container" wx:for="{{giveaways.items}}" wx:key="value">
-  <view color="#F2CE44" class="category-bar" wx:for_item="{{item}}" value="{{item.id}}" checked="{{item.checked}}">
-    <image class="photo_container" src="{{item.photo}}"></image>
+<view class="container">
+  <view class="text">You have {{giveaways.items.length}} {{itemName}} in your giveaways 💛</view>
+  <view class="list">  
+    <block class="container" wx:for="{{giveaways.items}}" wx:key="value">
+      <view color="#F2CE44" class="category-bar" wx:for_item="{{item}}" value="{{item.id}}" checked="{{item.checked}}">
+        <image class="photo_container" src="{{item.photo}}"></image>
+      </view>
+    </block>
   </view>
-</block>
+  <button class="btn" data-user_id="{{currentUser.id}}" open-type="share">Share your Closet</button>
+</view>
 
-<button data-user_id="{{currentUser.id}}" open-type="share">Share</button>
 
-<tabbar activeIndex="{{1}}"/>
+<!-- <tabbar activeIndex="{{1}}"/> -->
