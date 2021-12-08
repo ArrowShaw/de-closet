@@ -20,7 +20,7 @@
 
 <view class="category-section text">
   <view class="empty-section" wx:if="{{currentNum == 0}}">
-    <image class="empty-btn" src="/images/icons/smile.png"></image>
+    <image class="empty-btn" src="/images/icons/emptyt.png"></image>
     <text>Your closet is empty.\n </text>
     <text>Go to add your favourite items! </text>
   </view>
