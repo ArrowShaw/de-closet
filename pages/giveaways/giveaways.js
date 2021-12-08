@@ -131,13 +131,13 @@ Page({
 
     if (options.target && options.target.dataset.user_id) {
       return {
-        title: 'Look at my giveaways!',
+        title: 'Check out my giveaways! 👀',
         imageUrl: '/images/head.jpeg',
         path: `/pages/giveaways/giveaways?user_id=${options.target.dataset.user_id}`
       }
     } else {
       return {
-        title: 'Declutter your closet with De-Closet',
+        title: 'DeCloset - delutter your closet, save your favourite items only 💗',
         imageUrl: '/images/head.jpeg',
         path: '/pages/index/index'
       }

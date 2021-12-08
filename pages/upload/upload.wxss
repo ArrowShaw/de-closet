@@ -94,8 +94,8 @@
 .btn{
   font-size: 38rpx;
   width: 300rpx !important;
-  border-radius: 16rpx;
-  padding: 18rpx;
+  border-radius: 20rpx;
+  padding: 16rpx;
   color: white;
   background-color: #7EBC69;
 }

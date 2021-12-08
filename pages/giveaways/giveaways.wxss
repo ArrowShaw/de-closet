@@ -28,10 +28,10 @@
 
 .btn {
   font-size: 38rpx;
-  width: 640rpx !important;
+  width: 480rpx !important;
   padding: 16rpx;
   margin-top: 120rpx;
   color: white;
   background-color: #7EBC69;
-  border-radius: 30rpx;
+  border-radius: 20rpx;
 }

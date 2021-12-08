@@ -23,11 +23,11 @@
 }
 
 .btn {
-  font-size: 36rpx;
+  font-size: 38rpx;
   width: 640rpx !important;
-  padding: 18rpx;
+  padding: 16rpx;
   color: white;
   background-color: #7EBC69;
   margin-top: 300rpx;
-  border-radius: 28rpx;
+  border-radius: 30rpx;
 }
