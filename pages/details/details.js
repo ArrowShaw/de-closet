@@ -1,4 +1,5 @@
 // pages/details/details.js
+const app = getApp()
 Page({
 
   /**
@@ -56,30 +57,35 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    let item = JSON.parse(options.item);
+    // let item = JSON.parse(options.item);
+    const { id } = options
     let page = this;
-    console.log("this is item", item)
-    page.setData({item: item})
+    wx.request({
+      url: `${app.globalData.baseUrl}/items/${id}`,
+      header: app.globalData.header,
+      success(res) {
+        console.log('show route res', res)
+        page.setData({
+          item: res.data.item
+        })
+        let tag_list = res.data.item.tag_list;
+        let { typeArray } = page.data
+        tag_list.forEach(tag => {
+          typeArray.filter(element => element.name === tag)[0].selected = true
+        })
+        console.log({typeArray})
+        page.setData({typeArray})
+        console.log('item component data', page.data)
+      }
+    })
+    // console.log("this is item", item)
+    // page.setData({item: item})
   },
 
   /**
    * Lifecycle function--Called when page is initially rendered
    */
   onReady: function () {
-    console.log("ready")
-    let tag_list = this.data.item.tag_list;
-    let { typeArray } = this.data
-    tag_list.forEach(tag => {
-      // {
-      //   name: 'work',
-      //   num: 7,
-      //   selected: false,
-      // }
-      typeArray.filter(element => element.name === tag)[0].selected = true
-    })
-    console.log({typeArray})
-    this.setData({typeArray})
-    console.log('item component data', this.data)
 
   },
 
