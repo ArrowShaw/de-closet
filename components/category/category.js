@@ -29,9 +29,11 @@ Component({
    */
   methods: {
     detailP: function(e) {
-      let item = JSON.stringify(e.currentTarget.dataset.item)
+      console.log({e})
+      const { id } = e.currentTarget.dataset
+      // let item = JSON.stringify(e.currentTarget.dataset.item)
       wx.navigateTo({
-        url: `/pages/details/details?item=${item}`,
+        url: `/pages/details/details?id=${id}`,
       })
     },
     arrow: function(e){
