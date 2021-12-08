@@ -6,7 +6,7 @@
   <view class="list"> 
     <view wx:for="{{collection}}">
       <navigator url="/pages/details/details?id={{item.id}}">
-        <image class="photo_container" src="{{item.photo}}" alt="PHOTO" />
+        <image mode="aspectFill" class="photo_container" src="{{item.photo}}" alt="PHOTO" />
       </navigator>
     </view>
   </view>

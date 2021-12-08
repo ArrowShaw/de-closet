@@ -30,7 +30,7 @@
   font-size: 38rpx;
   width: 640rpx !important;
   padding: 16rpx;
-  margin-top: 100rpx;
+  margin-top: 120rpx;
   color: white;
   background-color: #7EBC69;
   border-radius: 30rpx;
