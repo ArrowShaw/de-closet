@@ -39,7 +39,6 @@
 
 .category-section {
   display: flex; flex-direction: column;
-  padding: 60rpx;
 }
 
 .clothes-pic {
