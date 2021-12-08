@@ -1,6 +1,6 @@
 /* pages/details/details.wxss */
 .container{
-  margin: 60rpx 60rpx;
+  padding: 60rpx 60rpx;
 }
 
 .text {
@@ -13,7 +13,7 @@
   height: 640rpx;
   background-color: #FFFFFF;
   border-radius: 10rpx;
-  margin: 60rpx auto;
+  margin: auto;
 }
 
 .uploadImg {
