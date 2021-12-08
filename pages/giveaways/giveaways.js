@@ -40,7 +40,10 @@ Page({
       success (res) {
         console.log('giveaways',res.data)
         page.setData({
-          giveaways: res.data
+          giveaways: res.data.items,
+          currentNum: res.data.number_of_items,
+          targetNum: res.data.user.max_number,
+          user: res.data.user
         })
         if(page.data.giveaways.items.length > 1){
           page.setData({

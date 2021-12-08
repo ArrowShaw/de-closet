@@ -11,8 +11,8 @@
     </view>
   </view>
 </view>
-
+<!-- 
 <tabbar activeIndex="{{1}}"/>
 
 
-<tabbar />
+<tabbar /> -->

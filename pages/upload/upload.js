@@ -238,6 +238,8 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
+      currentNum: options.currentNum,
+      targetNum: options.targetNum,
       max_number: app.globalData.max_number
     });
     // console.log('local max number', this.data.max_number)
