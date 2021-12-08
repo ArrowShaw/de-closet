@@ -77,15 +77,16 @@ Page({
         console.log({typeArray})
         page.setData({typeArray})
         console.log('item component data', page.data)
-      }
-      if(tag_list == []){
-        page.setData({
-          tagExist: false
-        })
-      }else{
-        page.setData({
-          tagExist: true
-        })
+        if(tag_list.length != 0){
+          page.setData({
+            tagExist: true
+          })
+        }else{
+          page.setData({
+            tagExist: false
+          })
+        }
+        console.log(page.data.tagExist)
       }
     })
     // console.log("this is item", item)
