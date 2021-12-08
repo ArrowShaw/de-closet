@@ -8,6 +8,7 @@ Page({
     // options: {
     //   collection: "photo"
     // }
+    itemName: 'item'
   },
   
 
@@ -25,9 +26,11 @@ Page({
     this.setData({
       collection, amount, categoryType
     })
-
-  
-    
+    if(amount > 1){
+      page.setData({
+        itemName: 'items'
+      })
+    }
   },
 
   /**

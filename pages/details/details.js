@@ -5,6 +5,8 @@ Page({
    * Page initial data
    */
   data: {
+    selected: [],
+    checked: false,
     typeArray: [
       {
         name: 'spring',
@@ -79,6 +81,35 @@ Page({
     this.setData({typeArray})
     console.log('item component data', this.data)
 
+  },
+
+  // checkbox
+  checkboxChange: function(e){
+    console.log('value from checkbox', e)
+    const page = this;
+    page.setData({
+      checked:!this.data.checked
+      })
+    const { header } = getApp().globalData
+    const selected = e.detail.value.selected;
+    console.log('selected', selected)
+    wx.getUserProfile({
+      desc: 'for completing user file', // declaire how the info is used
+      success: (res) => {
+        this.setData({
+          userInfo: res.userInfo
+        })
+      }
+    })
+    wx.request({
+      url: `${app.globalData.baseUrl}/giveaways`,
+      method: 'POST',
+      header: header,
+      data: { selected: selected, userInfo: userInfo },
+      success (res) {
+        console.log(res.data)
+      }
+    })
   },
 
   /**

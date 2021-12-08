@@ -5,6 +5,8 @@
     <image mode="aspectFill" class="uploadImg" src='{{item.photo}}'/>
   </view>
 
+<!-- <checkbox checked="{{checked}}" bindtap="checkboxChange">I want this!</checkbox> -->
+
   <view class="section">  
     <view class="text">Tags</view>
     <view class="tag">

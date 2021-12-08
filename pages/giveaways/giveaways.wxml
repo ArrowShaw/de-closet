@@ -2,18 +2,12 @@
 
 <navbar home text='Giveaways' />
 
-<form class="container" bindsubmit="onClick">
-  <view class="text">You have {{giveaways.items.length}} items in your giveaways 💛</view>
-    <checkbox-group class="list" name="selected">
-      <view class="container" wx:for="{{giveaways.items}}" wx:key="value">
-        <checkbox color="#F2CE44" class="category-bar" wx:for_item="{{item}}" value="{{item.id}}" checked="{{item.checked}}">
-          <image class="photo_container" src="{{item.photo}}"></image>
-          <text>{{status[index]}}</text>
-        </checkbox>
+  <view class="text">You have {{giveaways.items.length}} {{itemName}} in your giveaways 💛</view>
+    <block class="container" wx:for="{{giveaways.items}}" wx:key="value">
+      <view color="#F2CE44" class="category-bar" wx:for_item="{{item}}" value="{{item.id}}" checked="{{item.checked}}">
+        <image class="photo_container" src="{{item.photo}}"></image>
       </view>
-    </checkbox-group>
-    <button form-type="submit">Submit</button>
-  </form>
+    </block>
 
 <button data-user_id="{{currentUser.id}}" open-type="share">Share</button>
 
