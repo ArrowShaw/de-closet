@@ -23,7 +23,9 @@ Page({
   },
 
 onClick: function() {
-    
+    wx.redirectTo({
+      url: '/pages/goal/goal',
+    })
   },
 
 

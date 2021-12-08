@@ -59,30 +59,30 @@ Page({
     })
   },
 
-  onClick: function(e) {
-    const page = this;
-    console.log('value from form', e.detail.value)
-    var { header } = getApp().globalData
-    var selected = e.detail.value.selected;
-    console.log('selected', selected)
-    wx.getUserProfile({
-      desc: 'for completing user file', // declaire how the info is used
-      success: (res) => {
-        this.setData({
-          userInfo: res.userInfo
-        })
-      }
-    })
-    wx.request({
-      url: `${app.globalData.baseUrl}/giveaways`,
-      method: 'POST',
-      header: header,
-      data: { selected: selected, userInfo: userInfo },
-      success (res) {
-        console.log(res.data)
-      }
-    })
-  },
+  // onClick: function(e) {
+  //   const page = this;
+  //   console.log('value from form', e.detail.value)
+  //   var { header } = getApp().globalData
+  //   var selected = e.detail.value.selected;
+  //   console.log('selected', selected)
+  //   wx.getUserProfile({
+  //     desc: 'for completing user file', // declaire how the info is used
+  //     success: (res) => {
+  //       this.setData({
+  //         userInfo: res.userInfo
+  //       })
+  //     }
+  //   })
+  //   wx.request({
+  //     url: `${app.globalData.baseUrl}/giveaways`,
+  //     method: 'POST',
+  //     header: header,
+  //     data: { selected: selected, userInfo: userInfo },
+  //     success (res) {
+  //       console.log(res.data)
+  //     }
+  //   })
+  // },
 
   /**
    * Lifecycle function--Called when page is initially rendered
