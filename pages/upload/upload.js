@@ -206,10 +206,17 @@ Page({
           header: header,
           success(res) {
             console.log('this is for upload file', res)
+            console.log('is_giveaway', page.data.is_giveaway)
             const data = res.data
-            wx.navigateTo({
-              url: '/pages/closet/closet',
-            })
+            if(page.data.is_giveaway == true ){
+              wx.navigateTo({
+                url: '/pages/giveaways/giveaways'
+              })
+            } else {
+              wx.navigateTo({
+                url: '/pages/closet/closet',
+              })
+            }
           },
           fail(err) {
             console
