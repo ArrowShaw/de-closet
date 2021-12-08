@@ -52,7 +52,7 @@ Component({
       if (header) {
         this.checkMaxNumber();
       } else {
-        wx.event.on('headersReady', this, checkMaxNumber)
+        wx.event.on('headersReady', this, this.checkMaxNumber)
       }
     },
 
