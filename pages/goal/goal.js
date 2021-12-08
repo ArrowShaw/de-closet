@@ -57,7 +57,9 @@ Page({
               console.log('User clicks to cancel ')
             }
 
-      }})}
+        }
+      })
+    }
       
     }else{
       wx.showModal({
