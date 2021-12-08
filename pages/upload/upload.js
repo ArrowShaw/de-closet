@@ -287,10 +287,10 @@ Page({
   /**
    * Called when user click on the top right corner to share
    */
-  onShareAppMessage: function () {
-    return {
-      title: 'upload',
-      path: 'pages/upload/upload'
-    }
-  }
+  // onShareAppMessage: function () {
+  //   return {
+  //     title: 'upload',
+  //     path: 'pages/upload/upload'
+  //   }
+  // }
 })

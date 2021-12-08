@@ -58,5 +58,12 @@ Page({
     wx.navigateTo({
       url: '/pages/goal/goal',
     })
+  },
+  onShareAppMessage: function () {
+    return {
+      title: 'DeCloset - delutter your closet, save your favourite items only 💗',
+      imageUrl: '/images/head.jpeg',
+      path: '/pages/index/index'
+    }
   }
 })

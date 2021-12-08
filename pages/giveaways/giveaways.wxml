@@ -15,5 +15,6 @@
   <button class="btn" data-user_id="{{currentUser.id}}" open-type="share">Share your giveaways</button>
 </view>
 
+<view style="height:80px"></view>
 
-<!-- <tabbar activeIndex="{{1}}"/> -->
+<tabbar activeIndex="{{1}}"/>

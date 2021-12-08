@@ -129,7 +129,11 @@ Page({
   /**
    * Called when user click on the top right corner to share
    */
-  onShareAppMessage: function () {
-
-  }
+  // onShareAppMessage: function () {
+  //   return {
+  //     title: 'DeCloset - delutter your closet, save your favourite items only 💗',
+  //     imageUrl: '/images/head.jpeg',
+  //     path: '/pages/index/index'
+  //   }
+  // }
 })
