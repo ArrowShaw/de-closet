@@ -5,7 +5,7 @@
     <image mode="aspectFill" class="uploadImg" src='{{item.photo}}'/>
   </view>
 
-<button bindtap="onClick">I want this!</button>
+<button wx:if="{{item.is_giveaway === true&&item.user_id !== currentUser.id}}" bindtap="onClick">I want this!</button>
 
   <view class="section">  
     <view class="text">Tags</view>
@@ -23,7 +23,7 @@
     <text>{{item.remark}}</text>
   </view>
   
-  <view class="submit-button">
+  <view class="submit-button" wx:if="{{item.user_id === currentUser.id}}">
     <button class="btn" bindtap="editItem">Edit</button>
     <button class="btn" bindtap="deleteItem">Delete</button>
   </view>
