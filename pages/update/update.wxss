@@ -1,0 +1,107 @@
+/* pages/update/update.wxss */
+.text {
+  font-size: 36rpx;
+  color:#18181A;
+}
+
+.section {
+  width: 640rpx;
+  height: 240rpx;
+  display: flex; flex-direction: column; justify-content: center; align-items: center; gap:20rpx;
+  margin: 30rpx 58rpx;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  background-color: #FFFFFF;
+  border-radius: 20rpx;
+  padding: 16rpx 0;
+}
+
+.addImg {
+  height: 380rpx !important;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap:20rpx;
+  box-sizing: border-box;
+}
+
+.upload {
+  width: 110rpx; height: 100rpx;
+}
+
+.uploadImg {
+  width: 340rpx;
+  height: 340rpx;
+}
+
+.h1 {
+  padding: 0 58rpx 30rpx;
+  font-size: 40rpx;
+  font-weight: 500;
+}
+
+.h2 {
+  text-align: center;
+}
+
+.radio-label {
+  color: #C4C4C4;
+  font-size: 32rpx;
+}
+
+.label {
+  color: #F2CE44;
+  font-size: 32rpx;
+}
+
+.small-section {
+  display: flex; justify-content: center; align-items: center; gap: 20rpx;
+}
+
+.scroll-btn {
+  width: 45rpx; height: 45rpx;
+}
+
+.radio-options{
+  display: flex;
+  gap: 300rpx;
+}
+
+.label_view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rpx 10rpx;
+  width: 110rpx;
+  height: 50rpx;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  border-radius: 12rpx;
+  color: white;
+  background-color: #C4C4C4;
+  margin-right: 5rpx;
+  margin-top:15rpx;
+}
+
+.tag {
+  display: flex;
+  flex-direction: row !important;
+  flex-wrap: wrap;
+  gap: 0rpx 8rpx;
+  justify-content: center
+}
+
+.active {
+  background: #F2CE44;
+}
+
+.btn{
+  font-size: 38rpx;
+  width: 300rpx !important;
+  border-radius: 16rpx;
+  padding: 18rpx;
+  color: white;
+  background-color: #7EBC69;
+}
+
+.submit-button{
+  display: flex; 
+  justify-content: center;
+  margin: 60rpx 32rpx;
+}

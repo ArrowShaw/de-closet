@@ -1,0 +1,58 @@
+<!--pages/update/update.wxml-->
+<navbar back text='Update Item' />
+<view class="container">
+  <!-- <view wx:if="{{item.photo == '/images/icons/photo.png'}}" class="section addImg" bindtap="chooseImg" name="item_image">
+    <image class="upload" src="{{imgSrc}}"></image>
+    <view class="text h2">Upload a Photo</view>
+  </view> -->
+  <!-- <view wx:else class="section addImg" bindtap="chooseImg" name="item_image"> -->
+  <view class="section addImg" bindtap="chooseImg" name="item_image">
+    <image mode="aspectFill" class="uploadImg" src="{{item.photo}}"></image>
+  </view>
+
+  <view class="section">
+    <view class="text h2">Keep for You</view>
+    <radio-group class="group" bindchange="radioChange">
+      <view class="radio-options">
+        <view class="radio-label" wx:for="{{radioItems}}">
+          <radio id="{{item.name}}" value="{{item.name}}" checked="{{item.checked}}"></radio>
+          <label class="label-text" for="{{item.name}}"><text>{{item.name}}</text></label>
+        </view>
+      </view>
+    </radio-group>
+  </view>
+
+  <view class="section">
+    <view class="small-section">
+      <view class="text h2">Choose Category</view>
+      <image class="scroll-btn" src="/images/icons/scroll.png"></image>
+    </view>
+    <picker-view indicator-style="height: 50px;" style="width: 100%; height: 100px;" value="{{categoryIndex}}" bindchange="bindChangePicker">
+      <picker-view-column class="label">
+        <view wx:for="{{categories}}" style="line-height: 50px; text-align: center;">
+          <view>{{item}}</view>
+        </view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+
+  <view class="section">
+    <view class="text h2">Tags</view>
+    <view class="tag">
+      <block wx:for="{{ typeArray }}">
+        <view class="label_view {{item.selected? 'active':''}}" data-value='{{item.name}}' bindtap='dealTap' checked="{{item.selected}}" data-index='{{index}}'>
+          {{ item.name }}
+        </view>
+      </block>
+    </view>
+      <!-- <image bindtap="addinput" class="img" src="/images/icons/add.png"></image> -->
+  </view>
+  <view class="section">  
+    <view class="text h2">Description</view>
+    <input bindinput="onInput" name="remark" placeholder="{{item.remark}}" />
+  </view>
+  <view class="submit-button">
+    <button class="btn" formType="submit" bindtap="saveThings">Save</button>
+    <!-- <button class="btn" formType="submit">Save and Next</button> -->
+  </view>
+</view>
