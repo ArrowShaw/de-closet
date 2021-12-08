@@ -13,11 +13,11 @@ Page({
       {name: 'No', value: 'giveaway'}
     ],
   
-    categories:['Top', 'Bottom', 'Coat', 'Dress','Shoes'],
+    categories:['Tops', 'Bottoms', 'Coats', 'Dresses','Shoes','Bags','Accessories'],
 
     // upload page data
     is_giveaway: false,
-    item_type: 'Top',
+    item_type: 'Tops',
     tag_list: [],
     remark: '',
     imgSrc: '/images/icons/photo.png',
