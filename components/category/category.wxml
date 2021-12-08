@@ -12,7 +12,7 @@
       <block wx:if="{{collection.items != 0}}" wx:for="{{collection.items}}">
         <view>
           <!-- <text>{{item.remark}}</text> -->
-          <image bindtap="detailP" data-id="{{item.id}}" class="photo_container" src="{{item.photo}}" alt="PHOTO" />
+          <image mode="aspectFill" bindtap="detailP" data-id="{{item.id}}" class="photo_container" src="{{item.photo}}" alt="PHOTO" />
         </view>
       </block>
     </view>
