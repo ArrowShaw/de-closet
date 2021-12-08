@@ -86,20 +86,20 @@ Page({
    * Lifecycle function--Called when page is initially rendered
    */
   onReady: function () {
-    console.log("ready")
-    let tag_list = this.data.item.tag_list;
-    let { typeArray } = this.data
-    tag_list.forEach(tag => {
-      // {
-      //   name: 'work',
-      //   num: 7,
-      //   selected: false,
-      // }
-      typeArray.filter(element => element.name === tag)[0].selected = true
-    })
-    console.log('typeArray changed', {typeArray})
-    this.setData({typeArray})
-    console.log('item component data', this.data)
+    // console.log("ready")
+    // let tag_list = this.data.item.tag_list;
+    // let { typeArray } = this.data
+    // tag_list.forEach(tag => {
+    //   // {
+    //   //   name: 'work',
+    //   //   num: 7,
+    //   //   selected: false,
+    //   // }
+    //   typeArray.filter(element => element.name === tag)[0].selected = true
+    // })
+    // console.log('typeArray changed', {typeArray})
+    // this.setData({typeArray})
+    // console.log('item component data', this.data)
   },
 
   // checkbox
@@ -135,6 +135,40 @@ Page({
     wx.navigateTo({
       url: `/pages/update/update?item_id=${this.data.item.id}`,
     })
+  },
+
+  deleteItem: function(){
+    let page = this;
+    let {header} = app.globalData
+    wx.showModal({
+      title: 'Notice',
+      content: 'Are you sure?',
+      success (res) {
+        if (res.confirm) {
+          wx.request({
+            url: `${app.globalData.baseUrl}/items/${page.data.item.id}`,
+            header: header,
+            method: 'DELETE',
+            data: { item_id: page.data.item.id },
+            success (res) {
+              if(page.data.item.is_giveaway == false){
+                wx.navigateTo({
+                  url: '/pages/closet/closet',
+                })
+              }else{
+                wx.navigateTo({
+                  url: '/pages/giveaways/giveaways',
+                })
+              }
+            }
+          })
+          console.log("User clicks OK.")
+        } else if (res.cancel) {
+          console.log('User clicks to cancel ')
+        }
+      }
+    })
+
   },
 
   /**

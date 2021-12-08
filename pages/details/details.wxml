@@ -25,6 +25,6 @@
   
   <view class="submit-button">
     <button class="btn" bindtap="editItem">Edit</button>
-    <button class="btn" >Delete</button>
+    <button class="btn" bindtap="deleteItem">Delete</button>
   </view>
 </view>

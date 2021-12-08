@@ -185,7 +185,7 @@ Page({
   saveThings(e) {
     const page = this;
     // console.log('radioItems', page.data.radioItems)
-    // console.log('It is page:', page.data)
+    console.log('It is page:', page.data)
     var header = app.globalData.header;
     const url = `${app.globalData.baseUrl}/items/${page.data.item.id}`
     // const url = "https://de-closet-backend.wogengapp.cn/api/v1/items" // real url address
