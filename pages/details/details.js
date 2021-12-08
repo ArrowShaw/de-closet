@@ -1,4 +1,5 @@
 // pages/details/details.js
+const app = getApp()
 Page({
 
   /**
@@ -56,10 +57,29 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    let item = JSON.parse(options.item);
+    // let item = JSON.parse(options.item);
+    const { id } = options
     let page = this;
-    console.log("this is item", item)
-    page.setData({item: item})
+    wx.request({
+      url: `${app.globalData.baseUrl}/items/${id}`,
+      header: app.globalData.header,
+      success(res) {
+        console.log('show route res', res)
+        page.setData({
+          item: res.data.item
+        })
+        let tag_list = res.data.item.tag_list;
+        let { typeArray } = page.data
+        tag_list.forEach(tag => {
+          typeArray.filter(element => element.name === tag)[0].selected = true
+        })
+        console.log({typeArray})
+        page.setData({typeArray})
+        console.log('item component data', page.data)
+      }
+    })
+    // console.log("this is item", item)
+    // page.setData({item: item})
   },
 
   /**
@@ -80,7 +100,6 @@ Page({
     console.log('typeArray changed', {typeArray})
     this.setData({typeArray})
     console.log('item component data', this.data)
-
   },
 
   // checkbox

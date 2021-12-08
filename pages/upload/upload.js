@@ -13,11 +13,11 @@ Page({
       {name: 'No', value: 'giveaway'}
     ],
   
-    categories:['Top', 'Bottom', 'Coat', 'Dress','Shoes'],
+    categories:['Tops', 'Bottoms', 'Coats', 'Dresses','Shoes','Bags','Accessories'],
 
     // upload page data
     is_giveaway: false,
-    item_type: 'Top',
+    item_type: 'Tops',
     tag_list: [],
     remark: '',
     imgSrc: '/images/icons/photo.png',
@@ -197,10 +197,10 @@ Page({
         console.log('INSIDE UPLOAD.JS', res.data)
         // console.log(url)
         // console.log(page.data)
-        console.log(`${url}/${res.data.id}/upload`)
+        console.log(`${url}/${res.data.item.id}/upload`)
         console.log(page.data.imgSrc)
         wx.uploadFile({
-          url: `${url}/${res.data.id}/upload`,
+          url: `${url}/${res.data.item.id}/upload`,
           filePath: page.data.imgSrc,
           name: 'file',
           header: header,
