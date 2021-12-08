@@ -18,11 +18,10 @@
   </view>
 </view>
 
-<view>
+<!-- <view>
   <button bindtap="onClickAll">All</button>
   <button bindtap="onClickSpring">Spring</button>
-
-</view>
+</view> -->
 
 <view class="category-section text">
   <view class="empty-section" wx:if="{{currentNum == 0}}">
