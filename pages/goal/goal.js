@@ -92,6 +92,12 @@ Page({
         canIUseGetUserProfile: true
       })
     }
+    if(app.globalData.user.max_number){
+      this.setData({
+        max_number: app.globalData.user.max_number
+      })
+
+    }
   },
 
   onInput: function(){
