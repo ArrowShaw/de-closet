@@ -25,4 +25,4 @@
 </view>
 
 <view style="height:80px"></view>
-<tabbar activeIndex="{{0}}"/>
+<tabbar activeIndex="{{0}}" currentNum="{{currentNum}}" targetNum="{{targetNum}}"/>

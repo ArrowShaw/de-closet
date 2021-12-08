@@ -8,6 +8,12 @@ Component({
       type: Number,
       value: null
     },
+    currentNum: {
+      type: Number
+    },
+    targetNum: {
+      type: Number
+    }
   },
 
   data: {
@@ -47,7 +53,8 @@ Component({
       const page=this
       const {header} = getApp().globalData
       console.log( {header})
-
+      console.log("the numbers", this.data.currentNum, this.data.targetNum)
+     
       if (header) {
         this.checkMaxNumber();
       } else {
@@ -56,6 +63,7 @@ Component({
     },
 
     checkMaxNumber() {
+
       const { header } = getApp().globalData
       const page = this
       wx.request({
@@ -65,16 +73,30 @@ Component({
         success (res) {
           console.log('data from backend', res.data)
           page.setData({
-            max_number: res.data.max_number
+            max_number: res.data.max_number,
+            // currentNum: this.data.currentNum,
+            // targetNum: this.data.targetNum
           })
           console.log('max_number', page.data.max_number)
           app.globalData.max_number = page.data.max_number
           console.log('globaldata', app.globalData.max_number)
           // [ {category: "tops", items: [{},{}]}, {category: "bottoms", items: [{},{}] } ]
           console.log(app.globalData, "asdasds")
-          if (app.globalData.max_number > 0) {
+          if (page.data.targetNum  > 0 && page.data.currentNum < page.data.targetNum) {
             wx.navigateTo({
               url: '/pages/upload/upload'
+            })
+          } else if(page.data.currentNum = page.data.targetNum ) {
+            wx.showModal({
+              title: "Warning",
+              content: 'You have reached your closet limit.',
+              success (res) {
+                if (res.confirm) {
+                  console.log("User clicks OK.")
+                } else if (res.cancel) {
+                  console.log('User clicks to cancel ')
+                }
+              }
             })
           } else {
             wx.navigateTo({
