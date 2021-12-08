@@ -7,17 +7,22 @@ Page({
    * Page initial data
    */
   data: {
-    max_number: 0
+    max_number: 0,
+    hasUserInfo: false
   },
   bindViewTap(e) {
-    const data = {
-      user: {
-        max_number: e.detail.value.max_number
-      }
-    }
+    let page = this;
     app.globalData.max_number = e.detail.value.max_number
     console.log('global data', app.globalData.max_number)
-    const header = getApp().globalData.header;
+    const { header } = app.globalData;
+    const data = {
+      user: {
+        max_number: e.detail.value.max_number,
+        nickname: app.globalData.userInfo.nickName,
+        avatar: app.globalData.userInfo.avatarUrl
+      }
+    }
+    console.log('user', data)
     let num=parseInt(data.user.max_number);
     // console.log('yes', typeof(parseInt(num)));
     if (num && num>0) {
@@ -25,18 +30,19 @@ Page({
       console.log(data)
       if (num<=200){
         wx.request({
-          // url: 'https://de-closet-backend.wogengapp.cn/api/v1/users/update', // real url address
           header: header,
           data: data,
           url: `${app.globalData.baseUrl}/users/update`,
           method:'PUT',
           success (res) {
           // if successful
-            console.log('INSIDE GOAL.JS', res.data.max_number);
-            const { user } = getApp().globalData
-            user.max_number = res.data.max_number
-            getApp().globalData.user = user
-            // console.log(globalThis);
+            console.log('INSIDE GOAL.JS', res.data);
+            const { user } = app.globalData
+            app.globalData.user.max_number = res.data.max_number
+            // user.avatar = res.data.avatar
+            // user.nickname = res.data.nickname
+            // app.globalData.user = user
+            // console.log('global user', app.globalData.user);
             wx.navigateTo({
               url: '/pages/closet/closet'
             })
@@ -81,9 +87,35 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    if (wx.getUserProfile) {
+      this.setData({
+        canIUseGetUserProfile: true
+      })
+    }
   },
 
+  onInput: function(){
+    if(this.data.hasUserInfo == false){
+      wx.getUserProfile({
+        desc: 'for completing user file', // declaire how the info is used
+        success: (res) => {
+          this.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true
+          })
+          app.globalData.userInfo = this.data.userInfo
+          console.log('global userInfo', app.globalData.userInfo)
+        },
+        fail: (res) => {
+          wx.showToast({
+            title: 'Declined',
+            icon: 'error',
+            duration: 1000
+          })
+        }
+      }) 
+    }
+  },
   /**
    * Lifecycle function--Called when page is initially rendered
    */

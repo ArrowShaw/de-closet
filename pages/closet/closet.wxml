@@ -13,7 +13,7 @@
     </view>
     <view class="edit-section">
       <view class="text">Your Items: {{currentNum}}/{{targetNum}}</view>
-      <!-- <image class="edit-btn" src="/images/icons/edit-yellow.png"></image> -->
+      <image class="edit-btn" src="/images/icons/edit-yellow.png" bindtap="onClick"></image>
     </view>
   </view>
 </view>
