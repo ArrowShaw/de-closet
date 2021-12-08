@@ -1,5 +1,4 @@
 <!--pages/giveaways/giveaways.wxml-->
-
 <navbar home text='Giveaways' />
 
 <form class="container" bindsubmit="onClick">
@@ -12,7 +11,7 @@
         </checkbox>
       </view>
     </checkbox-group>
-    <button form-type="submit">Submit</button>
+    <button form-type="submit">Book this item</button>
   </form>
 
 <button data-user_id="{{currentUser.id}}" open-type="share">Share</button>
