@@ -10,7 +10,8 @@ Page({
     selected: [],
     checked: false,
     status: ['free', 'booked', 'gone'],
-    index: 0
+    index: 0,
+    itemName: 'item'
   },
 
   /**
@@ -41,9 +42,15 @@ Page({
         page.setData({
           giveaways: res.data
         })
+        if(page.data.giveaways.items.length > 1){
+          page.setData({
+            itemName: 'items'
+          })
+        }
         // const giveaways = res.data.map((item) => {
         //   return { ...item, checked: false, status: 'available' }
       }
+
         // page.setData({ giveaways })
         // console.log('giveaways', page.data.giveaways)
     })
@@ -55,14 +62,19 @@ Page({
     var { header } = getApp().globalData
     var selected = e.detail.value.selected;
     console.log('selected', selected)
-    wx.getUserProfile(
-      
-    )
+    wx.getUserProfile({
+      desc: 'for completing user file', // declaire how the info is used
+      success: (res) => {
+        this.setData({
+          userInfo: res.userInfo
+        })
+      }
+    })
     wx.request({
       url: `${app.globalData.baseUrl}/giveaways`,
       method: 'POST',
       header: header,
-      data: { selected: selected },
+      data: { selected: selected, userInfo: userInfo },
       success (res) {
         console.log(res.data)
       }
