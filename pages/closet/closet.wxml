@@ -19,7 +19,8 @@
 </view>
 
 <view class="category-section text font-os">
-  <block wx:for="{{categories}}" wx:key="index">
+  <view wx:if="{{currentNum == 0}}">You have nothing in your closet. Please add an item.</view>
+  <block wx:if="{{currentNum > 0}}" wx:for="{{categories}}" wx:key="index">
       <category wx:if="{{item.items.length !== 0}}" collection="{{item}}" class="title"/>
   </block>
 </view>

@@ -9,8 +9,8 @@ Page({
   data: {
     max_number: 0,
     radioItems: [
-      {name: 'Yes', value: 'item', checked: 'false'},
-      {name: 'No', value: 'giveaway', checked: 'false'}
+      {name: 'Yes', value: 'item', checked: 'true'},
+      {name: 'No', value: 'giveaway'}
     ],
   
     categories:['Tops', 'Bottoms', 'Coats', 'Dresses', 'Shoes', 'Bags', 'Accessories'],
@@ -83,13 +83,14 @@ Page({
         changed['radioItems[' + i + '].checked'] = false
       }
     }
-    console.log(changed)
+    console.log('changed', changed)
     this.setData(changed)
     if (changed['radioItems[1].checked'] === true) {
       page.data.is_giveaway = true
     } else {
       page.data.is_giveaway = false
     }
+    // console.log('is_giveaway', page.data.is_giveaway)
   },
 
   bindChangePicker(e) {
@@ -164,6 +165,7 @@ Page({
       success(res) {
         // console.log('res', res)
         const imgInfo = res.tempFiles[0];
+        console.log('imgInfo', imgInfo)
         page.setData ({
           imgSrc: res.tempFiles[0].tempFilePath,
         })
@@ -192,38 +194,59 @@ Page({
     wx.request({
       url: url,
       header: header,
-      data: page.data,
+      data: { 
+        // id: page.data.item.id,
+        item: {
+        is_giveaway: page.data.is_giveaway,
+        item_type: page.data.item_type, 
+        remark: page.data.remark, 
+        tag_list: page.data.tag_list,
+      }},
       method:'PUT',
       success (res) {
         console.log('INSIDE UPLOAD.JS', res.data)
         // console.log(url)
         // console.log(page.data)
-        console.log(`${url}/${res.data.id}/upload`)
+        console.log(`${url}/${res.data.item.id}/upload`)
         console.log(page.data.imgSrc)
-        wx.uploadFile({
-          url: `${url}/${res.data.id}/upload`,
-          filePath: page.data.imgSrc,
-          name: 'file',
-          header: header,
-          success(res) {
-            console.log('this is for upload file', res)
-            console.log('is_giveaway', page.data.is_giveaway)
-            const data = res.data
-            if(page.data.is_giveaway == true ){
-              wx.navigateTo({
-                url: '/pages/giveaways/giveaways'
-              })
-            } else {
-              wx.navigateTo({
-                url: '/pages/closet/closet',
-              })
-            }
-          },
-          fail(err) {
-            console
-            console.log(err)
+        if(page.data.imgSrc == page.data.originalPhoto){
+          console.log('user did not upload new photo')
+          if(page.data.is_giveaway == true ){
+            wx.navigateTo({
+              url: '/pages/giveaways/giveaways'
+            })
+          } else {
+            wx.navigateTo({
+              url: '/pages/closet/closet',
+            })
           }
-        })
+        }else{
+          wx.uploadFile({
+            url: `${url}/upload`,
+            filePath: page.data.imgSrc,
+            name: 'file',
+            header: header,
+            success(res) {
+              console.log('this is for upload file', res)
+              console.log('is_giveaway', page.data.is_giveaway)
+              const data = res.data
+              if(page.data.is_giveaway == true ){
+                wx.navigateTo({
+                  url: '/pages/giveaways/giveaways'
+                })
+              } else {
+                wx.navigateTo({
+                  url: '/pages/closet/closet',
+                })
+              }
+            },
+            fail(err) {
+              console
+              console.log(err)
+            }
+          })
+        }
+        
       }
     })
 
@@ -252,7 +275,9 @@ Page({
       success (res) {
         console.log('data from backend', res.data)
         page.setData({
-          item: res.data.item
+          item: res.data.item,
+          imgSrc: res.data.item.photo,
+          originalPhoto: res.data.item.photo
         })
         console.log('item', page.data.item)
         let tag_list = page.data.item.tag_list;
@@ -280,6 +305,7 @@ Page({
         }
       }
     })
+
     // console.log('local max number', this.data.max_number)
   
   },
