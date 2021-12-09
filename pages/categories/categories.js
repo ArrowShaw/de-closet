@@ -16,6 +16,7 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function(options){
+    let page = this;
     let collection = JSON.parse(options.collection)
     // collection.forEach(c=>{
     // let img = c.photo;
@@ -23,7 +24,7 @@ Page({
     let categoryType = collection[0].item_type
     let amount = collection.length
     console.log("collection", collection)
-    this.setData({
+    page.setData({
       collection, amount, categoryType
     })
     if(amount > 1){
