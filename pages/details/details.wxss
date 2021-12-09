@@ -1,6 +1,6 @@
 /* pages/details/details.wxss */
 .container{
-  padding: 60rpx 60rpx;
+  padding: 60rpx;
 }
 
 .text {
@@ -26,8 +26,8 @@
   display: flex;
   flex-direction: row !important;
   flex-wrap: wrap;
-  gap: 0rpx 8rpx;
-  justify-content: center;
+  gap: 4px 5px;
+  justify-content: flex-start;
 }
 
 .label_view {
@@ -42,19 +42,21 @@
   border-radius: 12rpx;
   color: white;
   background-color: #C4C4C4;
-  margin-right: 5rpx;
-  margin-top:15rpx;
+  margin: 2px;
 }
 
 .section {
-  width: 640rpx;
-  height: 240rpx;
-  display: flex; flex-direction: column; justify-content: center; align-items: center; gap:20rpx;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  width: 640rpx auto;
+  display: flex; flex-direction: column; justify-content: flex-start; gap:20rpx;
   background-color: #FFFFFF;
   border-radius: 16rpx;
-  padding: 16rpx 0;
-  margin: 50rpx 0;
+  padding: 40rpx 0 0;
+}
+
+.details-section{
+  color: #5C636E;
+  padding: 1rpx 10rpx;
+
 }
 
 .active {
@@ -63,16 +65,21 @@
 
 .submit-button{
   display: flex; 
-  justify-content: center;
-  margin: 60rpx 0;
-  gap: 50rpx;
+  justify-content: space-between;
+  padding: 120rpx 76rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  gap: 40px;
 }
 
 .btn{
   font-size: 38rpx;
-  width: 300rpx !important;
-  border-radius: 16rpx;
-  padding: 18rpx;
+  width: 240rpx !important;
+  border-radius: 20rpx;
+  padding: 16rpx;
   color: white;
   background-color: #7EBC69;
+  margin: 0 !important;
 }
