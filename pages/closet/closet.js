@@ -61,7 +61,7 @@ onClick: function() {
           })
         }else{
           page.setData({
-            url: `${app.globalData.baseUrl}/items?req_type=my_closet&tag_array=tagArray`
+            url: `${app.globalData.baseUrl}/items?req_type=my_closet&tag_array=${page.data.tagArray}`
           })
         }
         wx.request({
