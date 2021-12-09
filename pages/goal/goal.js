@@ -11,6 +11,9 @@ Page({
     hasUserInfo: false
   },
   async bindViewTap(e) {
+   
+    // user.max_number
+    // user.closet_size
     console.log('in bindViewTap')
     let data;
     if (this.data.hasUserInfo) {
@@ -37,6 +40,8 @@ Page({
     
     console.log('user', data)
     let num=parseInt(data.user.max_number);
+    
+    
     // console.log('yes', typeof(parseInt(num)));
     if (num && num>0) {
       console.log(header)
@@ -48,10 +53,13 @@ Page({
           url: `${app.globalData.baseUrl}/users/update`,
           method:'PUT',
           success (res) {
+            
           // if successful
             console.log('INSIDE GOAL.JS', res.data);
+            const closet_size = res.data.closet_size
+            console.log('closet_size', closet_size)
             const { user } = app.globalData
-            app.globalData.user.max_number = res.data.max_number
+            app.globalData.user = res.data
             // user.avatar = res.data.avatar
             // user.nickname = res.data.nickname
             // app.globalData.user = user
@@ -101,15 +109,18 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    console.log("IN GOAL.JS ONLOAD")
     if (wx.getUserProfile) {
       this.setData({
         canIUseGetUserProfile: true
       })
     }
     if(app.globalData.user.max_number){
+      console.log('user data in goal', app.globalData.user)
       this.setData({
         max_number: app.globalData.user.max_number,
-        hasUserInfo: app.globalData.hasUserInfo
+        hasUserInfo: app.globalData.hasUserInfo,
+        closet_size: app.globalData.user.closet_size
       })
 
     }

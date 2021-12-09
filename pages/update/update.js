@@ -204,7 +204,8 @@ Page({
       }},
       method:'PUT',
       success (res) {
-        console.log('INSIDE UPLOAD.JS', res.data)
+        console.log('INSIDE UPDATE.JS', res.data)
+        app.globalData.user = res.data.user
         // console.log(url)
         // console.log(page.data)
         console.log(`${url}/${res.data.item.id}/upload`)

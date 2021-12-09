@@ -65,6 +65,7 @@ onClick: function() {
   onLoad: function (options) {
     const page = this
     const {header} = getApp().globalData
+    console.log('user data in closet', getApp().globalData.user)
     console.log('hey', {header})
     wx.request({
       url: `${app.globalData.baseUrl}/items?req_type=my_closet`,
