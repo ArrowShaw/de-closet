@@ -10,30 +10,15 @@ Page({
     max_number: 0,
     hasUserInfo: false
   },
-  async bindViewTap(e) {
-   
-    // user.max_number
-    // user.closet_size
+  bindViewTap(e) {
+  
     console.log('in bindViewTap')
     
-    let data;
-    if (this.data.hasUserInfo) {
-      data = {
+    let data = {
         user: {
           max_number: e.detail.value.max_number,
         }
       }
-    } else {
-      const userInfo = await this.getUserProfile()
-      data = {
-        user: {
-          max_number: e.detail.value.max_number,
-          nickname: userInfo.nickname,
-          avatar: userInfo.avatar
-        }
-      }
-    }
-
     let page = this;
     app.globalData.max_number = e.detail.value.max_number
     console.log('global data', app.globalData.max_number)
@@ -44,13 +29,17 @@ Page({
     let closet_size = page.data.closet_size
     
     
-    
-    // console.log('yes', typeof(parseInt(num)));
+    console.log({num}, {closet_size})
+    console.log('yes', typeof(parseInt(num)));
+
     if (num && num>0) {
       console.log(header)
       console.log(data)
       if (num<=500){
-        if(num >= closet_size){
+        console.log('num less than 500')
+        num
+        if (num >= closet_size){
+          console.log('num bigger or equal closet size')
           wx.request({
             header: header,
             data: data,
@@ -77,7 +66,8 @@ Page({
               console.log(111,rej.data)
             }
           })
-        }else{
+        } else {
+          console.log('num less than closet size')
           wx.showModal({
             title: "Warning",
             content: 'You have to declutter your closet before you set a new goal!',
@@ -134,24 +124,25 @@ Page({
         canIUseGetUserProfile: true
       })
     }
-    if(app.globalData.user.max_number){
+    if(app.globalData.user){
       console.log('user data in goal', app.globalData.user)
       this.setData({
         max_number: app.globalData.user.max_number,
         hasUserInfo: app.globalData.hasUserInfo,
         closet_size: app.globalData.user.closet_size
-      })
+      }) 
 
     }
   },
 
   getUserProfile: function(){
+    const page = this
     return new Promise((resolve, reject) => {
       
         wx.getUserProfile({
           desc: 'for completing user file', // declaire how the info is used
           success: (res) => {
-            this.setData({
+            page.setData({
               userInfo: res.userInfo,
               hasUserInfo: true
             })
@@ -162,9 +153,22 @@ Page({
               nickname: res.userInfo.nickName,
               avatar: res.userInfo.avatarUrl
             }
+            wx.request({
+              url: `${app.globalData.baseUrl}/users/update`,
+              data: { user: data },
+              header: app.globalData.header,
+              method: 'PUT',
+              success(res) {
+                page.setData({
+                  user: res.data,
+                  hasUserInfo: true
+                })
+              }
+            })
             resolve(data)
           },
-          fail: (res) => {
+          fail: (err) => {
+            console.log('getUserProfile failed', err)
             wx.showToast({
               title: 'Declined',
               icon: 'error',

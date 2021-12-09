@@ -1,7 +1,7 @@
 <!--pages/upload/upload.wxml-->
 <navbar back text='Upload Item' />
 <view class="container">
-  <view class="text h1">You have {{targetNum - currentNum}} spots left in your closet. Does this spark your joy? 💫</view>
+  <view class="text h1">You have {{targetNum - currentNum}} spots left in your closet, choose wisely!</view>
   <view wx:if="{{imgSrc == '/images/icons/photo.png'}}" class="section addImg" bindtap="chooseImg" name="item_image">
     <image class="upload" src="{{imgSrc}}"></image>
     <view class="text h2">Upload a Photo</view>

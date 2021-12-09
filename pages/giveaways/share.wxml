@@ -4,8 +4,8 @@
 <navbar home text='Giveaways' />
  
 <view class="container">
-  <!-- <view class="text">Welcome to {{user.nickname}}'s giveaway closet 💛</view> -->
-  <view class="text">Welcome to your friend's giveaway closet 💛</view>
+  <view class="text">Welcome to {{user.nickname}}'s giveaway closet 💛</view>
+  <!-- <view class="text">Welcome to friend's giveaway closet 💛</view> -->
     <giveaway-items giveaways="{{giveaways}}" />
 </view>
 
