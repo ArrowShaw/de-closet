@@ -164,6 +164,7 @@ Page({
             method: 'DELETE',
             data: { item_id: page.data.item.id },
             success (res) {
+              app.globalData.user = res.data.user
               if(page.data.item.is_giveaway == false){
                 wx.navigateTo({
                   url: '/pages/closet/closet',

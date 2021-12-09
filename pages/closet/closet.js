@@ -93,6 +93,7 @@ onClick: function() {
   onLoad: function (options) {
     const page = this
     const {header} = getApp().globalData
+    console.log('user data in closet', getApp().globalData.user)
     console.log('hey', {header})
     console.log('url in on load', page.data.url)
     wx.request({
