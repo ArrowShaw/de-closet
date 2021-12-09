@@ -50,7 +50,7 @@
   display: flex; flex-direction: column; justify-content: flex-start; gap:20rpx;
   background-color: #FFFFFF;
   border-radius: 16rpx;
-  padding: 40rpx 0 0;
+  padding: 40rpx 0 40rpx;
 }
 
 .details-section{
@@ -82,4 +82,19 @@
   color: white;
   background-color: #7EBC69;
   margin: 0 !important;
+}
+
+.quote-btn{
+  width: 80rpx; height: 80rpx;
+}
+
+.quote{
+  font-size: 32rpx;
+  color: #18181A;
+  font-style: italic;
+}
+
+.right-quote{
+  margin-right: 20rpx;
+  display: flex; justify-content:flex-end;
 }

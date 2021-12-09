@@ -21,6 +21,20 @@
     <!-- <view class="text">Details</view> -->
     <text class="details-section">{{item.remark}}</text>
   </view>
+
+  <view class="section" wx:if="{{!item.remark}}">
+    <view style="position: relative;">
+      <image style="position: absolute; left: 0; top: -20rpx;" class="quote-btn" src="/images/icons/left-quote.png"></image>
+      <view class="quote">
+        <text style="color: white;">xxxxx</text>
+        <text>{{quote.quote}}</text>
+      </view>
+    </view>
+
+    <view class="right-quote">
+      <view class="quote">{{quote.name}} </view>
+    </view>
+  </view>
   
   <view class="submit-button" wx:if="{{item.user_id === currentUser.id}}">
     <button class="btn" bindtap="editItem">Edit</button>
