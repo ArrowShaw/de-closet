@@ -100,49 +100,49 @@ Page({
   onReady: function () {
   },
 
-  // checkbox
-  onClick: function(){
-    const page = this;
-    let { header } = app.globalData;
-    wx.getUserProfile({
-      desc: 'for completing user file', // declaire how the info is used
-      success: (res) => {
-        page.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-        console.log('userInfo', page.data.userInfo)
-        wx.request({
-          url: `${app.globalData.baseUrl}/giveaways`,
-          data: {
-            user: {
-              nickname: page.data.userInfo.nickName,
-              avatar: page.data.userInfo.avatarUrl
-            }
-          },
-          header: app.globalData.header,
-          method: 'POST',
-          success (res) {
-            console.log(res)
-          }
-        })
-        wx.showToast({
-          title: 'success',
-          icon: 'success',
-          duration: 1000
-        })
-      }
-    })
-    wx.request({
-      url: `${app.globalData.baseUrl}/giveaways`,
-      method: 'POST',
-      header: header,
-      data: { userInfo: page.data.userInfo },
-      success (res) {
-        console.log(res.data)
-      }
-    })
-  },
+  // "I want this" button
+  // onClick: function(){
+  //   const page = this;
+  //   let { header } = app.globalData;
+  //   wx.getUserProfile({
+  //     desc: 'for completing user file', // declaire how the info is used
+  //     success: (res) => {
+  //       page.setData({
+  //         userInfo: res.userInfo,
+  //         hasUserInfo: true
+  //       })
+  //       console.log('userInfo', page.data.userInfo)
+  //       wx.request({
+  //         url: `${app.globalData.baseUrl}/giveaways`,
+  //         data: {
+  //           user: {
+  //             nickname: page.data.userInfo.nickName,
+  //             avatar: page.data.userInfo.avatarUrl
+  //           }
+  //         },
+  //         header: app.globalData.header,
+  //         method: 'POST',
+  //         success (res) {
+  //           console.log(res)
+  //         }
+  //       })
+  //       wx.showToast({
+  //         title: 'success',
+  //         icon: 'success',
+  //         duration: 1000
+  //       })
+  //     }
+  //   })
+  //   wx.request({
+  //     url: `${app.globalData.baseUrl}/giveaways`,
+  //     method: 'POST',
+  //     header: header,
+  //     data: { userInfo: page.data.userInfo },
+  //     success (res) {
+  //       console.log(res.data)
+  //     }
+  //   })
+  // },
 
   editItem: function(){
     wx.navigateTo({
