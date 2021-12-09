@@ -47,7 +47,7 @@ onClick: function() {
     wx.request({
       url: `${app.globalData.baseUrl}/items?tag_array=${page.data.tagArray}&req_type=my_closet`,
       header: header,
-      method: 'GET',
+      method: 'POST',
       success(res){
         console.log('filtered items', res.data)
         // page.data.tagArray.forEach(tag => {
