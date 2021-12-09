@@ -57,7 +57,13 @@
         {
           "name": "pages/giveaways/share",
           "pathName": "pages/giveaways/share",
-          "query": "user_id=28",
+          "query": "user_id=43",
+          "scene": null
+        },
+        {
+          "name": "pages/giveaways/share",
+          "pathName": "pages/giveaways/share",
+          "query": "",
           "scene": null
         }
       ]
