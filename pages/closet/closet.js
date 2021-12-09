@@ -17,7 +17,8 @@ Page({
       {name:'sporty', selected: false,}, 
       {name:'formal', selected: false,}
     ],
-    tagArray: []
+    tagArray: [],
+    url: `${app.globalData.baseUrl}/items?req_type=my_closet`
   },
 
 onClick: function() {
@@ -47,13 +48,40 @@ onClick: function() {
     wx.request({
       url: `${app.globalData.baseUrl}/items?tag_array=${page.data.tagArray}&req_type=my_closet`,
       header: header,
-      method: 'POST',
+      method: 'GET',
       success(res){
         console.log('filtered items', res.data)
         // page.data.tagArray.forEach(tag => {
         //   page.data.tags.filter(element => element.name === tag).selected = true
         // })
         console.log(page.data.tags)
+        if(page.data.tagArray.length === 0){
+          page.setData({
+            url: `${app.globalData.baseUrl}/items?req_type=my_closet`
+          })
+        }else{
+          page.setData({
+            url: `${app.globalData.baseUrl}/items?req_type=my_closet&tag_array=tagArray`
+          })
+        }
+        wx.request({
+          url: page.data.url,
+          method: 'GET',
+          header: header,
+          success (res) {
+            console.log('data from backend', res.data)
+            page.setData({
+              user: res.data.user,
+              categories: res.data.user_items,
+              targetNum: res.data.user.max_number,
+              currentNum: res.data.number_of_items
+            })
+            console.log('data from backend filter', page.data)
+            console.log(res.data.number_of_items)
+            // [ {category: "tops", items: [{},{}]}, {category: "bottoms", items: [{},{}] } ]
+            // this.setData({ items: res.data })
+          }
+        })
       }
     })
 
@@ -66,22 +94,20 @@ onClick: function() {
     const page = this
     const {header} = getApp().globalData
     console.log('hey', {header})
+    console.log('url in on load', page.data.url)
     wx.request({
-      url: `${app.globalData.baseUrl}/items?req_type=my_closet`,
+      url: page.data.url,
       method: 'GET',
       header: header,
       success (res) {
         console.log('data from backend', res.data)
-        // page.setData({
-        //   categories: res.data
-        // })
         page.setData({
           user: res.data.user,
           categories: res.data.user_items,
           targetNum: res.data.user.max_number,
           currentNum: res.data.number_of_items
         })
-        console.log(page.data)
+        console.log('data from backend filter', page.data)
         console.log(res.data.number_of_items)
         // [ {category: "tops", items: [{},{}]}, {category: "bottoms", items: [{},{}] } ]
         // this.setData({ items: res.data })
