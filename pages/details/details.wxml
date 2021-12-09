@@ -10,7 +10,7 @@
   <view class="section" wx:if="{{tagExist}}">  
     <view class="tag">
         <block wx:for="{{ typeArray }}" wx:for-item="tag">
-          <view class="label_view {{tag.selected? 'active':''}}" wx:if="{{tag.selected}}">
+          <view class="label-view {{tag.selected? 'active':''}}" wx:if="{{tag.selected}}">
             {{ tag.name }}
           </view>
         </block>

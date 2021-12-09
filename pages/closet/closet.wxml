@@ -17,9 +17,11 @@
   </view>
 </view>
 
-<view class="container">
+<view class="tag-section">
   <view wx:for="{{tags}}" wx:for-item="tag">
-    <button data-text="{{tag.name}}" bindtap="onClickTag" class="{{tag.selected? 'active':''}}">{{tag.name}}</button>
+      <view data-text="{{tag.name}}" bindtap="onClickTag" class="tag-view {{tag.selected? 'active':''}}">
+        {{tag.name}}
+      </view>
   </view>
 </view>
 

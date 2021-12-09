@@ -63,7 +63,7 @@
   gap: 300rpx;
 }
 
-.label_view {
+.label-view {
   display: flex;
   justify-content: center;
   align-items: center;

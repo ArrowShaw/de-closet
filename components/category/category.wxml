@@ -7,7 +7,7 @@
   </view>
 
   <view>
-    <view wx:if="{{collection.items.length == 0}}">Your closet is currently empty. Go add your items!</view>
+    <!-- <view wx:if="{{collection.items.length == 0}}">Your closet is currently empty. Go add your items!</view> -->
     <view class ="category-container"> 
       <block wx:if="{{collection.items != 0}}" wx:for="{{collection.items}}">
         <view>
