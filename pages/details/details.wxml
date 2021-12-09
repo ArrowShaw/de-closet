@@ -8,7 +8,6 @@
 <button bindtap="onClick" wx:if="{{item.is_giveaway === true&&item.user_id !== currentUser.id}}">I want this!</button>
 
   <view class="section" wx:if="{{tagExist}}">  
-    <view class="text">Tags</view>
     <view class="tag">
         <block wx:for="{{ typeArray }}" wx:for-item="tag">
           <view class="label_view {{tag.selected? 'active':''}}" wx:if="{{tag.selected}}">
@@ -19,8 +18,8 @@
   </view>
 
   <view class="section" wx:if="{{item.remark}}">  
-    <view class="text">Details</view>
-    <text>{{item.remark}}</text>
+    <!-- <view class="text">Details</view> -->
+    <text class="details-section">{{item.remark}}</text>
   </view>
   
   <view class="submit-button" wx:if="{{item.user_id === currentUser.id}}">
