@@ -49,14 +49,15 @@ Page({
       }
     ],
     quotes: [
-      {name:'- Francine Jay', quote:'“My goal is no longer to get more done, but rather to have less to do.”'},
-      {name:'- Vivienne Westwood', quote:'Buy less, choose well, make it last'},
-      {name:'- Erica Layne', quote:'A calm house equals a calm heart equals a calm life'},
+      {name:'- Nathan W. Morris', quote:"I've found that the less stuff I own, the less my stuff owns me."},
+      {name:'- Vivienne Westwood', quote:'Buy less, choose well, make it last.'},
+      {name:'- Erica Layne', quote:'A calm house equals a calm heart equals a calm life.'},
       {name:'- Marie Kondo', quote:'Keep only things that speak to your heart. Ask yourself: Does this spark your joy?'},
-      {name:'- Joshua Fields & Ryan Nicodemus', quote:'Minimalism is a lifestyle that helps people question what things add value to their lives'},
+      {name:'- Joshua Fields & Ryan Nicodemus', quote:'Minimalism is a lifestyle that helps people question what things add value to their lives.'},
       {name:'- Joshua Becker', quote:"The first step in crafting the life you want is to get rid of everything you don't."},
       {name:'- Aggy', quote:"You can have too many clothes, but you can't have too many bags."},
-      {name:'- Xun', quote:'I decluttered last year. I am so much happier now.'}
+      {name:'- Xun', quote:'I decluttered last year. I am so much happier now.'},
+      {name:'- Yiyao, Yiwei, Silas & Isabelle', quote:'DeCloset is a great app 👍'}
     ]
 
   },
