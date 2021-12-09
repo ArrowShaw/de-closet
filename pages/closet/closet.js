@@ -8,13 +8,13 @@ Page({
    */
   data: {
     tags: [
-      {name:'spring', selected: false,}, 
-      {name:'summer', selected: false,}, 
-      {name:'autumn', selected: false,}, 
-      {name:'winter', selected: false,}, 
-      {name:'casual', selected: false,}, 
-      {name:'work', selected: false,}, 
-      {name:'sporty', selected: false,}, 
+      {name:'spring', selected: false,},
+      {name:'summer', selected: false,},
+      {name:'autumn', selected: false,},
+      {name:'winter', selected: false,},
+      {name:'casual', selected: false,},
+      {name:'work', selected: false,},
+      {name:'sporty', selected: false,},
       {name:'formal', selected: false,}
     ],
     tagArray: [],
@@ -46,9 +46,12 @@ onClick: function() {
     }
     console.log('tagArray', page.data.tagArray)
     wx.request({
-      url: `${app.globalData.baseUrl}/items?tag_array=${page.data.tagArray}&req_type=my_closet`,
+      url: `${app.globalData.baseUrl}/items?req_type=my_closet`,
       header: header,
       method: 'GET',
+      data: {
+        tag_array: page.data.tagArray
+      },
       success(res){
         console.log('filtered items', res.data)
         // page.data.tagArray.forEach(tag => {
