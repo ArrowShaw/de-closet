@@ -3,7 +3,6 @@
 <view class="top-bar">  
   <image class="clothes-pic" src="/images/icons/clothes.png"></image>  
   <view class="me-section">
-    <!-- <image class="img" src="#" /> -->
     <view class="img" style="overflow: hidden;">
       <open-data type="userAvatarUrl"></open-data>
     </view>
@@ -26,8 +25,8 @@
 
 <view class="category-section text">
   <view class="empty-section" wx:if="{{currentNum == 0}}">
-    <image class="empty-btn" src="/images/icons/emptyt.png"></image>
-    <text>Your closet is empty.</text>
+    <image class="empty-btn" src="/images/icons/empty.png"></image>
+    <text>Your closet is empty.\n </text>
     <text>Go to add your favourite items! </text>
   </view>
   <block wx:if="{{currentNum > 0}}" wx:for="{{categories}}" wx:key="index">

@@ -4,7 +4,7 @@
 <view class="container">
   <view class="text">You have {{giveaways.length}} {{itemName}} in your giveaways 💛</view>
     <giveaway-items giveaways="{{giveaways}}" />
-  <button class="btn" data-user_id="{{currentUser.id}}" open-type="share">Share your giveaways</button>
+  <button class="btn" data-user_id="{{currentUser.id}}" open-type="share">Share with your friends</button>
 </view>
 
 <view style="height:80px"></view>
