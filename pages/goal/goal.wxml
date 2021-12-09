@@ -2,7 +2,9 @@
 <navbar home text='DeCloset'/>
 
 <view class="container">
-  <view class="text h1">How many items do you want to keep?</view>
+  <view class="text h1" wx:if="{{max_number === 0}}">How many items do you want to keep?</view>
+  <!-- <view class="text h1">How many items do you want to keep?</view> -->
+  <view class="text h1" wx:if="{{max_number !== 0}}">Reset the number of items you want to keep:</view>
   <view class="page-section">  
     <view class="text h2">Maximum</view>
     <form bindsubmit="bindViewTap"> 
