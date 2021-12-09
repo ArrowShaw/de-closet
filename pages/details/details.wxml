@@ -6,7 +6,7 @@
   </view>
 
   <!-- wx:if="{{item.is_giveaway === true&&item.user_id !== currentUser.id}}" -->
-<button bindtap="onClick">I want this!</button>
+<!-- <button bindtap="onClick">I want this!</button> -->
 
   <view class="section" wx:if="{{tagExist}}">  
     <view class="text">Tags</view>
