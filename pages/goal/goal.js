@@ -49,7 +49,7 @@ Page({
     if (num && num>0) {
       console.log(header)
       console.log(data)
-      if (num<=200){
+      if (num<=500){
         if(num >= closet_size){
           wx.request({
             header: header,
@@ -95,7 +95,7 @@ Page({
       }else{
         wx.showModal({
           title: "Too many",
-          content: 'You cannot have more than 200 items ',
+          content: 'You cannot have more than 500 items ',
           success (res) {
             if (res.confirm) {
               console.log("User clicks OK.")
