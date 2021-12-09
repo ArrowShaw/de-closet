@@ -3,7 +3,6 @@
 <view class="top-bar">  
   <image class="clothes-pic" src="/images/icons/clothes.png"></image>  
   <view class="me-section">
-    <!-- <image class="img" src="#" /> -->
     <view class="img" style="overflow: hidden;">
       <open-data type="userAvatarUrl"></open-data>
     </view>
