@@ -14,6 +14,14 @@ Page({
   // 事件处理函数
   bindViewTap() {
     const { user } = getApp().globalData
+    if (user) {
+      this.goToNextPage()
+    } else {
+      wx.event.on('headersReady', this, this.goToNextPage)
+    }
+  },
+  goToNextPage() {
+    const { user } = getApp().globalData
     console.log({user})
     if (user.max_number > 0) {
       wx.navigateTo({

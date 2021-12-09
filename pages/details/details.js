@@ -107,10 +107,11 @@ Page({
     wx.getUserProfile({
       desc: 'for completing user file', // declaire how the info is used
       success: (res) => {
-        this.setData({
+        page.setData({
           userInfo: res.userInfo,
           hasUserInfo: true
         })
+        console.log('userInfo', page.data.userInfo)
         wx.request({
           url: `${app.globalData.baseUrl}/giveaways`,
           data: {

@@ -25,6 +25,9 @@ App({
               app.globalData.header = res.data.headers
               app.globalData.user = res.data.user
               console.log(res.data.user)
+              if (res.data.user.nickname && res.data.user.avatar) {
+                app.globalData.hasUserInfo = true
+              }
               wx.event.emit('headersReady')
               // { "X-USER-EMAIL": ....., "X-USER-TOKEN": ....}
             }

@@ -18,9 +18,8 @@
   </view>
 </view>
 
-<!-- <view>
-  <button bindtap="onClickAll">All</button>
-  <button bindtap="onClickSpring">Spring</button>
+<!-- <view wx:for="{{}}">
+  <button bindtap="onClickTag">All</button>
 </view> -->
 
 <view class="category-section text">

@@ -7,18 +7,7 @@ Page({
    * Page initial data
    */
   data: {
-    tags: [
-      {
-        name: 'My closet',
-        num: 0,
-        selected: true,
-      },
-      // {
-      //   name: 'Giveaways',
-      //   num: 0,
-      //   selected: false,
-      // }
-    ]
+    tags: ['All']
 
   },
 
@@ -28,18 +17,9 @@ onClick: function() {
     })
   },
 
-  onClickAll: function() {
+  onClickTag: function() {
 
   },
-
-  onClickSpring: function() {
-    console.log('page data', this.data)
-    // this.setData({
-    //   categories
-    // })
-    // console.log(categories)
-  },
-
 
   /**
    * Lifecycle function--Called when page load

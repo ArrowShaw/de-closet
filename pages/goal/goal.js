@@ -10,18 +10,31 @@ Page({
     max_number: 0,
     hasUserInfo: false
   },
-  bindViewTap(e) {
+  async bindViewTap(e) {
+    console.log('in bindViewTap')
+    let data;
+    if (this.data.hasUserInfo) {
+      data = {
+        user: {
+          max_number: e.detail.value.max_number,
+        }
+      }
+    } else {
+      const userInfo = await this.getUserProfile()
+      data = {
+        user: {
+          max_number: e.detail.value.max_number,
+          nickname: userInfo.nickname,
+          avatar: userInfo.avatar
+        }
+      }
+    }
+
     let page = this;
     app.globalData.max_number = e.detail.value.max_number
     console.log('global data', app.globalData.max_number)
     const { header } = app.globalData;
-    const data = {
-      user: {
-        max_number: e.detail.value.max_number,
-        nickname: app.globalData.userInfo.nickName,
-        avatar: app.globalData.userInfo.avatarUrl
-      }
-    }
+    
     console.log('user', data)
     let num=parseInt(data.user.max_number);
     // console.log('yes', typeof(parseInt(num)));
@@ -81,6 +94,7 @@ Page({
       })
     }
     
+    
   },
 
   /**
@@ -94,33 +108,44 @@ Page({
     }
     if(app.globalData.user.max_number){
       this.setData({
-        max_number: app.globalData.user.max_number
+        max_number: app.globalData.user.max_number,
+        hasUserInfo: app.globalData.hasUserInfo
       })
 
     }
   },
 
-  onInput: function(){
-    if(this.data.hasUserInfo == false){
-      wx.getUserProfile({
-        desc: 'for completing user file', // declaire how the info is used
-        success: (res) => {
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-          app.globalData.userInfo = this.data.userInfo
-          console.log('global userInfo', app.globalData.userInfo)
-        },
-        fail: (res) => {
-          wx.showToast({
-            title: 'Declined',
-            icon: 'error',
-            duration: 1000
-          })
-        }
-      }) 
-    }
+  getUserProfile: function(){
+    return new Promise((resolve, reject) => {
+      
+        wx.getUserProfile({
+          desc: 'for completing user file', // declaire how the info is used
+          success: (res) => {
+            this.setData({
+              userInfo: res.userInfo,
+              hasUserInfo: true
+            })
+            app.globalData.userInfo = res.userInfo
+            app.globalData.hasUserInfo = true
+            console.log('global userInfo', app.globalData.userInfo)
+            const data = {
+              nickname: res.userInfo.nickName,
+              avatar: res.userInfo.avatarUrl
+            }
+            resolve(data)
+          },
+          fail: (res) => {
+            wx.showToast({
+              title: 'Declined',
+              icon: 'error',
+              duration: 1000
+            })
+            reject(false)
+          }
+        }) 
+       
+    })
+    
   },
   /**
    * Lifecycle function--Called when page is initially rendered
