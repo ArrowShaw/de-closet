@@ -40,6 +40,10 @@
   text-align: center;
 }
 
+.tagline {
+  padding: 0 58rpx 30rpx;
+}
+
 .radio-label {
   color: #C4C4C4;
   font-size: 32rpx;

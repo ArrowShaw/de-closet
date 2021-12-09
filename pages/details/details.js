@@ -47,6 +47,16 @@ Page({
         num: 7,
         selected: false,
       }
+    ],
+    quotes: [
+      {name:'- Francine Jay', quote:'“My goal is no longer to get more done, but rather to have less to do.”'},
+      {name:'- Vivienne Westwood', quote:'Buy less, choose well, make it last'},
+      {name:'- Erica Layne', quote:'A calm house equals a calm heart equals a calm life'},
+      {name:'- Marie Kondo', quote:'Keep only things that speak to your heart. Ask yourself: Does this spark your joy?'},
+      {name:'- Joshua Fields & Ryan Nicodemus', quote:'Minimalism is a lifestyle that helps people question what things add value to their lives'},
+      {name:'- Joshua Becker', quote:"The first step in crafting the life you want is to get rid of everything you don't."},
+      {name:'- Aggy', quote:"You can have too many clothes, but you can't have too many bags."},
+      {name:'- Xun', quote:'I decluttered last year. I am so much happier now.'}
     ]
 
   },
@@ -59,8 +69,11 @@ Page({
     let page = this;
     let { header } = app.globalData;
     const { id } = options;
+    const quote = page.data.quotes[Math.floor(Math.random()*page.data.quotes.length)];
+    console.log('quotes', quote)
     this.setData({
-      currentUser: app.globalData.user
+      currentUser: app.globalData.user,
+      quote: quote
     })
     wx.request({
       url: `${app.globalData.baseUrl}/items/${id}`,
