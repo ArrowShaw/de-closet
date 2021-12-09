@@ -40,7 +40,7 @@
     <view class="text h2">Pick Tags</view>
     <view class="tag">
       <block wx:for="{{ typeArray }}">
-        <view class="label_view {{item.selected? 'active':''}}" data-value='{{item.name}}' bindtap='dealTap' checked="{{item.selected}}" data-index='{{index}}'>
+        <view class="label-view {{item.selected? 'active':''}}" data-value='{{item.name}}' bindtap='dealTap' checked="{{item.selected}}" data-index='{{index}}'>
           {{ item.name }}
         </view>
       </block>

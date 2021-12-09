@@ -60,9 +60,26 @@
   padding-bottom: 30rpx;
 }
 
-.container {
+
+.tag-section {
   display: flex; gap: 20rpx;
+  padding: 18px 0;
+  margin: 70rpx 60rpx 20rpx;
   overflow-x: scroll;
+}
+
+.tag-view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rpx 10rpx;
+  width: 110rpx;
+  height: 50rpx;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  border-radius: 12rpx;
+  color: white;
+  background-color: #C4C4C4;
 }
 
 .active {
