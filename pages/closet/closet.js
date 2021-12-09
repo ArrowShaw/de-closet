@@ -7,8 +7,17 @@ Page({
    * Page initial data
    */
   data: {
-    tags: ['All']
-
+    tags: [
+      {name:'spring', selected: false,}, 
+      {name:'summer', selected: false,}, 
+      {name:'autumn', selected: false,}, 
+      {name:'winter', selected: false,}, 
+      {name:'casual', selected: false,}, 
+      {name:'work', selected: false,}, 
+      {name:'sporty', selected: false,}, 
+      {name:'formal', selected: false,}
+    ],
+    tagArray: []
   },
 
 onClick: function() {
@@ -17,7 +26,30 @@ onClick: function() {
     })
   },
 
-  onClickTag: function() {
+  onClickTag: function(e) {
+    let page = this;
+    const { header } = app.globalData;
+    console.log('e', e)
+    const tag = e.currentTarget.dataset.text;
+    console.log('tag', tag)
+    if(page.data.tagArray.includes(tag)) {
+      const index = page.data.tagArray.indexOf(tag);
+      page.data.tagArray.splice(index, 1);
+    }else{
+      page.data.tagArray.push(tag);
+    }
+    console.log('tagArray', page.data.tagArray)
+    wx.request({
+      url: `${app.globalData.baseUrl}/items?tag_array=${page.data.tagArray}&req_type=my_closet`,
+      header: header,
+      method: 'GET',
+      success(res){
+        console.log('filtered items', res.data)
+        page.data.tagArray.forEach(tag => {
+          page.data.tags.filter(element => element.name === tag)[0].selected = true
+        })
+      }
+    })
 
   },
 

@@ -17,9 +17,11 @@
   </view>
 </view>
 
-<!-- <view wx:for="{{}}">
-  <button bindtap="onClickTag">All</button>
-</view> -->
+<view class="container">
+  <view wx:for="{{tags}}">
+    <button data-text="{{item.name}}" bindtap="onClickTag" class="{{tag.selected? 'active':''}}">{{item.name}}</button>
+  </view>
+</view>
 
 <view class="category-section text">
   <view class="empty-section" wx:if="{{currentNum == 0}}">

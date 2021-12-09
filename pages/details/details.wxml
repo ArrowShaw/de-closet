@@ -5,8 +5,7 @@
     <image mode="aspectFill" class="uploadImg" src='{{item.photo}}'/>
   </view>
 
-  <!-- wx:if="{{item.is_giveaway === true&&item.user_id !== currentUser.id}}" -->
-<!-- <button bindtap="onClick">I want this!</button> -->
+<button bindtap="onClick" wx:if="{{item.is_giveaway === true&&item.user_id !== currentUser.id}}">I want this!</button>
 
   <view class="section" wx:if="{{tagExist}}">  
     <view class="text">Tags</view>
