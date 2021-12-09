@@ -59,3 +59,12 @@
   width: 120rpx; height: 120rpx;
   padding-bottom: 30rpx;
 }
+
+.container {
+  display: flex; gap: 20rpx;
+  overflow-x: scroll;
+}
+
+.active {
+  background-color: #F2CE44;
+}

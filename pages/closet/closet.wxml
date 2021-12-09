@@ -18,14 +18,16 @@
   </view>
 </view>
 
-<!-- <view wx:for="{{}}">
-  <button bindtap="onClickTag">All</button>
-</view> -->
+<view class="container">
+  <view wx:for="{{tags}}">
+    <button data-text="{{item.name}}" bindtap="onClickTag" class="{{tag.selected? 'active':''}}">{{item.name}}</button>
+  </view>
+</view>
 
 <view class="category-section text">
   <view class="empty-section" wx:if="{{currentNum == 0}}">
     <image class="empty-btn" src="/images/icons/emptyt.png"></image>
-    <text>Your closet is empty.\n </text>
+    <text>Your closet is empty.</text>
     <text>Go to add your favourite items! </text>
   </view>
   <block wx:if="{{currentNum > 0}}" wx:for="{{categories}}" wx:key="index">
