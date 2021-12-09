@@ -30,13 +30,18 @@ onClick: function() {
     let page = this;
     const { header } = app.globalData;
     console.log('e', e)
+    let { tags } = page.data
     const tag = e.currentTarget.dataset.text;
     console.log('tag', tag)
     if(page.data.tagArray.includes(tag)) {
       const index = page.data.tagArray.indexOf(tag);
       page.data.tagArray.splice(index, 1);
+      tags.filter(t => t.name == tag)[0].selected = false
+      page.setData({tags})
     }else{
       page.data.tagArray.push(tag);
+      tags.filter(t => t.name == tag)[0].selected = true
+      page.setData({tags})
     }
     console.log('tagArray', page.data.tagArray)
     wx.request({
@@ -45,9 +50,10 @@ onClick: function() {
       method: 'GET',
       success(res){
         console.log('filtered items', res.data)
-        page.data.tagArray.forEach(tag => {
-          page.data.tags.filter(element => element.name === tag)[0].selected = true
-        })
+        // page.data.tagArray.forEach(tag => {
+        //   page.data.tags.filter(element => element.name === tag).selected = true
+        // })
+        console.log(page.data.tags)
       }
     })
 

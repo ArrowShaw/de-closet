@@ -18,8 +18,8 @@
 </view>
 
 <view class="container">
-  <view wx:for="{{tags}}">
-    <button data-text="{{item.name}}" bindtap="onClickTag" class="{{tag.selected? 'active':''}}">{{item.name}}</button>
+  <view wx:for="{{tags}}" wx:for-item="tag">
+    <button data-text="{{tag.name}}" bindtap="onClickTag" class="{{tag.selected? 'active':''}}">{{tag.name}}</button>
   </view>
 </view>
 
