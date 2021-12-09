@@ -7,7 +7,7 @@
   <view class="page-section">  
     <view class="text h2">Maximum</view>
     <form bindsubmit="bindViewTap"> 
-      <input wx:if="{{max_number === 0}}" name="max_number" class="text h3" type="integer" placeholder="Insert a number: 50/70/100" bindfocus="onInput"/>
+      <input wx:if="{{max_number === 0}}" name="max_number" class="text h3" type="integer" placeholder="Less is more" bindfocus="onInput"/>
       <input wx:if="{{max_number !== 0}}" name="max_number" class="text h3" type="integer" placeholder="{{max_number}}" />
       <button class="btn" form-type="submit">Save</button>
     </form>
