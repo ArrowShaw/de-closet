@@ -15,6 +15,7 @@ Page({
     // user.max_number
     // user.closet_size
     console.log('in bindViewTap')
+    
     let data;
     if (this.data.hasUserInfo) {
       data = {
@@ -40,6 +41,8 @@ Page({
     
     console.log('user', data)
     let num=parseInt(data.user.max_number);
+    let closet_size = page.data.closet_size
+    
     
     
     // console.log('yes', typeof(parseInt(num)));
@@ -47,32 +50,48 @@ Page({
       console.log(header)
       console.log(data)
       if (num<=200){
-        wx.request({
-          header: header,
-          data: data,
-          url: `${app.globalData.baseUrl}/users/update`,
-          method:'PUT',
-          success (res) {
-            
-          // if successful
-            console.log('INSIDE GOAL.JS', res.data);
-            const closet_size = res.data.closet_size
-            console.log('closet_size', closet_size)
-            const { user } = app.globalData
-            app.globalData.user = res.data
-            // user.avatar = res.data.avatar
-            // user.nickname = res.data.nickname
-            // app.globalData.user = user
-            // console.log('global user', app.globalData.user);
-            wx.navigateTo({
-              url: '/pages/closet/closet'
-            })
-          },
-          fail(rej){
-          // if fail
-            console.log(111,rej.data)
+        if(num >= closet_size){
+          wx.request({
+            header: header,
+            data: data,
+            url: `${app.globalData.baseUrl}/users/update`,
+            method:'PUT',
+            success (res) {
+              
+            // if successful
+              console.log('INSIDE GOAL.JS', res.data);
+              const closet_size = res.data.closet_size
+              console.log('closet_size', closet_size)
+              const { user } = app.globalData
+              app.globalData.user = res.data
+              // user.avatar = res.data.avatar
+              // user.nickname = res.data.nickname
+              // app.globalData.user = user
+              // console.log('global user', app.globalData.user);
+              wx.navigateTo({
+                url: '/pages/closet/closet'
+              })
+            },
+            fail(rej){
+            // if fail
+              console.log(111,rej.data)
+            }
+          })
+        }else{
+          wx.showModal({
+            title: "Warning",
+            content: 'You have to declutter your closet before you set a new goal!',
+            success (res) {
+              if (res.confirm) {
+                console.log("User clicks OK.")
+              } else if (res.cancel) {
+                console.log('User clicks to cancel ')
+              }
+  
           }
         })
+        }
+       
       }else{
         wx.showModal({
           title: "Too many",
