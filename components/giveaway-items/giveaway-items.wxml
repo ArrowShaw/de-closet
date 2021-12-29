@@ -4,6 +4,8 @@
     <view value="{{item.id}}" checked="{{item.checked}}">
       <navigator url="/pages/details/details?id={{item.id}}">
         <image mode="aspectFill" class="photo_container" src="{{item.photo}}"></image>
+        <image class="likebtn" src="/images/icons/like.png" bindtap="onClick" data-id="{{item.id}}"></image>
+        <view>{{num}}</view>
       </navigator>
     </view>
   </block>

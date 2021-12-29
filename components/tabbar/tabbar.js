@@ -6,7 +6,7 @@ Component({
     // categories: [],
     activeIndex: {
       type: Number,
-      value: null
+      value: 0
     },
     currentNum: {
       type: Number

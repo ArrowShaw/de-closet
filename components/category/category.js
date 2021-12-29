@@ -29,7 +29,7 @@ Component({
    */
   methods: {
     detailP: function(e) {
-      console.log({e})
+      console.log("e in category component", e)
       const { id } = e.currentTarget.dataset
       // let item = JSON.stringify(e.currentTarget.dataset.item)
       wx.navigateTo({

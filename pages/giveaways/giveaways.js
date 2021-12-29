@@ -11,7 +11,9 @@ Page({
     checked: false,
     status: ['free', 'booked', 'gone'],
     index: 0,
-    itemName: 'item'
+    itemName: 'item',
+    like: "like.png",
+    likes: 0
   },
 
   /**
@@ -57,32 +59,54 @@ Page({
         // page.setData({ giveaways })
         // console.log('giveaways', page.data.giveaways)
     })
+
   },
 
-  // onClick: function(e) {
-  //   const page = this;
-  //   console.log('value from form', e.detail.value)
-  //   var { header } = getApp().globalData
-  //   var selected = e.detail.value.selected;
-  //   console.log('selected', selected)
-  //   wx.getUserProfile({
-  //     desc: 'for completing user file', // declaire how the info is used
-  //     success: (res) => {
-  //       this.setData({
-  //         userInfo: res.userInfo
-  //       })
-  //     }
-  //   })
-  //   wx.request({
-  //     url: `${app.globalData.baseUrl}/giveaways`,
-  //     method: 'POST',
-  //     header: header,
-  //     data: { selected: selected, userInfo: userInfo },
-  //     success (res) {
-  //       console.log(res.data)
-  //     }
-  //   })
-  // },
+  onClick: function(e){
+    let page = this;
+    console.log("e data", e)
+    const { header } = app.globalData;
+    const item_id = e.currentTarget.dataset.id;
+    wx.getUserProfile({
+      desc: 'for completing user file', // declare how the info is used
+      success: (res) => {
+        page.setData({
+          userInfo: res.userInfo
+        })
+        wx.request({
+          url: `${app.globalData.baseUrl}/giveaways`,
+          method: 'POST',
+          header: header,
+          data: {
+            item_id: item_id,
+            userInfo: page.data.userInfo
+          },
+          success (res) {
+            console.log(res.data)
+            wx.request({
+              url: `${app.globalData.baseUrl}/giveaways`,
+              header: header,
+              data: { item_id: item_id },
+              method: 'GET',
+              success (res) {
+                console.log('res in giveaway GET', res.data)
+                page.setData({
+                  likes: res.data.num
+                })
+                if(page.data.likes > 0){
+                  page.setData({
+                    like: "liked.png"
+                  })
+                }
+                console.log('data from giveaway index', page.data)
+              }
+            })
+          }
+        })
+      }
+    })
+
+  },
 
   /**
    * Lifecycle function--Called when page is initially rendered
