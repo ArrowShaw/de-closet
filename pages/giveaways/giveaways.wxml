@@ -3,7 +3,17 @@
 
 <view class="container">
   <view class="text">You have {{giveaways.length}} {{itemName}} in your giveaways 💛</view>
-    <giveaway-items giveaways="{{giveaways}}" />
+  <view class="list">  
+    <block wx:for="{{giveaways}}" wx:key="value">
+      <view value="{{item.id}}" checked="{{item.checked}}">
+        <navigator url="/pages/details/details?id={{item.id}}">
+          <image mode="aspectFill" class="photo_container" src="{{item.photo}}"></image>
+        </navigator>
+        <image class="likebtn" src="/images/icons/{{like}}" bindtap="onClick" data-id="{{item.id}}"></image>
+        <view>{{likes}}</view>
+      </view>
+    </block>
+  </view>
   <button class="btn" data-user_id="{{currentUser.id}}" open-type="share">Share with your friends</button>
 </view>
 

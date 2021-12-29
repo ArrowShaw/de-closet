@@ -35,3 +35,8 @@
   background-color: #7EBC69;
   border-radius: 20rpx;
 }
+
+.likebtn {
+  width: 100rpx;
+  height: 100rpx;
+}
