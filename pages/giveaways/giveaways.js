@@ -11,17 +11,16 @@ Page({
     checked: false,
     status: ['free', 'booked', 'gone'],
     index: 0,
-    itemName: 'item',
-    like: "like.png",
-    likes: 0
+    itemName: 'item'
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    const page = this;
     console.log('options',{options})
-    this.setData({
+    page.setData({
       currentUser: app.globalData.user
     })
     // /pages/giveaways/giveaways
@@ -29,8 +28,6 @@ Page({
     // /pages/giveaways/giveaways?user_id=1
     // { user_id: 1 }
     const path = options.user_id ? `/items?req_type=giveaways&user_id=${options.user_id}` :  `/items?req_type=giveaways`
-
-    const page = this;
     const {header} = app.globalData;
     // console.log(app.globalData.baseUrl)
     // console.log(path)
@@ -42,24 +39,40 @@ Page({
       success (res) {
         console.log('giveaways',res.data)
         page.setData({
-          giveaways: res.data.items,
           currentNum: res.data.number_of_items,
           targetNum: res.data.user.max_number,
           user: res.data.user
         })
-        if(page.data.giveaways.length > 1){
+        const itemData = res.data.items
+        itemData.forEach(function(item, index){
+          console.log('each item', item)
+          console.log('index', index)
+          // const itemId = item.id
+          // console.log('item id', item.id)
+          if (item.giveaway_info.length === 0) {
+            item['like'] = "like.png"
+          } else {
+            item.giveaway_info.forEach(function(giveaway, index){
+              console.log("giveaway.user_id", giveaway.user_id)
+              if (giveaway.user_id === page.data.user.id) {
+                item['like'] = "liked.png"
+              } else {
+                item['like'] = "like.png"
+              }
+            })
+          }
           page.setData({
-            itemName: 'items'
+            giveaways: itemData
           })
-        }
-        // const giveaways = res.data.map((item) => {
-        //   return { ...item, checked: false, status: 'available' }
+          console.log('page giveaways', page.data.giveaways)
+          if(page.data.giveaways.length > 1){
+            page.setData({
+              itemName: 'items'
+            })
+          }
+        })
       }
-
-        // page.setData({ giveaways })
-        // console.log('giveaways', page.data.giveaways)
     })
-
   },
 
   onClick: function(e){
@@ -67,47 +80,167 @@ Page({
     console.log("e data", e)
     const { header } = app.globalData;
     const item_id = e.currentTarget.dataset.id;
-    wx.getUserProfile({
-      desc: 'for completing user file', // declare how the info is used
-      success: (res) => {
-        page.setData({
-          userInfo: res.userInfo
-        })
-        wx.request({
-          url: `${app.globalData.baseUrl}/giveaways`,
-          method: 'POST',
-          header: header,
-          data: {
-            item_id: item_id,
-            userInfo: page.data.userInfo
-          },
-          success (res) {
-            console.log(res.data)
-            wx.request({
-              url: `${app.globalData.baseUrl}/giveaways`,
-              header: header,
-              data: { item_id: item_id },
-              method: 'GET',
-              success (res) {
-                console.log('res in giveaway GET', res.data)
-                page.setData({
-                  likes: res.data.num
-                })
-                if(page.data.likes > 0){
+    const giveaways = page.data.giveaways;
+    console.log("giveaways in onClick", giveaways)
+    const item = giveaways.find(function(giveaways, index, arrs) {
+      return giveaways.id === item_id
+    })
+    const index = giveaways.findIndex(function(id, index, arr){
+      return id = item_id
+    })
+    // console.log("index", index)
+    // console.log('item', item)
+    const path = e.user_id ? `/items?req_type=giveaways&user_id=${e.user_id}` :  `/items?req_type=giveaways`
+    console.log('path in click', path)
+    console.log('item.like', item.like)
+    if(item.like === "like.png"){
+      wx.getUserProfile({
+        desc: 'for completing user file', // declare how the info is used
+        success: (res) => {
+          page.setData({
+            userInfo: res.userInfo
+          })
+          console.log('userInfo', page.data.userInfo)
+          wx.request({
+            url: `${app.globalData.baseUrl}/giveaways`,
+            method: 'POST',
+            header: header,
+            data: {
+              item_id: item_id,
+              avatar: page.data.userInfo.avatarUrl,
+              nickname: page.data.userInfo.nickName
+            },
+            success (res) {
+              console.log(res.data)
+              wx.request({
+                url: `${app.globalData.baseUrl}${path}`,
+                method: 'GET',
+                header: header,
+                // data: { req_type: 'giveaways'},
+                success (res) {
+                  console.log('giveaways',res.data)
                   page.setData({
-                    like: "liked.png"
+                    currentNum: res.data.number_of_items,
+                    targetNum: res.data.user.max_number,
+                    user: res.data.user
+                  })
+                  const itemData = res.data.items
+                  itemData.forEach(function(item, index){
+                    console.log('each item', item)
+                    console.log('index', index)
+                    // const itemId = item.id
+                    // console.log('item id', item.id)
+                    if (item.giveaway_info.length === 0) {
+                      item['like'] = "like.png"
+                    } else {
+                      item.giveaway_info.forEach(function(giveaway, index){
+                        console.log("giveaway.user_id", giveaway.user_id)
+                        if (giveaway.user_id === page.data.user.id) {
+                          item['like'] = "liked.png"
+                        } else {
+                          item['like'] = "like.png"
+                        }
+                      })
+                    }
+                    page.setData({
+                      giveaways: itemData
+                    })
+                    console.log('page giveaways', page.data.giveaways)
+                    if(page.data.giveaways.length > 1){
+                      page.setData({
+                        itemName: 'items'
+                      })
+                    }
                   })
                 }
-                console.log('data from giveaway index', page.data)
-              }
-            })
-          }
-        })
-      }
-    })
-
+              })
+          //     wx.request({
+          //       url: `${app.globalData.baseUrl}${path}`,
+          //       header: header,
+          //       method: 'GET',
+          //       success (res) {
+          //         // item.like = "liked.png"
+          //         page.setData({
+          //           giveaways: res.data.items,         
+          //           [`giveaways[${index}].like`]: "liked.png",
+          //           // [`giveaways[${index}].likes`]: res.data.num
+          //         })
+            //     }
+            //   })
+            }
+          })
+        }
+      })
+    } else {
+      const connections = item.giveaway_info
+      const connection = connections.find(function(connections, index, arrs){
+        return connections.user_id = page.data.user.id
+      });
+      console.log("connection", connection)
+      wx.request({
+        url: `${app.globalData.baseUrl}/giveaways/${connection.id}`,
+        method: 'DELETE',
+        header: header,
+        success (res) {
+          wx.request({
+            url: `${app.globalData.baseUrl}${path}`,
+            method: 'GET',
+            header: header,
+            // data: { req_type: 'giveaways'},
+            success (res) {
+              console.log('giveaways',res.data)
+              page.setData({
+                currentNum: res.data.number_of_items,
+                targetNum: res.data.user.max_number,
+                user: res.data.user
+              })
+              const itemData = res.data.items
+              itemData.forEach(function(item, index){
+                console.log('each item', item)
+                console.log('index', index)
+                // const itemId = item.id
+                // console.log('item id', item.id)
+                if (item.giveaway_info.length === 0) {
+                  item['like'] = "like.png"
+                } else {
+                  item.giveaway_info.forEach(function(giveaway, index){
+                    console.log("giveaway.user_id", giveaway.user_id)
+                    if (giveaway.user_id === page.data.user.id) {
+                      item['like'] = "liked.png"
+                    } else {
+                      item['like'] = "like.png"
+                    }
+                  })
+                }
+                page.setData({
+                  giveaways: itemData
+                })
+                console.log('page giveaways', page.data.giveaways)
+                if(page.data.giveaways.length > 1){
+                  page.setData({
+                    itemName: 'items'
+                  })
+                }
+              })
+            }
+          })
+          // wx.request({
+          //   url: `${app.globalData.baseUrl}${path}`,
+          //   header: header,
+          //   method: 'GET',
+          //   success (res) {
+          //     console.log('res in giveaway GET', res.data)
+          //     page.setData({
+          //       giveaways: res.data.items
+          //     })
+          //     console.log('item', item)
+          //     item.like = "like.png"
+          //   }
+          // })
+        }
+      })
+    }
   },
-
   /**
    * Lifecycle function--Called when page is initially rendered
    */
