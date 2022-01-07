@@ -6,19 +6,15 @@
   <view class="list">  
     <block wx:for="{{giveaways}}" wx:key="value">
       <view value="{{item.id}}" checked="{{item.checked}}">
-        <navigator url="/pages/details/details?id={{item.id}}">
-          <view class="item_container">
+        <view class="item_container">
+          <navigator url="/pages/details/details?id={{item.id}}">
             <image mode="aspectFill" class="photo_container" src="{{item.photo}}"></image>
-            <view class ="likes">
-              <image class="likebtn" src="/images/icons/{{like}}" bindtap="onClick" data-id="{{item.id}}"></image>
-              <view>{{likes}}</view>
-            </view>
+          </navigator>
+          <view class ="likes">
+            <image class="likebtn" src="/images/icons/{{item.like}}" bindtap="onClick" data-id="{{item.id}}"></image>
+            <view>{{item.giveaway_info.length}}</view>
           </view>
-        </navigator>
-        <!-- <view class ="likes">
-          <image class="likebtn" src="/images/icons/{{like}}" bindtap="onClick" data-id="{{item.id}}"></image>
-          <view>{{likes}}</view>
-        </view> -->
+        </view>
       </view>
     </block>
   </view>
